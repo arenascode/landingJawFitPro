@@ -1,0 +1,19 @@
+@import "../../scss/base";
+
+.wtspIconContainer {
+  position: fixed;
+  z-index: 99;
+  bottom: 0;
+  right: 6rem;
+  transform: translateY(-40%);
+  opacity: 0;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  @include tablet {
+    right: 3rem;
+  }
+}
+
+.animated-icon.show {
+  opacity: 1;
+  transform: translate(-22%, -22px);
+}

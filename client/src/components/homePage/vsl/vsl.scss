@@ -1,0 +1,38 @@
+@import "../../../scss/base";
+
+#vslSection {
+background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+@include desktop {
+
+}
+
+.vslText {
+
+@include tablet {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+ p{
+  @include tablet {
+    margin-top: 1rem;
+    width: 80%;
+    font-size: 1.1rem;
+  }
+ }
+}
+.ctaVsl {
+  width: 400px;
+  margin-bottom: 0.7rem;
+  @include mobile {
+    width: 90%;
+  }
+ }
+}

@@ -1,0 +1,208 @@
+@import "../../../scss/base";
+
+#product {
+  position: relative;
+  @include desktop {
+    padding: 0.01rem 5rem 0rem;
+  }
+
+  .banner {
+
+    @include desktop {
+      min-width: 100vw;
+      position: absolute;
+      right: 0;
+      // margin-bottom: 2rem;
+    }
+  }
+}
+.imgAndTextContainer {
+  // margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.347); /* Adjust the values as needed */
+  border-radius: 20px;
+  padding: 15px;
+  background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
+  height: 100%;
+
+  //* Desktop 
+  @include mobile {
+    margin: 0.5rem;
+    gap: 0.8rem;
+    flex-direction: column;
+    padding: 10px;
+  }
+  @include tablet {
+    margin: 1rem;
+  }
+  @include desktop {
+    margin-top: 5rem;
+  }
+  //* Mobile
+  
+  .imgContainer {
+    flex: 1;
+    max-width: 400px;
+    height: 100%;
+    align-items: center;
+
+    @include mobile {
+      flex: 1;
+      max-width: 100%;
+      height: auto;
+      // max-height: 350px;
+      justify-content: center;
+    }
+    img {
+      height: 100%;
+      width: 100%;
+      @include mobile {
+        // height: 380px;
+      }
+    }
+    .miniImgsContainer {
+      display: flex;
+      width: 100%;
+      gap: 0.5rem;
+      .miniImg {
+        flex: 1;
+        height: 60px;
+        width: 60px;
+        border-radius: 5px;
+        overflow: hidden;
+        border-color: #697172;
+        cursor: pointer;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  .textContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+    justify-content: flex-start;
+    margin-left: 1rem;
+    color: white;
+    // @include tablet {
+    //   gap: 0.9rem
+    // }
+    @include mobile {
+      margin-left: 0;
+      margin-top: 0;
+      gap: 0.7rem;
+    }
+    .reviewsContainer {
+      display: flex;
+      align-self: flex-start;
+      gap: 0.4rem;
+      // margin-top: 20px;
+      color: white;
+      .rating {
+        cursor: pointer;
+      }
+    }
+    .priceProductContainer {
+      display: flex;
+      gap: 1rem;
+      font-size: 1.2rem;
+      align-self: flex-start;
+      .before {
+        text-decoration: line-through;
+        color: #9a9797;
+      }
+      .after {
+        color: white;
+        font-size: 1.3rem;
+      }
+    }
+    .text_body {
+      // padding: 0.5rem 0;
+      p {
+        font-size: 1.3rem;
+        text-align: start;
+        line-height: 2.2rem;
+        @include mobile {
+          font-size: 1.1rem;
+          text-align: center;
+        }
+        // &:nth-child(2) {
+        //   margin-top: 1.5rem;
+        // }
+        span {
+          letter-spacing: 1px;
+          font-family: var(--title-font);
+          font-weight: 600;
+          @include tablet {
+            margin-top: 2rem;
+          }
+          @include mobile {
+            font-weight: 600;
+            font-family: sans-serif;
+          }
+        }
+      }
+    }
+    .ctaContainer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-top: 3.5rem;
+      width: 80%;
+      @include tablet {
+        justify-content: center;
+        width: 90%;
+      }
+      @include mobile {
+        justify-content: center;
+        margin-top: 0;
+        width: 100%;
+      }
+      button {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.1rem;
+        border: solid 1px black;
+        // background: var(--cta-button);
+        color: white;
+        border-radius: 1rem;
+        padding: 0.7rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.279);
+        cursor: pointer;
+        transition: all 0.3s ease-in;
+        @include tablet {
+          font-size: 1.2rem;
+        }
+        @include mobile {
+          font-size: 1.2rem;
+        }
+        &:hover {
+          transform: scale(1.1);
+        }
+        span {
+          display: flex;
+          gap: 0.5rem;
+          &:nth-child(2) {
+            font-size: 0.8rem;
+            @include tablet {
+              font-size: 0.9rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

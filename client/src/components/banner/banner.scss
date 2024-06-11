@@ -1,0 +1,41 @@
+@import "../../scss/base";
+
+.banner {
+  font-family: var(--body-font);
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  // height: 3.5rem;
+  min-height: max-content;
+  width: 100%;
+  justify-content: center;
+  // position: fixed;
+  z-index: 999;
+  p {
+    margin: auto;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    span {
+      color: var(--color-span);
+    }
+  }
+  //* Desktop
+  @include desktop {
+    padding: 0.5rem 0;
+  }
+  @include tablet {
+    padding: 0.4rem 0;
+  }
+  //* MOBILE
+  @include mobile {
+    padding: 0.3rem 0;
+    // height: 3rem;
+    p {
+      text-align: center;
+      font-size: 16px;
+      font-family: sans-serif;
+    }
+  }
+}

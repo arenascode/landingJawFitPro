@@ -1,0 +1,235 @@
+// @import "../../scss/base";
+@import "../../../scss/base";
+
+#modalForm {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(90, 89, 89, 0.54);
+  padding: 1rem 20rem;
+  overflow-y: scroll;
+  z-index: 999;
+  color: black;
+
+  @include mobile {
+    max-width: 100vw;
+    padding: 1rem 0.5rem;
+  }
+  @include tablet {
+    padding: 2rem 2rem;
+  }
+  @include desktop {
+    padding: 2rem 14rem;
+  }
+  .purchaseForm {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+
+    @include mobile {
+      padding: 1.4rem;
+    }
+    .closeBtn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      width: 20px;
+      height: 20px;
+      font-size: 1.5rem;
+    }
+    .purchaseForm_title {
+      display: flex;
+      flex-direction: column;
+    }
+    h4 {
+      margin-top: 0.3rem;
+      margin-bottom: 0.7rem;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    p {
+      // margin-top: 0.2rem;
+      // text-wrap: balance;
+      text-align: center;
+      font-size: 1.2rem;
+      width: 100%;
+      @include mobile {
+        font-size: 1.2rem;
+      }
+      @include tablet {
+        font-size: 1.5rem;
+      }
+    }
+    .gifts {
+      // font-weight: 600;
+      margin-top: 0.5rem;
+      text-align: center;
+      font-size: 1.1rem;
+      @include tablet {
+        font-size: 1.3rem;
+      }
+    }
+    .form_productAndGift {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+
+      @include mobile {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      @include tablet {
+        gap: 2.5rem;
+        justify-content: center;
+      }
+      .productAndGift_img {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        width: 100px;
+        border: solid #00b8fc;
+        border-radius: 10px;
+        overflow: hidden;
+        padding: 1rem;
+        justify-content: center;
+        align-items: center;
+        font-weight: 600;
+        @include tablet {
+          width: 200px;
+        }
+        @include mobile {
+          flex-direction: row-reverse;
+          // justify-content: space-around;
+          width: 130px;
+          height: 130px;
+          padding: 0;
+          font-size: 1.2rem;
+          gap: 0;
+        }
+        img {
+          object-fit: contain;
+          @include mobile {
+            height: 100%;
+          }
+        }
+      }
+      span {
+        font-size: 1.5rem;
+        @include tablet {
+          font-size: 1.8rem;
+        }
+      }
+    }
+    .completeFormText {
+      margin-top: 1rem;
+      text-align: center;
+      font-size: 1rem;
+      // text-wrap: pretty;
+      @include tablet {
+        font-size: 1.3rem;
+      }
+    }
+    .formContainer {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      @include tablet {
+        padding: 0 3rem;
+      }
+      @include desktop {
+        padding: 0 3rem;
+      }
+      .purchaseDetail {
+        width: 100%;
+        margin: 1rem;
+        padding: 0.5rem;
+        background: rgba(171, 171, 171, 0.788);
+        border-radius: 10px;
+        font-weight: 600;
+
+        .purchaseItem {
+          display: flex;
+          justify-content: space-between;
+          padding: 0.5rem;
+        }
+      }
+      .alertAdvice {
+        color: red;
+        text-align: center;
+      }
+      form {
+        margin-top: 2rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        .ciudadDepartamento {
+          display: flex;
+          gap: 1rem;
+          @include tablet {
+            gap: 3rem;
+          }
+        }
+        label {
+          font-size: 1rem;
+          font-weight: 600;
+          .clarification {
+            font-size: 0.8rem;
+          }
+        }
+        input {
+          width: 100%;
+          font-size: 1.3rem;
+          border-bottom: solid gray;
+          border-radius: 5px;
+          padding: 0.2rem;
+          letter-spacing: 0.3px;
+          font-weight: 400;
+        }
+        .invalidEmail {
+          color: #ff5252;
+          font-size: 12px;
+          display: block;
+          margin-top: 2px;
+        }
+        .invalidID {
+          @extend .invalidEmail
+        }
+        .errorSending {
+          color: #ff5252;
+          margin-top: 10px;
+          display: block;
+          font-size: 1.2rem;
+        }
+        button {
+          display: flex;
+          align-items: center;
+          margin-top: 1rem;
+          color: white;
+          font-size: 1.3rem;
+          background: rgba(12, 151, 0, 1);
+          box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.279);
+          @include mobile {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    .purchaseForm {
+      background: blue;
+      color: greenyellow;
+    }
+  }
+}

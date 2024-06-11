@@ -1,0 +1,110 @@
+@import "../../../scss/base";
+
+#reviews {
+  margin-top: 1.3rem;
+  margin-bottom: 1.7rem;
+  padding: 0rem 1rem;
+  @include tablet {
+    margin-top: 2rem;
+    padding: 0rem 4rem;
+  }
+  @include desktop {
+    margin-top: 3rem;
+    padding: 0rem 12rem;
+  }
+  .embla {
+  overflow: hidden;
+  border-radius: 20px;
+  background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
+  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.347);
+  .embla__container {
+  display: flex;
+}
+
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+
+  .reviewContainer {
+    display: flex;
+    padding: 0.3rem;
+    gap: 1rem;
+    align-items: center;
+    .left{
+      flex: 1.2;
+      .reviewImg {
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        background-color: black;
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+    .right {
+      flex: 3;
+      @include desktop {
+        display: flex;
+        flex-direction: column;
+        align-self:flex-start;
+        margin-top: 2rem;
+          }
+      .up{
+        display: flex;
+        gap: 0.5rem;
+        .nameReviewer {
+          font-size: 1rem;
+          font-weight: 600;
+          display: flex;
+          flex-direction: column;
+          @include desktop {
+            font-size: 1.2rem;
+          }
+          span {
+            font-weight: 400;
+            font-size: 0.7rem;
+            @include desktop {
+            font-size: 0.9rem;
+          }
+          }
+        }
+        .starsContainer {
+          display: flex;
+          gap: 0.2rem;
+          align-items: flex-start;
+          .starItem {
+            width: 18px;
+            display: flex;
+            
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+            }
+          }
+        }
+      }
+      .reviewComment {
+        margin-top: 0.1rem;
+      p {
+        font-size: 0.9rem;
+        text-wrap: pretty;
+        @include desktop {
+            font-size: 1rem;
+            margin-top: 1.2rem;
+          }
+      }
+      }
+    }
+
+  }
+}
+}
+}
+
+
+
