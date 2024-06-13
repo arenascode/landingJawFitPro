@@ -8,7 +8,7 @@ const Characteristics = () => {
       </h1> */}
       <div className="characteristic">
         <div className="characteristicImg">
-          <img src="/assets/characteristics/sin-bpa.webp" alt="" />
+          <img src="/assets/characteristics/sinBpa.webp" alt="" />
         </div>
         <span>Silicona de Grado Alimenticio Libre de BPA</span>
       </div>
