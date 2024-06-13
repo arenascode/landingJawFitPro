@@ -1,8 +1,8 @@
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
-import useLocalStorage from "../../hooks/useLocalStorage.js";
-import Vsl from "../../components/homePage/vsl/Vsl.jsx";
+// import useLocalStorage from "../../hooks/useLocalStorage.js";
+// import Vsl from "../../components/homePage/vsl/Vsl.jsx";
 import ProductIntro from "../../components/homePage/ProductIntro/ProductIntro.jsx";
 import "./home.scss";
 import ValueProposition from "../../components/homePage/ValueProposition/ValueProposition.jsx";

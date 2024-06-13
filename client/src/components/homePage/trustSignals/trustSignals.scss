@@ -54,7 +54,14 @@
         font-size: 1.6rem;
         width: 70%;
       }
-      
+      @media (prefers-color-scheme: dark) {
+        background: linear-gradient(to bottom, #1081ab, #00bfff);
+        /* Clip the background to the text */
+        -webkit-background-clip: text;
+        background-clip: text;
+        /* Set the text color to transparent to show the gradient background */
+        color: transparent;
+      }
     }
     img {
       width: 50px;

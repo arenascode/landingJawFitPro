@@ -1,17 +1,16 @@
 import { useEffect } from "react";
-import "./productIntro.scss"
+import "./productIntro.scss";
 import Aos from "aos";
 import Banner from "../../banner/Banner.jsx";
 
-const ProductIntro = ({setOpenForm}) => {
+const ProductIntro = ({ setOpenForm }) => {
+  useEffect(() => {
+    Aos.init({
+      duration: 2000,
+      delay: 500,
+    });
+  }, []);
 
-   useEffect(() => {
-     Aos.init({
-       duration: 2000,
-       delay: 500,
-     });
-   }, []);
-  
   const changeSlide = (slideId) => {
     const targetSlide = document.getElementById(slideId);
     if (targetSlide) {
@@ -29,12 +28,11 @@ const ProductIntro = ({setOpenForm}) => {
   const handleMiniImgs = (e) => {
     const slideNumber = e.target.parentNode.dataset.img;
     changeSlide(slideNumber);
-    const miniImgs = document.querySelectorAll('.miniImg')
+    const miniImgs = document.querySelectorAll(".miniImg");
     miniImgs.forEach((img) => (img.style.borderColor = "#697172"));
     e.currentTarget.style.borderColor = "#00b8fc";
   };
 
-  
   return (
     <div>
       <div className="h-full w-full" id="product">
@@ -56,13 +54,13 @@ const ProductIntro = ({setOpenForm}) => {
                 />
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-0.5 right-5 top-1/2 w-[98%]">
                   <button
-                    className="btn btn-circle btn-md text-lg text-black"
+                    className="btn btn-circle btn-md text-lg text-black dark:bg-white dark:border-none dark:text-customBlue"
                     onClick={() => changeSlide("slide5")}
                   >
                     ❮
                   </button>
                   <button
-                    className="btn btn-circle btn-md text-lg  text-black"
+                    className="btn btn-circle btn-md text-lg  text-black dark:bg-white dark:border-none dark:text-customBlue"
                     onClick={() => changeSlide("slide2")}
                   >
                     ❯
@@ -77,13 +75,13 @@ const ProductIntro = ({setOpenForm}) => {
                 />
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-0.5 right-5 top-1/2 w-[98%]">
                   <button
-                    className="btn btn-circle btn-md text-lg text-black"
+                    className="btn btn-circle btn-md text-lg text-black dark:bg-white dark:border-none dark:text-customBlue"
                     onClick={() => changeSlide("slide1")}
                   >
                     ❮
                   </button>
                   <button
-                    className="btn btn-circle btn-md text-lg text-black"
+                    className="btn btn-circle btn-md text-lg text-black dark:bg-white dark:border-none dark:text-customBlue"
                     onClick={() => changeSlide("slide3")}
                   >
                     ❯
@@ -98,13 +96,13 @@ const ProductIntro = ({setOpenForm}) => {
                 />
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-0.5 right-5 top-1/2 w-[98%]">
                   <button
-                    className="btn btn-circle btn-md text-lg text-black"
+                    className="btn btn-circle btn-md text-lg text-black dark:bg-white dark:border-none dark:text-customBlue"
                     onClick={() => changeSlide("slide2")}
                   >
                     ❮
                   </button>
                   <button
-                    className="btn btn-circle btn-md text-lg text-black"
+                    className="btn btn-circle btn-md text-lg text-black dark:bg-white dark:border-none dark:text-customBlue"
                     onClick={() => changeSlide("slide4")}
                   >
                     ❯
@@ -119,13 +117,13 @@ const ProductIntro = ({setOpenForm}) => {
                 />
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-0.5 right-5 top-1/2 w-[98%]">
                   <button
-                    className="btn btn-circle btn-md text-lg text-black"
+                    className="btn btn-circle btn-md text-lg text-black dark:bg-white dark:border-none dark:text-customBlue"
                     onClick={() => changeSlide("slide3")}
                   >
                     ❮
                   </button>
                   <button
-                    className="btn btn-circle btn-md text-lg text-black"
+                    className="btn btn-circle btn-md text-lg text-black dark:bg-white dark:border-none dark:text-customBlue"
                     onClick={() => changeSlide("slide5")}
                   >
                     ❯
@@ -140,13 +138,13 @@ const ProductIntro = ({setOpenForm}) => {
                 />
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-0.5 right-5 top-1/2 w-[98%]">
                   <button
-                    className="btn btn-circle btn-md text-lg text-black"
+                    className="btn btn-circle btn-md text-lg text-black dark:bg-white dark:border-none dark:text-customBlue"
                     onClick={() => changeSlide("slide4")}
                   >
                     ❮
                   </button>
                   <button
-                    className="btn btn-circle btn-md text-lg text-black"
+                    className="btn btn-circle btn-md text-lg text-black dark:bg-white dark:border-none dark:text-customBlue"
                     onClick={() => changeSlide("slide1")}
                   >
                     ❯
@@ -349,5 +347,5 @@ const ProductIntro = ({setOpenForm}) => {
       </div>
     </div>
   );
-}
-export default ProductIntro
+};
+export default ProductIntro;

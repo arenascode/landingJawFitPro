@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { makeRequest } from "../../axios.js";
 
 const AdminDashboard = () => {
+
   const Clientes = () => {
     const [clientes, setClientes] = useState([]);
 
@@ -63,38 +64,6 @@ const AdminDashboard = () => {
           </tbody>
         </table>
       </div>
-      // <div>
-      //   <table>
-      //     <thead>
-      //       <tr>
-      //         <th>Nombre</th>
-      //         <th>Email</th>
-      //         <th>Ciudad</th>
-      //         <th>Teléfono</th>
-      //         <th>Dirección</th>
-      //         <th>Departamento</th>
-      //         <th>Color Morral</th>
-      //         <th>Valor Compra</th>
-      //         <th>Fecha Compra</th>
-      //       </tr>
-      //     </thead>
-      //     <tbody>
-      //       {clientes.map((cliente) => (
-      //         <tr key={cliente.id}>
-      //           <td>{cliente.nombre}</td>
-      //           <td>{cliente.email}</td>
-      //           <td>{cliente.ciudad}</td>
-      //           <td>{cliente.telefono}</td>
-      //           <td>{cliente.direccion}</td>
-      //           <td>{cliente.departamento}</td>
-      //           <td>{cliente.colorMorral}</td>
-      //           <td>{cliente.valorCompra}</td>
-      //           <td>{cliente.fechaCompra}</td>
-      //         </tr>
-      //       ))}
-      //     </tbody>
-      //   </table>
-      // </div>
     );
   };
 

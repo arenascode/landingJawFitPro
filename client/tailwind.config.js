@@ -4,7 +4,7 @@ export default {
   theme: {
     fontFamily: {
       Lora: "Lora",
-      LoraItalic: "Lora-Italic"
+      LoraItalic: "Lora-Italic",
     },
     screens: {
       sm: "375px",
@@ -21,7 +21,11 @@ export default {
       xl: "1280px",
       // => @media (min-width: 1280px) { ... }
     },
-    extend: {},
+    extend: {
+      colors: {
+        customBlue: "#00b8fc",
+      },
+    },
   },
   plugins: [require("daisyui")],
 };
