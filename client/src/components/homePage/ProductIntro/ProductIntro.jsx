@@ -194,7 +194,7 @@ const ProductIntro = ({ setOpenForm }) => {
             </div>
           </div>
           <div className="textContainer">
-            <div className="reviewsContainer" data-aos="fade-right">
+            <div className="reviewsContainer">
               <div className="starItem">
                 <svg
                   version="1.1"

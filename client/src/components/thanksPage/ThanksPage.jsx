@@ -22,7 +22,11 @@ const ThanksPage = ({ setThanksPage }) => {
           <div className="socialMedia_item">
             <h5>Tienes alguna pregunta sobre tu pedido? </h5>
             <span className="emoji">👇</span>
-            <a href="https://wa.link/" target="_blank" className="icon wtsp">
+            <a
+              href="https://wa.link/h7b918"
+              target="_blank"
+              className="icon wtsp"
+            >
               <img src="assets/icons/wtp.png" alt="" />
             </a>
             <span>Whatsapp</span>

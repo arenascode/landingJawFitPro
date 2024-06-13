@@ -16,7 +16,7 @@ const ValueProposition = () => {
               tan pronunciadas como solían ser.
             </p>
             <div
-              className="imgContainer rounded-md overflow-hidden"
+              className="imgContainer rounded-md overflow-x-hidden"
               data-aos="fade-right"
             >
               <img
@@ -31,7 +31,7 @@ const ValueProposition = () => {
               fortalecer sus mandíbulas al morder alimentos más resistentes.
             </p>
             <div
-              className="imgContainer "
+              className="imgContainer overflow-x-hidden"
               data-aos="fade-left"
             >
               <img

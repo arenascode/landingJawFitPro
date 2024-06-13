@@ -172,7 +172,11 @@ const HomePage = () => {
       />
       <Footer />
       <div className="wtspIconContainer animated-icon">
-        <a href="https://wa.link/" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://wa.link/21loa7"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img src="/assets/icons/showWtsp.webp" alt="wtspIcon" width={50} />
         </a>
       </div>

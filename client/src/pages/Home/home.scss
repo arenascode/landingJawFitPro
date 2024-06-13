@@ -4,7 +4,7 @@
   position: fixed;
   z-index: 99;
   bottom: 0;
-  right: 6rem;
+  right: 0.5rem;
   transform: translateY(-40%);
   opacity: 0;
   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
@@ -15,5 +15,5 @@
 
 .animated-icon.show {
   opacity: 1;
-  transform: translate(-22%, -22px);
+  transform: translate(-20%, -18px);
 }

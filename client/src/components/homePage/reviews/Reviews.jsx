@@ -5,7 +5,7 @@ import Autoplay from "embla-carousel-autoplay";
 
 
 const Reviews = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false }, [Autoplay()]);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()]);
 
   useEffect(() => {
     if (emblaApi) {
