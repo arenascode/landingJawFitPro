@@ -14,7 +14,7 @@ const Characteristics = () => {
       </div>
       <div className="characteristic bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700">
         <div className="characteristicImg">
-          <img src="/assets/characteristics/strenghtsLevels.png" alt="" />
+          <img src="/assets/characteristics/strenghtsLevels.webp" alt="" />
         </div>
         <span>3 Niveles de Fuerza</span>
       </div>

@@ -20,7 +20,7 @@ const ValueProposition = () => {
               data-aos="fade-right"
             >
               <img
-                src="/assets/valueProposition/human-face-evolution.png"
+                src="/assets/valueProposition/human-face-evolution.webp"
                 alt=""
               />
             </div>
@@ -35,7 +35,7 @@ const ValueProposition = () => {
               data-aos="fade-left"
             >
               <img
-                src="/assets/valueProposition/beforeAndAfter3.png"
+                src="/assets/valueProposition/beforeAndAfter3.webp"
                 alt=""
                 className="object-cover"
               />
@@ -55,7 +55,7 @@ const ValueProposition = () => {
         </h2>
         <div className="productBenefits_card">
           <div className="imgContainer">
-            <img src="/assets/valueProposition/menAndWomen.jpg" alt="" />
+            <img src="/assets/valueProposition/menAndWomen.webp" alt="" />
           </div>
           <div className="productBenefits_items">
             <div className="benefit" data-aos="fade-left">
