@@ -17,7 +17,6 @@ const ValueProposition = () => {
             </p>
             <div
               className="imgContainer rounded-md overflow-x-hidden"
-              data-aos="fade-right"
             >
               <img
                 src="/assets/valueProposition/human-face-evolution.webp"
@@ -32,7 +31,6 @@ const ValueProposition = () => {
             </p>
             <div
               className="imgContainer overflow-x-hidden"
-              data-aos="fade-left"
             >
               <img
                 src="/assets/valueProposition/beforeAndAfter3.webp"

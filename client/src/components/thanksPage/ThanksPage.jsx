@@ -11,7 +11,7 @@ const ThanksPage = ({ setThanksPage }) => {
         <div className="imgContainer">
           <img src="assets/icons/logoNombre.webp" alt="" />
         </div>
-        <h4>Gracias Por Tu Compra en JawFit-Pro!</h4>
+        <h4>Gracias Por Tu Compra de JawFit-Pro!</h4>
         <div className="textContainer">
           <p>
             En menos de 24 horas, uno de nuestros asesores se comunicará contigo
@@ -19,39 +19,43 @@ const ThanksPage = ({ setThanksPage }) => {
           </p>
         </div>
         <div className="socialMedia">
-          <div className="socialMedia_item">
-            <h5>Tienes alguna pregunta sobre tu pedido? </h5>
+          <div className="socialMedia_title">
+            <h5>¿Tienes alguna pregunta sobre tu pedido? </h5>
             <span className="emoji">👇</span>
-            <a
-              href="https://wa.link/h7b918"
-              target="_blank"
-              className="icon wtsp"
-            >
-              <img src="assets/icons/wtp.png" alt="" />
-            </a>
-            <span>Whatsapp</span>
           </div>
-          {/* <div className="socialMedia_item ig">
-            <a
-              href="https://www.instagram.com/kratos_force/"
-              target="_blank"
-              className="icon"
-            >
-              <img src="assets/img/icons/ig.png" alt="" />
-            </a>
-            <span>Instagram</span>
-          </div>
-          <div className="socialMedia_item fb">
-            <a
-              href="https://www.facebook.com/Somoskratosforce"
-              target="_blanl"
-              className="icon"
-            >
-              <img src="assets/img/icons/facebook.png" alt="" />
-            </a>
-            <span>Facebook</span>
-          </div> */}
-          {/* <div className="socialMedia_item ecommerce">
+          <div className="socialMedia_items">
+            <div className="socialMedia_item ig">
+              <a
+                href="https://www.instagram.com/focus_fitshop/"
+                target="_blank"
+                className="icon"
+              >
+                <img src="assets/icons/ig.webp" alt="" />
+              </a>
+              <span>Instagram</span>
+            </div>
+            <div className="socialMedia_item">
+              <a
+                href="https://wa.link/h7b918"
+                target="_blank"
+                className="icon wtsp"
+              >
+                <img src="assets/icons/wtp.webp" alt="" />
+              </a>
+              <span>Whatsapp</span>
+            </div>
+
+            <div className="socialMedia_item fb">
+              <a
+                href="https://www.facebook.com/profile.php?id=61560686750109"
+                target="_blanl"
+                className="icon"
+              >
+                <img src="assets/icons/facebook.webp" alt="" />
+              </a>
+              <span>Facebook</span>
+            </div>
+            {/* <div className="socialMedia_item ecommerce">
             <a
               href="https://jawfitpro.com"
               className="icon store"
@@ -61,9 +65,11 @@ const ThanksPage = ({ setThanksPage }) => {
             </a>
             <span>Tienda</span>
           </div> */}
+          </div>
         </div>
         <div className="thanksForChoiceUsContainer">
-          <p>¡Gracias por elegirnos! 🤜 🤛</p>
+          <p>¡Gracias por elegirnos!</p>
+          <span>🤜 🤛</span>
         </div>
       </div>
     </div>

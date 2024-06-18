@@ -7,11 +7,14 @@
   }
 
   .banner {
-
+    position: fixed;
+    z-index: 999;
+    top: 0;
     @include desktop {
       min-width: 100vw;
       position: absolute;
       right: 0;
+      top: 0;
       // margin-bottom: 2rem;
     }
   }
@@ -27,9 +30,10 @@
   background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
   height: 100%;
 
-  //* Desktop 
+  //* Desktop
   @include mobile {
     margin: 0.5rem;
+    margin-top: 60px;
     gap: 0.8rem;
     flex-direction: column;
     padding: 10px;
@@ -41,7 +45,7 @@
     margin-top: 5rem;
   }
   //* Mobile
-  
+
   .imgContainer {
     flex: 1;
     max-width: 400px;

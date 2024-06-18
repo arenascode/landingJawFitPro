@@ -18,6 +18,7 @@ import PriceContainer from "../../components/homePage/priceContainer/PriceContai
 import Reviews from "../../components/homePage/reviews/Reviews.jsx";
 import PurchaseForm from "../../components/homePage/purchaseForm/PurchaseForm.jsx";
 import ThanksPage from "../../components/thanksPage/ThanksPage.jsx";
+import ReactPixel from "react-facebook-pixel";
 
 const HomePage = () => {
   // const [showProduct, setShowProduct] = useLocalStorage("vslViewed", false);
@@ -45,6 +46,14 @@ const HomePage = () => {
 
   window.addEventListener('scroll', handleWtspIcon)
   
+  // FB pixel //
+  const fbq = ReactPixel;
+  const handleOpenForm = () => {
+    fbq.track("OpenForm");
+    setOpenForm(true);
+    console.log('open form');
+  };
+
   return (
     <main className="main w-full max-h-[100vh]">
       {/* VSL will have enabled later */}
@@ -139,7 +148,7 @@ const HomePage = () => {
       <div className="callToAction2 mt-5">
         <CallToAction
           message={"Oferta Por Tiempo Limitado!"}
-          setOpenForm={setOpenForm}
+          handleOpenForm={handleOpenForm}
         />
       </div>
       <section id="trainAnywhere">
@@ -152,7 +161,7 @@ const HomePage = () => {
       <div className="callToAction3 mt-6">
         <CallToAction
           message={"¡Potencia tu atractivo ahora!"}
-          setOpenForm={setOpenForm}
+          handleOpenForm={handleOpenForm}
         />
       </div>
       {openForm && (
@@ -168,7 +177,7 @@ const HomePage = () => {
       <PriceContainer />
       <CallToAction
         message={"!Llevalo y Paga en Casa!"}
-        setOpenForm={setOpenForm}
+        handleOpenForm={handleOpenForm}
       />
       <Footer />
       <div className="wtspIconContainer animated-icon">

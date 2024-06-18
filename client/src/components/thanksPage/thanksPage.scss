@@ -12,11 +12,11 @@
   z-index: 999;
   
   @include mobile {
-    padding: 1rem 2rem;
+    padding: 1rem 1.2rem;
     max-width: 480px;
   }
   @include tablet {
-    padding: 1rem 5rem;
+    padding: 1rem 3rem;
   }
   .thanksContainer {
     position: relative;
@@ -82,11 +82,41 @@
       display: flex;
       gap: 3rem;
       margin-top: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
       @include mobile {
         flex-wrap: wrap;
         gap: 0.8rem;
       }
-      .socialMedia_item {
+      @include tablet {
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+      }
+      .socialMedia_title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h5 {
+          text-align: center;
+          @include tablet {
+            font-size: 1.3rem;
+          }
+        }
+        .emoji {
+          font-size: 2rem;
+        }
+      }
+      .socialMedia_items {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        @include tablet {
+          gap: 3rem;
+        }
+        .socialMedia_item {
         flex: 1;
         display: flex;
         flex-direction: column;
@@ -94,27 +124,20 @@
         // gap: 0.3rem;
         justify-content: space-between;
         // position: relative;
-        width: 80px;
-        h5 {
-          width: max-content;
-          margin: 1rem 0;
-        }
-        .emoji {
-          font-size: 2rem;
-        }
+        width: 75px;
         .icon {
           display: flex;
           align-items: center;
           
           // border: 1.5px solid;
           border-radius: 20px;
-          height: 85px;
+          height: 80px;
           width: 100%;
           padding: 0.5rem;
           overflow: hidden;
           @include mobile {
-            width: 75px;
-            height: 75px;
+            width: 70px;
+            height: 70px;
             padding: 0;
           }
           @include tablet {
@@ -130,10 +153,10 @@
         .wtsp {
           width: 70px;
           height: 70px;
-          padding: 0.8rem;
+          padding: 0.5rem;
           @include tablet {
-            width: 70px;
-            height: 70px;
+            width: 90px;
+            height: 90px;
             padding: 0.6rem;
             align-items: end;
             vertical-align: bottom;
@@ -144,11 +167,15 @@
           color: gray;
         }
       }
-      
+      }
     }
     .thanksForChoiceUsContainer {
       margin-top: 2rem;
       font-size: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       @include mobile {
         font-size: 1.5rem;
       }

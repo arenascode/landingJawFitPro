@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import "./productIntro.scss";
 import Aos from "aos";
 import Banner from "../../banner/Banner.jsx";
+import Reactpixel from "react-facebook-pixel";
 
 const ProductIntro = ({ setOpenForm }) => {
   useEffect(() => {
@@ -31,6 +32,13 @@ const ProductIntro = ({ setOpenForm }) => {
     const miniImgs = document.querySelectorAll(".miniImg");
     miniImgs.forEach((img) => (img.style.borderColor = "#697172"));
     e.currentTarget.style.borderColor = "#00b8fc";
+  };
+
+  const fbq = Reactpixel;
+  const handleOpenForm = () => {
+    fbq.track("OpenForm");
+    setOpenForm(true);
+    console.log('open form');
   };
 
   return (
@@ -309,7 +317,7 @@ const ProductIntro = ({ setOpenForm }) => {
             </div>
             <div className="ctaContainer">
               {/* openForm */}
-              <button className="bg-success" onClick={() => setOpenForm(true)}>
+              <button className="bg-success" onClick={handleOpenForm}>
                 <span>
                   ¡Redefine Tu Imagen!
                   <svg

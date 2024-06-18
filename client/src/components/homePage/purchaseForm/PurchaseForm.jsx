@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./purchaseForm.scss";
 import PropTypes from "prop-types";
 import { makeRequest } from "../../../axios.js";
-// import ReactPixel from "react-facebook-pixel";
+import ReactPixel from "react-facebook-pixel";
 
 const PurchaseForm = ({ setOpenForm, setThanksPage }) => {
   const [subtotal, setSubtotal] = useState("69.999");
@@ -37,7 +37,7 @@ const PurchaseForm = ({ setOpenForm, setThanksPage }) => {
     }
     
   };
-  // const fbq = ReactPixel;
+  const fbq = ReactPixel;
 
   const handleForm = async (e) => {
     e.preventDefault();
@@ -96,10 +96,11 @@ const PurchaseForm = ({ setOpenForm, setThanksPage }) => {
       }
 
       await makeRequest.post("/purchase/newPurchase", purchaseData);
-      // fbq.track("Purchase", { currency: "COL", value: 169900 });
+      fbq.track("Purchase", { currency: "COL", value: 69900 });
       setOpenForm(false);
       setThanksPage(true);
       setSomeErr("");
+      console.log(`registered purchase`);
     } catch (error) {
       console.log(error);
       setSomeErr(error.message);
@@ -109,8 +110,9 @@ const PurchaseForm = ({ setOpenForm, setThanksPage }) => {
   const closeForm = () => {
     console.log(`registrando cierre del form`);
     setOpenForm(false);
-    // fbq.trackCustom("FormClosed");
+    fbq.trackCustom("FormClosed");
   };
+
   return (
     <div id="modalForm">
       <div className="purchaseForm">
