@@ -302,11 +302,11 @@ const ProductIntro = ({ setOpenForm }) => {
             <div className="textContainer_title w-full flex justify-start">
               <h1 className="text-3xl">JawFit-Pro</h1>
             </div>
-            <div className="priceProductContainer" data-aos="fade-left">
+            <div className="priceProductContainer">
               <div className="before">$99.999 COP</div>
               <div className="after">$69.999 COP</div>
             </div>
-            <div className="text_body" data-aos="fade-right">
+            <div className="text_body">
               <p>
                 Nuestro ejercitador de mandíbula te ayuda a fortalecer y
                 esculpir los músculos faciales,{" "}
