@@ -19,7 +19,7 @@ const ValueProposition = () => {
               className="imgContainer rounded-md overflow-x-hidden"
             >
               <img
-                src="/assets/valueProposition/human-face-evolution.webp"
+                src="/assets/valueProposition/human-face-evolution-small.webp"
                 alt=""
               />
             </div>
@@ -33,7 +33,7 @@ const ValueProposition = () => {
               className="imgContainer overflow-x-hidden"
             >
               <img
-                src="/assets/valueProposition/beforeAndAfter3.webp"
+                src="/assets/valueProposition/beforeAndAfter3-small.webp"
                 alt=""
                 className="object-cover"
               />
@@ -53,7 +53,7 @@ const ValueProposition = () => {
         </h2>
         <div className="productBenefits_card">
           <div className="imgContainer">
-            <img src="/assets/valueProposition/menAndWomen.webp" alt="" />
+            <img src="/assets/valueProposition/menAndWomen-small.webp" alt="" />
           </div>
           <div className="productBenefits_items">
             <div className="benefit" data-aos="fade-left">

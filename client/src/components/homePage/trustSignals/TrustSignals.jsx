@@ -14,6 +14,7 @@ export const TrustSignals = () => {
       <div className="iconsContainer">
         <div className="icon icon1">
           <div className="imgContainer">
+            
             <img src="/assets/trustSignals/guarante.webp" alt="" />
           </div>
           <div className="textContainer">

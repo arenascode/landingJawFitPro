@@ -68,19 +68,49 @@ const QuestionsAndAnswers = () => {
       </div>
       <div className="right">
         <div className="firstImg">
-          <img
-            src="/assets/valueProposition/mostAttractiveMuscle.webp"
-            alt="AtractiveMuscleQ&A"
-          />
+          <picture>
+            <source
+              srcSet="/assets/valueProposition/mostAttractiveMuscle-tablet.webp"
+              media="(max-width: 961px)"
+            />
+            <source
+              srcSet="/assets/valueProposition/mostAttractiveMuscle-desktop.webp"
+              media="(min-width: 962px)"
+            />
+            <img
+              src="/assets/valueProposition/mostAttractiveMuscle.webp"
+              alt="AtractiveMuscleQ&A"
+            />
+          </picture>
         </div>
         <div className="secondImg">
-          <img src="/assets/product/strenghts.webp" alt="strenghtsQ&A" />
+          <picture>
+            <source
+              srcSet="/assets/product/strenghts-tablet.webp"
+              media="(max-width: 961px)"
+            />
+            <source
+              srcSet="/assets/product/strenghts-desktop.webp"
+              media="(min-width: 962px)"
+            />
+            <img src="/assets/product/strenghts.webp" alt="strenghtsQ&A" />
+          </picture>
         </div>
         <div className="thirdImg">
-          <img src="/assets/product/Q&APic.webp" alt="picQ&A" />
+          <picture>
+          <source
+            srcSet="/assets/product/QAPic-tablet.webp"
+            media="(max-width: 961px)"
+          />
+          <source
+            srcSet="/assets/product/QAPic-desktop.webp"
+            media="(min-width: 962px)"
+          />
+          <img src="/assets/product/Q&APic-desktop.webp" alt="picQ&A" />
+        </picture>
         </div>
       </div>
     </div>
   );
-}
-export default QuestionsAndAnswers
+};
+export default QuestionsAndAnswers;

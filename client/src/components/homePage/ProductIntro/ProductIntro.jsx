@@ -56,7 +56,7 @@ const ProductIntro = ({ setOpenForm }) => {
             >
               <div id="slide1" className="carousel-item relative w-full h-full">
                 <img
-                  src="/assets/product/productIntro1.webp"
+                  src="/assets/product/productIntro1-small.webp"
                   className="w-full"
                   alt="allModels"
                 />
@@ -77,7 +77,7 @@ const ProductIntro = ({ setOpenForm }) => {
               </div>
               <div id="slide2" className="carousel-item relative w-full">
                 <img
-                  src="/assets/product/jawline5.webp"
+                  src="/assets/product/jawline5-small.webp"
                   className="w-full slide2"
                   alt="Packaging1"
                 />
@@ -98,7 +98,7 @@ const ProductIntro = ({ setOpenForm }) => {
               </div>
               <div id="slide3" className="carousel-item relative w-full ">
                 <img
-                  src="/assets/product/girlJawline.webp"
+                  src="/assets/product/girlJawline-small.webp"
                   className="w-full"
                   alt="Tailwind CSS Carousel component"
                 />
@@ -119,7 +119,7 @@ const ProductIntro = ({ setOpenForm }) => {
               </div>
               <div id="slide4" className="carousel-item relative w-full">
                 <img
-                  src="/assets/product/strenghts.webp"
+                  src="/assets/product/strenghts-small.webp"
                   className="w-full"
                   alt="Morral Verde Olivo"
                 />
@@ -140,7 +140,7 @@ const ProductIntro = ({ setOpenForm }) => {
               </div>
               <div id="slide5" className="carousel-item relative w-full">
                 <img
-                  src="/assets/valueProposition/mostAttractiveMuscle.webp"
+                  src="/assets/valueProposition/mostAttractiveMuscle-small.webp"
                   className="w-full"
                   alt="Bee Panel"
                 />
@@ -166,28 +166,28 @@ const ProductIntro = ({ setOpenForm }) => {
                 data-img="slide1"
                 onClick={handleMiniImgs}
               >
-                <img src="/assets/product/productIntro1.webp" alt="" />
+                <img src="/assets/product/productIntro1-xs.webp" alt="" />
               </div>
               <div
                 className="miniImg slide2 border-2"
                 data-img="slide2"
                 onClick={handleMiniImgs}
               >
-                <img src="/assets/product/jawline5.webp" alt="" />
+                <img src="/assets/product/jawline5-xs.webp" alt="" />
               </div>
               <div
                 className="miniImg slide3 border-2"
                 data-img="slide3"
                 onClick={handleMiniImgs}
               >
-                <img src="/assets/product/girlJawline.webp" alt="" />
+                <img src="/assets/product/girlJawline-xs.webp" alt="" />
               </div>
               <div
                 className="miniImg slide4 border-2"
                 data-img="slide4"
                 onClick={handleMiniImgs}
               >
-                <img src="/assets/product/strenghts.webp" alt="" />
+                <img src="/assets/product/strenghts-xs.webp" alt="" />
               </div>
               <div
                 className="miniImg slide5 border-2"
@@ -195,7 +195,7 @@ const ProductIntro = ({ setOpenForm }) => {
                 onClick={handleMiniImgs}
               >
                 <img
-                  src="/assets/valueProposition/mostAttractiveMuscle.webp"
+                  src="/assets/valueProposition/mostAttractiveMuscle-xs.webp"
                   alt=""
                 />
               </div>

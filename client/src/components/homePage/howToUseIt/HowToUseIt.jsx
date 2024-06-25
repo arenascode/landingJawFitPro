@@ -9,7 +9,7 @@ const HowToUseIt = () => {
       <div className="howToUseIt_steps">
         <div className="step">
           <div className="imgContainer">
-            <img src="/assets/howToUseIt/1-boil.webp" alt="" />
+            <img src="/assets/howToUseIt/1-boil-xs.webp" alt="" />
           </div>
           <p>
             Pon El JawFit en Agua hirviendo por 20 segundos. (Esto lo ablandará
@@ -18,7 +18,7 @@ const HowToUseIt = () => {
         </div>
         <div className="step">
           <div className="imgContainer">
-            <img src="/assets/howToUseIt/2-accommodate.webp" alt="" />
+            <img src="/assets/howToUseIt/2-accommodate-xs.webp" alt="" />
           </div>
           <p>
             Coloca un Jawfit a cada lado como lo muestra la imagen, muerde
@@ -27,7 +27,7 @@ const HowToUseIt = () => {
         </div>
         <div className="step">
           <div className="imgContainer">
-            <img src="/assets/howToUseIt/3-bit.webp" alt="" />
+            <img src="/assets/howToUseIt/3-bit-xs.webp" alt="" />
           </div>
           <p>
             Mastica constantemente y nota como se ejercitan los musculos de tu
@@ -36,7 +36,7 @@ const HowToUseIt = () => {
         </div>
         <div className="step">
           <div className="imgContainer">
-            <img src="/assets/howToUseIt/4-wash.webp" alt="" />
+            <img src="/assets/howToUseIt/4-wash-xs.webp" alt="" />
           </div>
           <p>
             Una vez utilizados, lávalos y guárdalos en su caja correspondiente.

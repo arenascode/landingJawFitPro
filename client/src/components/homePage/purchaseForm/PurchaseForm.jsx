@@ -131,11 +131,11 @@ const PurchaseForm = ({ setOpenForm, setThanksPage }) => {
           <div className="form_productAndGift">
             {/* <h4>Selecciona el color</h4> */}
             <div className="productAndGift_img imgProductContainer">
-              <img src="/assets/product/productIntro1.webp" alt="" />
+              <img src="/assets/product/productIntro1-xs.webp" alt="" />
             </div>
             <span>+</span>
             <div className="productAndGift_img imgGiftContainer">
-              <img src="/assets/product/Rutine.webp" alt="" />
+              <img src="/assets/product/Rutine-xs.webp" alt="" />
             </div>
           </div>
           <p className="completeFormText">

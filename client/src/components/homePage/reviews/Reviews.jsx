@@ -20,7 +20,7 @@ const Reviews = () => {
           <div className="reviewContainer">
             <div className="left">
               <div className="reviewImg">
-                <img src="/assets/reviews/review3.webp" alt="" />
+                <img src="/assets/reviews/review3-xs.webp" alt="" />
               </div>
             </div>
             <div className="right">
@@ -132,7 +132,7 @@ const Reviews = () => {
           <div className="reviewContainer">
             <div className="left">
               <div className="reviewImg">
-                <img src="/assets/reviews/review2.webp" alt="" />
+                <img src="/assets/reviews/review2-xs.webp" alt="" />
               </div>
             </div>
             <div className="right">
@@ -250,7 +250,7 @@ const Reviews = () => {
           <div className="reviewContainer">
             <div className="left">
               <div className="reviewImg">
-                <img src="/assets/reviews/review4.webp" alt="" />
+                <img src="/assets/reviews/review4-xs.webp" alt="" />
               </div>
             </div>
             <div className="right">
@@ -346,7 +346,7 @@ const Reviews = () => {
           <div className="reviewContainer">
             <div className="left">
               <div className="reviewImg">
-                <img src="/assets/reviews/review1.webp" alt="" />
+                <img src="/assets/reviews/review1-xs.webp" alt="" />
               </div>
             </div>
             <div className="right">
@@ -439,99 +439,6 @@ const Reviews = () => {
             </div>
           </div>
         </div>
-        {/* <div className="embla__slide">
-          <div className="reviewContainer">
-            <div className="left">
-              <div className="reviewImg">
-                <img src="/assets/reviews/review3.webp" alt="" />
-              </div>
-            </div>
-            <div className="right">
-              <div className="up">
-                <div className="nameReviewer">Patrick</div>
-                <div className="starsContainer">
-                  <div className="starItem">
-                    <svg
-                      version="1.1"
-                      id="Layer_1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      x="0px"
-                      y="0px"
-                      viewBox="0 0 426.667 426.667"
-                      width={"20px"}
-                    >
-                      <polygon
-                        style={{ fill: "#FAC917" }}
-                        points="213.333,10.441 279.249,144.017 426.667,165.436 320,269.41 345.173,416.226 213.333,346.91 
-	81.485,416.226 106.667,269.41 0,165.436 147.409,144.017 "
-                      />
-                    </svg>
-                  </div>
-                  <div className="starItem">
-                    <svg
-                      version="1.1"
-                      id="Layer_1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      x="0px"
-                      y="0px"
-                      viewBox="0 0 426.667 426.667"
-                      width={"20px"}
-                    >
-                      <polygon
-                        style={{ fill: "#FAC917" }}
-                        points="213.333,10.441 279.249,144.017 426.667,165.436 320,269.41 345.173,416.226 213.333,346.91 
-	81.485,416.226 106.667,269.41 0,165.436 147.409,144.017 "
-                      />
-                    </svg>
-                  </div>
-                  <div className="starItem">
-                    <svg
-                      version="1.1"
-                      id="Layer_1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      x="0px"
-                      y="0px"
-                      viewBox="0 0 426.667 426.667"
-                      width={"20px"}
-                    >
-                      <polygon
-                        style={{ fill: "#FAC917" }}
-                        points="213.333,10.441 279.249,144.017 426.667,165.436 320,269.41 345.173,416.226 213.333,346.91 
-	81.485,416.226 106.667,269.41 0,165.436 147.409,144.017 "
-                      />
-                    </svg>
-                  </div>
-                  <div className="starItem">
-                    <svg
-                      version="1.1"
-                      id="Layer_1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      x="0px"
-                      y="0px"
-                      viewBox="0 0 426.667 426.667"
-                      width={"20px"}
-                    >
-                      <polygon
-                        style={{ fill: "#FAC917" }}
-                        points="213.333,10.441 279.249,144.017 426.667,165.436 320,269.41 345.173,416.226 213.333,346.91 
-	81.485,416.226 106.667,269.41 0,165.436 147.409,144.017 "
-                      />
-                    </svg>
-                  </div>
-                  <div className="starItem">
-                    <img src="/assets/icons/starBorder.png" alt="" />
-                  </div>
-                </div>
-              </div>
-              <div className="reviewComment">
-                <p>
-                  I love this Product. It`s been two weeks after I purchased it
-                  and I have been noticed some differents in my jawline
-                </p>
-              </div>
-            </div>
-          </div>
-        </div> */}
       </div>
     </div>
   );
