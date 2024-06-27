@@ -19,6 +19,7 @@ import Reviews from "../../components/homePage/reviews/Reviews.jsx";
 import PurchaseForm from "../../components/homePage/purchaseForm/PurchaseForm.jsx";
 import ThanksPage from "../../components/thanksPage/ThanksPage.jsx";
 import ReactPixel from "react-facebook-pixel";
+import PurchaseGift from "../../components/homePage/purchaseGift/PurchaseGift.jsx";
 
 const HomePage = () => {
   // const [showProduct, setShowProduct] = useLocalStorage("vslViewed", false);
@@ -28,6 +29,7 @@ const HomePage = () => {
   useEffect(() => {
     Aos.init({
       duration: 2000,
+      once: true
       // delay: 1000,
     });
   }, []);
@@ -137,9 +139,12 @@ const HomePage = () => {
       <section id="ValueProposition" className="section h-full">
         <ValueProposition />
       </section>
+      <section id="Gift" className="section h-full">
+        <PurchaseGift />
+      </section>
       <Banner
-        messageOne={"🔥 Oferta Por Tiempo Limitado 🔥"}
-        messageTwo={"+ Rutina de Entrenamiento Gratis"}
+        messageOne={"🔥 Aprovecha Esta Oferta 🔥"}
+        messageTwo={"¡Transforma Tu Rostro Hoy Mismo!"}
       />
       <div id="howToUseIt" className="section sm:h-full">
         <HowToUseIt />
