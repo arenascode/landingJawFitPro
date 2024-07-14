@@ -58,7 +58,7 @@ const ProductIntro = ({ setOpenForm }) => {
                 <img
                   src="/assets/product/productIntro1-small.webp"
                   className="w-full"
-                  alt="allModels"
+                  alt="allModels" loading=""
                 />
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-0.5 right-5 top-1/2 w-[98%]">
                   <button

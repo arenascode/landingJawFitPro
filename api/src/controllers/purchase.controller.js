@@ -3,8 +3,8 @@ import clientService from "../services/purchase.service.js";
 export async function newPurchase(req, res, next) {
   
   try {
-    const result = await clientService.newClient(req.body)
-    
+    console.log({cookies:req.cookies._fbp})
+    const result = await clientService.newClient({...req.body, fbp: req.cookies_fbp})
     if (result) {
       res.status(200).json({message: 'purchase was saved succesfully'})
     }
