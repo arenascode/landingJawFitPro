@@ -20,6 +20,7 @@ import PurchaseForm from "../../components/homePage/purchaseForm/PurchaseForm.js
 import ThanksPage from "../../components/thanksPage/ThanksPage.jsx";
 import ReactPixel from "react-facebook-pixel";
 import PurchaseGift from "../../components/homePage/purchaseGift/PurchaseGift.jsx";
+import BeforeAndAfter from "../../components/homePage/beforeAndAfter/BeforeAndAfter.jsx";
 
 const HomePage = () => {
   // const [showProduct, setShowProduct] = useLocalStorage("vslViewed", false);
@@ -141,6 +142,9 @@ const HomePage = () => {
       </section>
       <section id="Gift" className="section h-full">
         <PurchaseGift />
+      </section>
+      <section id="beforeAndAfter">
+        <BeforeAndAfter/>
       </section>
       <Banner
         messageOne={"🔥 Aprovecha Esta Oferta 🔥"}

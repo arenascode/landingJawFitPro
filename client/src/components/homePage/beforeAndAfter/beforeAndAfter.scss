@@ -1,0 +1,66 @@
+@import "../../../scss/base";
+
+.beforeAndAfter_container {
+  margin: 1rem;
+  margin-top: 2rem;
+  @include tablet {
+    margin-top: 2rem;
+    padding: 0 5rem;
+  }
+  @include desktop {
+    margin-top: 2rem;
+    padding: 0 9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .beforeAndAfter_title {
+    text-align: center;
+    span {
+      font-weight: 600;
+      font-size: 1.6rem;
+      letter-spacing: 1px;
+      color: transparent;
+      background: linear-gradient(to bottom, #1081ab, black);
+      /* Clip the background to the text */
+      -webkit-background-clip: text;
+      background-clip: text;
+      /* Set the text color to transparent to show the gradient background */
+      color: transparent;
+      @include tablet {
+        font-size: 2rem;
+      }
+      @media (prefers-color-scheme: dark) {
+        background: linear-gradient(to bottom, #1081ab, #00bfff);
+        /* Clip the background to the text */
+        -webkit-background-clip: text;
+        background-clip: text;
+        /* Set the text color to transparent to show the gradient background */
+        color: transparent;
+      }
+    }
+  }
+  .beforeAndAfter_imgContainer {
+    height: 350px;
+    justify-content: center;
+    // border: solid 1.5px #00b8fc;
+    overflow: hidden;
+    border-radius: 1rem;
+    @include tablet {
+      height: 450px;
+    }
+    @include desktop {
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      height: 450px;
+      width: 100%;
+      overflow: hidden;
+    }
+    img {
+      border-radius: 1rem;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

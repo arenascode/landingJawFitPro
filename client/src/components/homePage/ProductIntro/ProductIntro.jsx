@@ -2,6 +2,17 @@ import { useEffect } from "react";
 import "./productIntro.scss";
 import Aos from "aos";
 import Banner from "../../banner/Banner.jsx";
+//*Imgs //
+import strenghtLevelsImg from "/assets/product/strenghtLevelsV2-small.webp";
+import productIntro1 from "/assets/product/productIntroV2-small.webp";
+import productIntro1Mini from "/assets/product/productIntroV2-xs.webp";
+import menJawline from "/assets/product/menJawlineV2-small.webp";
+import menJawlineMini from "/assets/product/menJawlineV2-xs.webp";
+import womenJawline from "/assets/product/womenJawlineV2-small.webp";
+import womenJawlineMini from "/assets/product/womenJawlineV2-xs.webp";
+import mostAttractiveMuscleImg from "/assets/valueProposition/mostAttractiveMuscleV2-small.webp";
+import mostAttractiveMuscleMiniImg from "/assets/valueProposition/mostAttractiveMuscleV2-xs.webp";
+import strenghtLevelsImgMini from "/assets/product/strenghtLevelsV2-xs.webp";
 import Reactpixel from "react-facebook-pixel";
 
 const ProductIntro = ({ setOpenForm }) => {
@@ -56,7 +67,7 @@ const ProductIntro = ({ setOpenForm }) => {
             >
               <div id="slide1" className="carousel-item relative w-full h-full">
                 <img
-                  src="/assets/product/productIntro1-small.webp"
+                  src={productIntro1}
                   className="w-full"
                   alt="allModels" loading=""
                 />
@@ -77,7 +88,7 @@ const ProductIntro = ({ setOpenForm }) => {
               </div>
               <div id="slide2" className="carousel-item relative w-full">
                 <img
-                  src="/assets/product/jawline5-small.webp"
+                  src={menJawline}
                   className="w-full slide2"
                   alt="Packaging1"
                 />
@@ -98,7 +109,7 @@ const ProductIntro = ({ setOpenForm }) => {
               </div>
               <div id="slide3" className="carousel-item relative w-full ">
                 <img
-                  src="/assets/product/girlJawline-small.webp"
+                  src={womenJawline}
                   className="w-full"
                   alt="Tailwind CSS Carousel component"
                 />
@@ -119,7 +130,7 @@ const ProductIntro = ({ setOpenForm }) => {
               </div>
               <div id="slide4" className="carousel-item relative w-full">
                 <img
-                  src="/assets/product/strenghts-small.webp"
+                  src={strenghtLevelsImg}
                   className="w-full"
                   alt="Morral Verde Olivo"
                 />
@@ -140,7 +151,7 @@ const ProductIntro = ({ setOpenForm }) => {
               </div>
               <div id="slide5" className="carousel-item relative w-full">
                 <img
-                  src="/assets/valueProposition/mostAttractiveMuscle-small.webp"
+                  src={mostAttractiveMuscleImg}
                   className="w-full"
                   alt="Bee Panel"
                 />
@@ -166,28 +177,28 @@ const ProductIntro = ({ setOpenForm }) => {
                 data-img="slide1"
                 onClick={handleMiniImgs}
               >
-                <img src="/assets/product/productIntro1-xs.webp" alt="" />
+                <img src={productIntro1Mini} alt="" />
               </div>
               <div
                 className="miniImg slide2 border-2"
                 data-img="slide2"
                 onClick={handleMiniImgs}
               >
-                <img src="/assets/product/jawline5-xs.webp" alt="" />
+                <img src={menJawlineMini} alt="" />
               </div>
               <div
                 className="miniImg slide3 border-2"
                 data-img="slide3"
                 onClick={handleMiniImgs}
               >
-                <img src="/assets/product/girlJawline-xs.webp" alt="" />
+                <img src={womenJawlineMini} alt="" />
               </div>
               <div
                 className="miniImg slide4 border-2"
                 data-img="slide4"
                 onClick={handleMiniImgs}
               >
-                <img src="/assets/product/strenghts-xs.webp" alt="" />
+                <img src={strenghtLevelsImgMini} alt="" />
               </div>
               <div
                 className="miniImg slide5 border-2"
@@ -195,7 +206,7 @@ const ProductIntro = ({ setOpenForm }) => {
                 onClick={handleMiniImgs}
               >
                 <img
-                  src="/assets/valueProposition/mostAttractiveMuscle-xs.webp"
+                  src={mostAttractiveMuscleMiniImg}
                   alt=""
                 />
               </div>
