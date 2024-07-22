@@ -49,7 +49,7 @@ const ProductIntro = ({ setOpenForm }) => {
   const handleOpenForm = () => {
     fbq.track("OpenForm");
     setOpenForm(true);
-    console.log('open form');
+    console.log("open form");
   };
 
   return (
@@ -69,7 +69,8 @@ const ProductIntro = ({ setOpenForm }) => {
                 <img
                   src={productIntro1}
                   className="w-full"
-                  alt="allModels" loading=""
+                  alt="allModels"
+                  loading=""
                 />
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-0.5 right-5 top-1/2 w-[98%]">
                   <button
@@ -205,10 +206,7 @@ const ProductIntro = ({ setOpenForm }) => {
                 data-img="slide5"
                 onClick={handleMiniImgs}
               >
-                <img
-                  src={mostAttractiveMuscleMiniImg}
-                  alt=""
-                />
+                <img src={mostAttractiveMuscleMiniImg} alt="" />
               </div>
             </div>
           </div>
@@ -315,7 +313,7 @@ const ProductIntro = ({ setOpenForm }) => {
             </div>
             <div className="priceProductContainer">
               <div className="before">$99.999 COP</div>
-              <div className="after">$69.999 COP</div>
+              <div className="after">$69.900 COP</div>
             </div>
             <div className="text_body">
               <p>
