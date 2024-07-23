@@ -4,6 +4,8 @@ import Client from "../entities/Client.js";
 import clientRepository from "../repositories/purchase.repository.js";
 import mailService from "./mail.service.js";
 import adsSdk, { AdAccount } from "facebook-nodejs-business-sdk";
+import bizSdk from "facebook-nodejs-business-sdk"
+
 class ClientService {
 
   async newClient(clientData) {
@@ -14,6 +16,7 @@ class ClientService {
       if (clientSaved) {
         const sendMail = await mailService.sendMailToNotifyPurchase(newClient)
         //*FB PIXEL *//
+        console.log('log in pixel section');
         const metaAds = adsSdk
         const Content = metaAds.Content;
         const CustomData = metaAds.CustomData;
@@ -25,15 +28,13 @@ class ClientService {
         const access_token = metaTkn;
         const pixel_id = metaPixel;
         const api = bizSdk.FacebookAdsApi.init(access_token);
-
         let current_timestamp = Math.floor(new Date() / 1000);
-
         const userData = new UserData()
           .setEmails([clientSaved.email])
           .setPhones([clientSaved.telefono])
           // It is recommended to send Client IP and User Agent for Conversions API Events.
-          .setClientIpAddress(request.connection.remoteAddress)
-          .setClientUserAgent(request.headers["user-agent"])
+          .setClientIpAddress(clientData.remoteAddress)
+          .setClientUserAgent(clientData.headers)
           .setFbp(clientData.fbp)
           .setFbc("fb.1.1554763741205.AbCdEfGhIjKlMnOpQrStUvWxYz1234567890");
 
@@ -46,7 +47,7 @@ class ClientService {
           .setContents([content])
           .setCurrency("cop")
           .setValue(69900);
-
+        console.log(userData);
         const serverEvent = new ServerEvent()
           .setEventName("Purchase")
           .setEventTime(current_timestamp)
@@ -71,6 +72,7 @@ class ClientService {
       }
       return clientSaved
     } catch (error) {
+      console.log({error});
       return error.message
     }
   }
