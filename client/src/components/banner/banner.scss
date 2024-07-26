@@ -8,14 +8,14 @@
   flex-direction: column;
   // height: 3.5rem;
   min-height: max-content;
-  width: 100%;
+  width: 100vw;
   justify-content: center;
   // position: fixed;
   z-index: 999;
   p {
     margin: auto;
     font-size: 22px;
-    font-weight: 600;
+    font-weight: 300;
     letter-spacing: 0.1rem;
     span {
       color: var(--color-span);
@@ -30,12 +30,13 @@
   }
   //* MOBILE
   @include mobile {
-    padding: 0.3rem 0;
+    padding: 0.4rem 0;
     // height: 3rem;
     p {
       text-align: center;
       font-size: 16px;
       font-family: sans-serif;
+      text-wrap: pretty;
     }
   }
 }

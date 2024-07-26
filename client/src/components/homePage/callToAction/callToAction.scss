@@ -14,7 +14,7 @@
   width: 80%;
   @include mobile {
     justify-content: center;
-    margin-top: 0.5rem;
+    margin-top: 0.3rem;
     width: 100%;
   }
   @include tablet {
@@ -33,7 +33,7 @@
     // border: solid 0.5px black;
     // background: var(--cta-button);
     color: white;
-    border-radius: 1rem;
+    border-radius: 15px;
     padding: 0.7rem;
     font-size: 1.5rem;
     font-weight: 600;
@@ -43,7 +43,8 @@
     transition: all 0.3s ease-in;
 
     @include mobile {
-      font-size: 1.1rem;
+      font-size: 1rem;
+      padding: 0.5rem;
       gap: 0rem;
     }
     @include tablet {

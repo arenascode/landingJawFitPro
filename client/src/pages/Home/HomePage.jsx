@@ -21,6 +21,7 @@ import ThanksPage from "../../components/thanksPage/ThanksPage.jsx";
 import ReactPixel from "react-facebook-pixel";
 import PurchaseGift from "../../components/homePage/purchaseGift/PurchaseGift.jsx";
 import BeforeAndAfter from "../../components/homePage/beforeAndAfter/BeforeAndAfter.jsx";
+import { HeroSection } from "../../components/heroSection/HeroSection.jsx";
 
 const HomePage = () => {
   // const [showProduct, setShowProduct] = useLocalStorage("vslViewed", false);
@@ -133,6 +134,8 @@ const HomePage = () => {
       ) : (
         ""
       )} */}
+      <HeroSection />
+      <div id="productRedirect"></div>
       <ProductIntro setOpenForm={setOpenForm} />
       <section id="reviews" className="reviewsContainer">
         <Reviews />
@@ -144,12 +147,19 @@ const HomePage = () => {
         <PurchaseGift />
       </section>
       <section id="beforeAndAfter">
-        <BeforeAndAfter/>
+        <BeforeAndAfter />
       </section>
       <Banner
         messageOne={"🔥 Aprovecha Esta Oferta 🔥"}
         messageTwo={"¡Transforma Tu Rostro Hoy Mismo!"}
       />
+      <PriceContainer />
+      <div className="callToAction3 mt-6">
+        <CallToAction
+          message={"¡Potencia tu atractivo ahora!"}
+          handleOpenForm={handleOpenForm}
+        />
+      </div>
       <div id="howToUseIt" className="section sm:h-full">
         <HowToUseIt />
       </div>

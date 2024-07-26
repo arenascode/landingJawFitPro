@@ -1,7 +1,7 @@
 import "./callToAction.scss";
 const CallToAction = ({ message, handleOpenForm }) => {
   return (
-    <div className="ctaContainer w-screen p-3">
+    <div className="ctaContainer w-screen p-1">
       <button className="bg-success" onClick={handleOpenForm}>
         <span>
           {message}

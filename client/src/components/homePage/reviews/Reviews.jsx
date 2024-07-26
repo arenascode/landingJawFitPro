@@ -276,7 +276,7 @@ const Reviews = () => {
               <div className="right">
                 <div className="up">
                   <div className="nameReviewer">
-                    Mariana <span>Ibagué, Col</span>
+                    Martin <span>Medellin, Col</span>
                   </div>
                   <div className="starsContainer">
                     <div className="starItem">
@@ -354,7 +354,7 @@ const Reviews = () => {
                 </div>
                 <div className="reviewComment">
                   <p>
-                    ¡Espero que funcione! Pero parece ser la mejor forma de
+                    Se siente bastante como trabaja la mandibula. Espero que funcione! Pero parece ser la mejor forma de
                     hacer este ejercicio en particular. También vienen en su
                     propio estuche de viaje.
                   </p>
@@ -372,7 +372,7 @@ const Reviews = () => {
               <div className="right">
                 <div className="up">
                   <div className="nameReviewer">
-                    Camilo C.<span>Barranquilla, Col</span>
+                    Leonardo C.<span>Barranquilla, Col</span>
                   </div>
                   <div className="starsContainer">
                     <div className="starItem">
@@ -450,10 +450,7 @@ const Reviews = () => {
                 </div>
                 <div className="reviewComment">
                   <p>
-                    Al principio cuesta acomodarlos un poco y te succionan los
-                    cachetes al masticar pero luego te vas acostumbrando y ya no
-                    te chupa más los cachetes y se quedan fijos entre los
-                    dientes. Supongo que es como cuando estrenas zapatos
+                    Al principio cuesta un poco acostumbrarte al masticar pero luego le agarras el tiro y termina muy cansada la mandibula. Importante hacer el masaje que indica la rutina.
                   </p>
                 </div>
               </div>

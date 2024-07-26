@@ -36,7 +36,7 @@ class ClientService {
           .setClientIpAddress(clientData.remoteAddress)
           .setClientUserAgent(clientData.headers)
           .setFbp(clientData.fbp)
-          .setFbc("fb.1.1554763741205.AbCdEfGhIjKlMnOpQrStUvWxYz1234567890");
+          .setFbc(undefined); //* Check This!
 
         const content = new Content()
           .setId("JFP1")

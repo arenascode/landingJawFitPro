@@ -8,10 +8,10 @@ import productIntro1 from "/assets/product/productIntroV2-small.webp";
 import productIntro1Mini from "/assets/product/productIntroV2-xs.webp";
 import menJawline from "/assets/product/menJawlineV2-small.webp";
 import menJawlineMini from "/assets/product/menJawlineV2-xs.webp";
-import womenJawline from "/assets/product/womenJawlineV2-small.webp";
-import womenJawlineMini from "/assets/product/womenJawlineV2-xs.webp";
-import mostAttractiveMuscleImg from "/assets/valueProposition/mostAttractiveMuscleV2-small.webp";
-import mostAttractiveMuscleMiniImg from "/assets/valueProposition/mostAttractiveMuscleV2-xs.webp";
+import beforeAndAfter1 from "/assets/product/beforeAfter1-Small.webp";
+import beforeAndAfter1Mini from "/assets/product/beforeAfter1-xs.webp";
+import beforeAndAfter2Img from "/assets/product/beforeAfter2-Small.webp";
+import beforeAndAfter2Mini from "/assets/product/beforeAfter2-xs.webp";
 import strenghtLevelsImgMini from "/assets/product/strenghtLevelsV2-xs.webp";
 import Reactpixel from "react-facebook-pixel";
 
@@ -55,11 +55,8 @@ const ProductIntro = ({ setOpenForm }) => {
   return (
     <div>
       <div className="h-full w-full" id="product">
-        <Banner
-          messageOne={`Envío GRATIS + Pago CONTRAENTREGA en todo
-          COLOMBIA 🇨🇴`}
-        />
-        <div className="imgAndTextContainer">
+        <Banner messageOne={`Envío Gratis, Paga Al Recibir`} />
+        <div className="imgAndTextContainer" id="productSlider">
           <div className="imgContainer">
             <div
               id="carouselImgs"
@@ -110,7 +107,7 @@ const ProductIntro = ({ setOpenForm }) => {
               </div>
               <div id="slide3" className="carousel-item relative w-full ">
                 <img
-                  src={womenJawline}
+                  src={beforeAndAfter1}
                   className="w-full"
                   alt="Tailwind CSS Carousel component"
                 />
@@ -131,7 +128,7 @@ const ProductIntro = ({ setOpenForm }) => {
               </div>
               <div id="slide4" className="carousel-item relative w-full">
                 <img
-                  src={strenghtLevelsImg}
+                  src={beforeAndAfter2Img}
                   className="w-full"
                   alt="Morral Verde Olivo"
                 />
@@ -152,7 +149,7 @@ const ProductIntro = ({ setOpenForm }) => {
               </div>
               <div id="slide5" className="carousel-item relative w-full">
                 <img
-                  src={mostAttractiveMuscleImg}
+                  src={strenghtLevelsImg}
                   className="w-full"
                   alt="Bee Panel"
                 />
@@ -192,21 +189,21 @@ const ProductIntro = ({ setOpenForm }) => {
                 data-img="slide3"
                 onClick={handleMiniImgs}
               >
-                <img src={womenJawlineMini} alt="" />
+                <img src={beforeAndAfter1Mini} alt="" />
               </div>
               <div
                 className="miniImg slide4 border-2"
                 data-img="slide4"
                 onClick={handleMiniImgs}
               >
-                <img src={strenghtLevelsImgMini} alt="" />
+                <img src={beforeAndAfter2Mini} alt="" />
               </div>
               <div
                 className="miniImg slide5 border-2"
                 data-img="slide5"
                 onClick={handleMiniImgs}
               >
-                <img src={mostAttractiveMuscleMiniImg} alt="" />
+                <img src={strenghtLevelsImgMini} alt="" />
               </div>
             </div>
           </div>
@@ -317,10 +314,9 @@ const ProductIntro = ({ setOpenForm }) => {
             </div>
             <div className="text_body">
               <p>
-                Nuestro ejercitador de mandíbula te ayuda a fortalecer y
-                esculpir los músculos faciales,{" "}
-                <span>Mejorando tu apariencia y confianza</span>. Transforma tu
-                perfil facial y{" "}
+                JawFit-Pro te ayuda a fortalecer y esculpir los músculos
+                faciales, <span>Mejorando tu apariencia y confianza</span>.
+                Transforma tu perfil facial y{" "}
                 <span>Deslumbra con una mandíbula firme y atractiva.</span>
               </p>
             </div>
@@ -334,9 +330,9 @@ const ProductIntro = ({ setOpenForm }) => {
                     stroke="#ffffff"
                     height="27"
                     viewBox="0 0 30 27"
-                    width="25"
+                    width="23"
                     xmlns="http://www.w3.org/2000/svg"
-                    style={{ fontWeight: 600 }}
+                    style={{ fontWeight: 500 }}
                     strokeWidth={2}
                   >
                     <path d="M1.39999 1.70001H6.60001" stroke="#ffffff" />
@@ -356,7 +352,7 @@ const ProductIntro = ({ setOpenForm }) => {
                     />
                   </svg>
                 </span>
-                <span>+ Rutina de Entrenamiento GRATIS</span>
+                <span>Rutina de Entrenamiento GRATIS</span>
               </button>
             </div>
           </div>

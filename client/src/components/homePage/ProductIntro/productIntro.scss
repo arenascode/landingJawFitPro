@@ -5,11 +5,15 @@
   @include desktop {
     padding: 0.01rem 5rem 0rem;
   }
+  @include mobile {
+    // padding-top: 3.5rem;
+  }
 
   .banner {
-    position: fixed;
+    position: sticky;
     z-index: 999;
     top: 0;
+    font-weight: 300;
     @include desktop {
       min-width: 100vw;
       position: absolute;
@@ -27,20 +31,23 @@
   box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.347); /* Adjust the values as needed */
   border-radius: 20px;
   padding: 15px;
+  padding-top: 2rem;
   background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
   height: 100%;
 
   //* Desktop
   @include mobile {
     margin: 0.5rem;
-    margin-top: 67px;
+    margin-top: 10px;
     gap: 0.8rem;
     flex-direction: column;
     padding: 10px;
+    padding-top: 0.8rem;
   }
   @include tablet {
     margin: 1rem;
-    margin-top: 4rem;
+    margin-top: 1rem;
+    padding-top: 0.8rem;
   }
   @include desktop {
     margin-top: 5rem;
@@ -71,6 +78,9 @@
       display: flex;
       width: 100%;
       gap: 0.5rem;
+      @include tablet {
+        margin-top: 0.8rem;
+      }
       .miniImg {
         flex: 1;
         height: 60px;
@@ -82,6 +92,10 @@
         img {
           width: 100%;
           height: 100%;
+        }
+        @include tablet {
+          width: 100px;
+          height: auto;
         }
       }
     }
@@ -164,6 +178,7 @@
       @include tablet {
         justify-content: center;
         width: 90%;
+        margin-top: 0rem;
       }
       @include mobile {
         justify-content: center;
@@ -183,28 +198,27 @@
         border-radius: 1rem;
         padding: 0.7rem;
         font-size: 1.5rem;
-        font-weight: 600;
+        font-weight: 550;
         letter-spacing: 2px;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.279);
         cursor: pointer;
         transition: all 0.3s ease-in;
         @include tablet {
-          font-size: 1.2rem;
+          font-size: 1.1rem;
+          padding: 0.4rem 0.3rem;
         }
         @include mobile {
           font-size: 1.2rem;
+          padding: 0.3rem;
         }
         &:hover {
           transform: scale(1.1);
         }
         span {
           display: flex;
-          gap: 0.5rem;
+          gap: 0.2rem;
           &:nth-child(2) {
             font-size: 0.8rem;
-            @include tablet {
-              font-size: 0.9rem;
-            }
           }
         }
       }
