@@ -22,7 +22,7 @@ export const HeroSection = () => {
           href="#productRedirect"
           className=" text-white hover:bg-customBlue py-3 px-6 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg cta-btn"
         >
-          Consiguelo
+          Conocelo
         </a>
       </div>
     </div>

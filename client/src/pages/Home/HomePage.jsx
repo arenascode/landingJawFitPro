@@ -25,20 +25,19 @@ import { HeroSection } from "../../components/heroSection/HeroSection.jsx";
 
 const HomePage = () => {
   // const [showProduct, setShowProduct] = useLocalStorage("vslViewed", false);
-  const [openForm, setOpenForm] = useState(false)
+  const [openForm, setOpenForm] = useState(false);
   const [openThanksPage, setThanksPage] = useState(false);
 
   useEffect(() => {
     Aos.init({
       duration: 2000,
-      once: true
+      once: true,
       // delay: 1000,
     });
   }, []);
-  
-  const handleWtspIcon = () => {
 
-    const scrollPosition = window.scrollY
+  const handleWtspIcon = () => {
+    const scrollPosition = window.scrollY;
     const wtspBtnContainer = document.querySelector(".wtspIconContainer");
 
     if (scrollPosition >= 1000) {
@@ -46,16 +45,16 @@ const HomePage = () => {
     } else {
       wtspBtnContainer.classList.remove("show");
     }
-  }
+  };
 
-  window.addEventListener('scroll', handleWtspIcon)
-  
+  window.addEventListener("scroll", handleWtspIcon);
+
   // FB pixel //
   const fbq = ReactPixel;
   const handleOpenForm = () => {
     fbq.track("OpenForm");
     setOpenForm(true);
-    console.log('open form');
+    console.log("open form");
   };
 
   return (
@@ -194,10 +193,13 @@ const HomePage = () => {
         <QuestionsAndAnswers />
       </section>
       <PriceContainer />
-      <CallToAction
-        message={"!Llevalo y Paga en Casa!"}
-        handleOpenForm={handleOpenForm}
-      />
+      <div className="callToAction3 mt-3">
+        <CallToAction
+          message={"!Llevalo y Paga en Casa!"}
+          handleOpenForm={handleOpenForm}
+        />
+      </div>
+
       <Footer />
       <div className="wtspIconContainer animated-icon">
         <a
