@@ -1,6 +1,5 @@
 import "./heroSection.scss";
-
-export const HeroSection = () => {
+export const HeroSection = ({ handleOpenHeroBtn }) => {
   return (
     <div className="relative bg-gradient-to-r from-purple-600 to-blue-600 h-screen text-white overflow-hidden">
       <div className="absolute inset-0">
@@ -21,10 +20,11 @@ export const HeroSection = () => {
         <a
           href="#productRedirect"
           className=" text-white hover:bg-customBlue py-3 px-6 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg cta-btn"
+          onClick={handleOpenHeroBtn}
         >
           Conocelo
         </a>
       </div>
     </div>
   );
-}
+};

@@ -55,7 +55,12 @@ const HomePage = () => {
     fbq.track("OpenForm");
     setOpenForm(true);
     console.log("open form");
-  };
+  }
+
+  const handleOpenHeroBtn = () => {
+    fbq.track("openHero")
+    console.info('Hero opened');
+  }
 
   return (
     <main className="main w-full max-h-[100vh]">
@@ -133,7 +138,7 @@ const HomePage = () => {
       ) : (
         ""
       )} */}
-      <HeroSection />
+      <HeroSection handleOpenHeroBtn={handleOpenHeroBtn} />
       <div id="productRedirect"></div>
       <ProductIntro setOpenForm={setOpenForm} />
       <section id="reviews" className="reviewsContainer">
