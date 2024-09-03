@@ -28,23 +28,25 @@ export const HeroSection = ({ handleOpenHeroBtn, backgroundHero, ctaMessage, sub
       : "#productRedirect";
 
   return (
-    <div className="relative bg-gradient-to-r from-purple-600 to-blue-600 h-screen text-white overflow-hidden">
-      <HomeNavBar/>
-      <div className="absolute inset-0">
+    <div className="relative bg-[#4C4C4C] h-screen text-white overflow-hidden">
+      <HomeNavBar />
+      <div className="absolute inset-0 lg:align-middle flex justify-center">
         <img
           src={backgroundHero}
           alt="Background Image"
-          className="object-cover object-center w-full h-full"
+          className="object-cover object-center lg:object-contain w-full h-full lg:w-max lg:object-center lg:align-middle masked-image"
         />
         <div className="absolute inset-0 bg-black opacity-50"></div>
       </div>
 
       <div className={HeroLayoutStyle}>
         <span className="lg:text-xl">Ejercitador de Mandibula</span>
-        <h1 className="text-5xl font-bold leading-tight mb-4 lg:text-6xl"><Link to={'/'} className="linkName">JawFit-Pro</Link></h1>
-        <p className="text-lg text-gray-300 mb-8 lg:text-2xl">
-          {subHeadline}
-        </p>
+        <h1 className="text-5xl font-bold leading-tight mb-4 lg:text-6xl">
+          <Link to={"/"} className="linkName">
+            JawFit-Pro
+          </Link>
+        </h1>
+        <p className="text-lg text-gray-300 mb-8 lg:text-2xl">{subHeadline}</p>
         <a
           href={linkRedirection}
           className={heroBtnLayout}

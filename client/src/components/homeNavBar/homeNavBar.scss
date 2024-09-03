@@ -1,3 +1,5 @@
+@import "../../scss/base";
+
 .homeNavBar_container {
   display: flex;
   justify-content: space-between;
@@ -5,8 +7,124 @@
   width: 100vw;
   // background: red;
   z-index: 99;
-  padding: 0.8rem;
+  // padding: 0.8rem;
   .left {
+    padding: 0.5rem;
     cursor: pointer;
+    @include desktop {
+      display: none;
+    }
+  }
+
+  #mobileMenu_modal {
+    display: none;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition-property: opacity;
+    transition-duration: 0.7s;
+    transition-timing-function: ease-in-out;
+
+    .mobileMenu_content {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 60%;
+      background: var(--background-color);
+      z-index: 999;
+      @include tablet {
+        width: 40%;
+      }
+      #closeModalBtn {
+        height: 32px;
+        width: 32px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin: 10px;
+      }
+      .links_menu {
+        color: #ffffff;
+        margin-top: 130px;
+        margin-left: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        li a {
+          font-size: 20px;
+          letter-spacing: 1px;
+          color: #ffffff;
+          &:hover {
+            color: var(--color-cta-btn);
+          }
+        }
+      }
+    }
+  }
+
+  /// ----- NavBar Desktop -----
+  #navBarDesktop {
+    // display: none;
+    display: flex;
+    gap: 200px;
+    align-items: center;
+    // justify-content: end;
+    height: max-content;
+    padding: 0.3rem;
+    // position: fixed;
+    top: 0;
+    z-index: 9;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.407);
+    box-shadow: 0 5px rgba(0, 0, 0, 0.1);
+    // font-family: var(--Font-Titles);
+    @include mobile {
+      display: none;
+    }
+    .navBarDesktopTitle {
+      // font-family: var(--Font-Titles);
+      font-size: 30px;
+      letter-spacing: 1px;
+      small {
+        font-style: italic;
+        font-size: 13px;
+      }
+    }
+    .navBarDesktop_links_menu {
+      width: 100%;
+      padding: 0rem 0.5rem;
+      display: flex;
+      font-size: 20px;
+      align-items: center;
+      column-gap: 30px;
+      margin-bottom: 0;
+      margin-right: 15px;
+      justify-content: space-between;
+      li {
+        cursor: pointer;
+        a {
+          color: var(--color-titles-headers);
+          &:hover {
+          background: linear-gradient(to bottom, #1081ab, #00bfff);
+          /* Clip the background to the text */
+          -webkit-background-clip: text;
+          background-clip: text;
+          /* Set the text color to transparent to show the gradient background */
+          color: transparent;
+        }
+        }
+        small {
+          font-size: 14px;
+          font-style: italic;
+        }
+      }
+    }
   }
 }

@@ -1,3 +1,5 @@
+@import "../../scss/base";
+
 .linkName {
   cursor: pointer;
   &:hover {
@@ -7,6 +9,32 @@
     background-clip: text;
     /* Set the text color to transparent to show the gradient background */
     color: transparent;
+  }
+}
+
+.masked-image {
+  mask-image: linear-gradient(
+    to right, 
+    transparent, 
+    #4C4C4C 20%, 
+    #4C4C4C 80%, 
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right, 
+    transparent, 
+    #4C4C4C 20%, 
+    #4C4C4C 80%, 
+    transparent
+  );
+  mask-size: 100% 100%;
+  -webkit-mask-size: 100% 100%;
+  mask-position: center;
+  -webkit-mask-position: center;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  @include mobile {
+    mask-image: none;
   }
 }
 .cta-btn {
