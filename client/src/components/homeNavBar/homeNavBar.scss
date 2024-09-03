@@ -1,0 +1,12 @@
+.homeNavBar_container {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  width: 100vw;
+  // background: red;
+  z-index: 99;
+  padding: 0.8rem;
+  .left {
+    cursor: pointer;
+  }
+}

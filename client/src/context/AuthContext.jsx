@@ -4,6 +4,7 @@ import propTypes from "prop-types";
 
 export const AuthContext = createContext()
 
+//* Hook
 export const useSessions = () => {
   return useContext(AuthContext)
 }

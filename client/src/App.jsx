@@ -11,6 +11,8 @@ import Login from "./pages/login/Login.jsx";
 import HomePage from "./pages/Home/HomePage.jsx";
 import AdminDashboard from "./pages/admin/AdminDashboard.jsx";
 import { useSessions } from "./context/AuthContext.jsx";
+import HowItWorks from "./pages/HowItWorks/HowItWorks.jsx";
+import HomeNavBar from "./components/homeNavBar/HomeNavBar.jsx";
 
 function App() {
 
@@ -39,6 +41,14 @@ function App() {
     );
   };
 
+  const HomeLayout = () => {
+
+    return (
+      <div className="homeContainer">
+        <Outlet/>
+      </div>
+    )
+  }
   const router = createBrowserRouter([
     {
       path: "/login",
@@ -46,7 +56,17 @@ function App() {
     },
     {
       path: "",
-      element: <HomePage />,
+      element: <HomeLayout />,
+      children: [
+        {
+          path: "/",
+          element: <HomePage/>
+        },
+        {
+          path: "/como-funciona",
+          element: <HowItWorks/>
+        }
+      ]
     },
     {
       path: "/admin",

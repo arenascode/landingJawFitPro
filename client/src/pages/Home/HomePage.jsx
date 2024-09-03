@@ -1,6 +1,6 @@
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 // import useLocalStorage from "../../hooks/useLocalStorage.js";
 // import Vsl from "../../components/homePage/vsl/Vsl.jsx";
 import ProductIntro from "../../components/homePage/ProductIntro/ProductIntro.jsx";
@@ -22,12 +22,13 @@ import ReactPixel from "react-facebook-pixel";
 import PurchaseGift from "../../components/homePage/purchaseGift/PurchaseGift.jsx";
 import BeforeAndAfter from "../../components/homePage/beforeAndAfter/BeforeAndAfter.jsx";
 import { HeroSection } from "../../components/heroSection/HeroSection.jsx";
+import heroBackground from "/assets/valueProposition/heroSection.webp"
+import { usePurchase } from "../../context/PurchaseContext.jsx";
 
 const HomePage = () => {
   // const [showProduct, setShowProduct] = useLocalStorage("vslViewed", false);
-  const [openForm, setOpenForm] = useState(false);
-  const [openThanksPage, setThanksPage] = useState(false);
 
+  const {openForm, setOpenForm, setThanksPage, openThanksPage, handleOpenForm} = usePurchase()
   useEffect(() => {
     Aos.init({
       duration: 2000,
@@ -51,11 +52,6 @@ const HomePage = () => {
 
   // FB pixel //
   const fbq = ReactPixel;
-  const handleOpenForm = () => {
-    fbq.track("OpenForm");
-    setOpenForm(true);
-    console.log("open form");
-  }
 
   const handleOpenHeroBtn = () => {
     fbq.track("openHero")
@@ -138,7 +134,14 @@ const HomePage = () => {
       ) : (
         ""
       )} */}
-      <HeroSection handleOpenHeroBtn={handleOpenHeroBtn} />
+      <HeroSection
+        handleOpenHeroBtn={handleOpenHeroBtn}
+        backgroundHero={heroBackground}
+        ctaMessage={"Conocelo"}
+        subHeadline={
+          "Esculpe y define tu mandíbula para transformar tu atractivo."
+        }
+      />
       <div id="productRedirect"></div>
       <ProductIntro setOpenForm={setOpenForm} />
       <section id="reviews" className="reviewsContainer">
