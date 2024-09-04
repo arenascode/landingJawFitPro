@@ -191,12 +191,14 @@
         gap: 0.3rem;
         .ciudadDepartamento {
           display: flex;
+          align-items: center;
           gap: 0.5rem;
           @include tablet {
             gap: 3rem;
           }
         }
         label {
+          
           font-size: 1rem;
           font-weight: 600;
           .clarification {

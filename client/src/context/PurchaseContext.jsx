@@ -7,7 +7,8 @@ export const PurchaseContext = createContext({
   setOpenForm: () => {},
   openThanksPage: false,
   setThanksPage: () => {},
-  handleOpenForm: () => {},
+  handleOpenForm: () => { },
+  fbq: ReactPixel
 });
 
 export const usePurchase = () => {
@@ -32,6 +33,7 @@ export const PurchaseContextProvider = ({ children }) => {
     openThanksPage: openThanksPage,
     setThanksPage: setThanksPage,
     handleOpenForm: handleOpenForm,
+    fbq: fbq
   };
 
   return (

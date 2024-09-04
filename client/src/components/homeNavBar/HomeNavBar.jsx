@@ -2,7 +2,9 @@ import { usePurchase } from "../../context/PurchaseContext.jsx";
 import "./homeNavBar.scss";
 import { Link } from "react-router-dom";
 const HomeNavBar = () => {
-  const { handleOpenForm } = usePurchase();
+
+  const { handleOpenForm, fbq } = usePurchase();
+
   const openMenuModal = () => {
     console.log("helooo");
     const mobileMenu = document.getElementById("mobileMenu_modal");
@@ -29,6 +31,11 @@ const HomeNavBar = () => {
       }, 500);
     }
   };
+
+  const trackPixel = () => {
+    fbq.track('howItWorksClicked')
+    console.log('How it works'); 
+  }
   return (
     <div className="homeNavBar_container">
       <div className="left" onClick={openMenuModal}>
@@ -104,7 +111,7 @@ const HomeNavBar = () => {
               <a href="/">Home</a>
             </li>
             <li>
-              <a href="/como-funciona">
+              <a href="/como-funciona" onClick={trackPixel}>
                 Cómo funciona <small>(La ciencia detrás)</small>
               </a>
             </li>
@@ -131,7 +138,7 @@ const HomeNavBar = () => {
             <Link to={"/"}>Home</Link>
           </li>
           <li>
-            <Link to={"/como-funciona"}>
+            <Link to={"/como-funciona"} onClick={trackPixel}>
               Cómo funciona JawFit-Pro / <small> La ciencia detrás</small>
             </Link>
           </li>

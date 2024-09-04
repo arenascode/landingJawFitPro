@@ -6,8 +6,6 @@ export const HeroSection = ({ handleOpenHeroBtn, backgroundHero, ctaMessage, sub
 
   const location = useLocation()
 
-  console.log(location.pathname);
-
   const HeroLayoutStyle =
     location.pathname === "/"
       ? "relative z-10 flex flex-col justify-center items-center h-full text-center mt-4"

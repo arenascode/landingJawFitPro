@@ -243,7 +243,7 @@ const PurchaseForm = ({ setOpenForm, setThanksPage }) => {
             <div className="ciudadDepartamento">
               <label htmlFor="ciudad">
                 Ciudad
-                <select
+                {/* <select
                   id="ciudad"
                   placeholder="Ciudad"
                   name="Ciudad"
@@ -284,14 +284,14 @@ const PurchaseForm = ({ setOpenForm, setThanksPage }) => {
                   <option value="Valledupar">Valledupar</option>
                   <option value="Villavicencio">Villavicencio</option>
                   <option value="Yopal">Yopal</option>
-                </select>
-                {/* <input
+                </select> */}
+                <input
                   type="text"
                   id="ciudad"
                   placeholder="Ciudad"
                   name="Ciudad"
                   onChange={handleChange}
-                /> */}
+                />
               </label>
               <label htmlFor="departamento">
                 Departamento

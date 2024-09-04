@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { HeroSection } from "../../components/heroSection/HeroSection.jsx";
 import "./howItWorks.scss";
-import heroHowItWorksBackground from "/assets/howToUseIt/jawline2.jpeg";
+import heroHowItWorksBackground from "/assets/howToUseIt/jawline2.webp";
 import jawMuscle1 from "/assets/videos/jawMuscleBit.mp4";
 import jawMuscle2 from "/assets/videos/jawMuscleBit2.mp4";
 import chewingVideo from "/assets/videos/chewingVideoLanding.mp4";
@@ -32,7 +32,6 @@ const HowItWorks = () => {
       if (video3Ref) {
         handleVideoPlayBack(video3Ref);
       }
-      // handleVideoPlayBack(video2Ref);
     };
 
     const handleVideoPlayBack = (videoRef) => {
@@ -47,7 +46,6 @@ const HowItWorks = () => {
       } else {
         video.pause();
         video.currentTime = 0;
-        console.log("no ha dado play");
       }
     };
 
@@ -132,7 +130,7 @@ const HowItWorks = () => {
             un aspecto más atractivo y cuadrado a tus rasgos faciales.
           </p>
           <div className="imgContainer bgEffect">
-            <img src="/assets/howToUseIt/jawline2.jpg" alt="" />
+            <img src="/assets/howToUseIt/jawline2-sm.jpg" alt="" />
           </div>
           </div>
         </div>
