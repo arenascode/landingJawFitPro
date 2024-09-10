@@ -24,6 +24,7 @@ import BeforeAndAfter from "../../components/homePage/beforeAndAfter/BeforeAndAf
 import { HeroSection } from "../../components/heroSection/HeroSection.jsx";
 import heroBackground from "/assets/valueProposition/heroSection.webp"
 import { usePurchase } from "../../context/PurchaseContext.jsx";
+import ProductPromo from "../../components/homePage/productPromo/ProductPromo.jsx";
 
 const HomePage = () => {
   // const [showProduct, setShowProduct] = useLocalStorage("vslViewed", false);
@@ -149,6 +150,9 @@ const HomePage = () => {
       </section>
       <section id="ValueProposition" className="section h-full">
         <ValueProposition />
+      </section>
+      <section id="productPromo">
+        <ProductPromo/>
       </section>
       <section id="Gift" className="section h-full">
         <PurchaseGift />

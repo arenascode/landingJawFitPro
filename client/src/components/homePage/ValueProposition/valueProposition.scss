@@ -3,6 +3,7 @@
 .valueProposition_container {
   margin-top: 1rem;
   padding: 0 0.5rem;
+  
   @include tablet {
     padding: 0 1rem;
     margin: 1rem;
@@ -104,6 +105,7 @@
   gap: 1rem;
   align-items: center;
   margin-bottom: 1.5rem;
+  
   @include tablet {
     margin-top: 3rem;
   }

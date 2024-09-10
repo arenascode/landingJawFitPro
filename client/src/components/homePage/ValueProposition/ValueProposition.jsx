@@ -56,7 +56,7 @@ const ValueProposition = () => {
             <img src="/assets/valueProposition/menAndWomen-small.webp" alt="" />
           </div>
           <div className="productBenefits_items">
-            <div className="benefit" data-aos="fade-left">
+            <div className="benefit">
               <div className="imgBenefit">
                 <img src="/assets/icons/correcto.webp" alt="" />
               </div>
@@ -65,13 +65,13 @@ const ValueProposition = () => {
                 apariencia de la mandíbula.
               </p>
             </div>
-            <div className="benefit" data-aos="fade-right">
+            <div className="benefit">
               <div className="imgBenefit">
                 <img src="/assets/icons/correcto.webp" alt="" />
               </div>
               <p>Adelgaza y Tonifica tu Rostro</p>
             </div>
-            <div className="benefit" data-aos="fade-left">
+            <div className="benefit">
               <div className="imgBenefit">
                 <img src="/assets/icons/correcto.webp" alt="" />
               </div>
@@ -80,7 +80,7 @@ const ValueProposition = () => {
                 rasgos cuadrados.
               </p>
             </div>
-            <div className="benefit" data-aos="fade-right">
+            <div className="benefit">
               <div className="Imgbenefit">
                 <img src="/assets/icons/correcto.webp" alt="" />
               </div>
