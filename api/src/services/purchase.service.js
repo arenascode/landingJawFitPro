@@ -1,5 +1,4 @@
 import { metaPixel, metaTkn } from "../config/auth.config.js";
-import clientDaoMysql from "../daos/purchase.mySqlDao.js";
 import Client from "../entities/Client.js";
 import clientRepository from "../repositories/purchase.repository.js";
 import mailService from "./mail.service.js";
@@ -9,10 +8,11 @@ import bizSdk from "facebook-nodejs-business-sdk"
 class ClientService {
 
   async newClient(clientData) {
-    const newClient = new Client(clientData.Nombre, clientData.Email, clientData.Telefono, clientData.Cedula, clientData.Ciudad, clientData.Departamento, clientData.Direccion, clientData.datosAdicionales, clientData.valorCompra)
+    const newClient = new Client(clientData.Nombre, clientData.Email, clientData.Telefono, clientData.Cedula, clientData.Ciudad, clientData.Departamento, clientData.Direccion, clientData.datosAdicionales,clientData.kit, clientData.valorCompra)
      
     try {
       const clientSaved = await clientRepository.newClient(newClient)
+      
       if (clientSaved) {
         const sendMail = await mailService.sendMailToNotifyPurchase(newClient)
         //*FB PIXEL *//
@@ -46,7 +46,7 @@ class ClientService {
         const customData = new CustomData()
           .setContents([content])
           .setCurrency("cop")
-          .setValue(69900);
+          .setValue(parseInt(clientData.valorCompra));
         console.log(userData);
         const serverEvent = new ServerEvent()
           .setEventName("Purchase")

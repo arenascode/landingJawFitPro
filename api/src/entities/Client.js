@@ -8,6 +8,7 @@ export default class Client {
     departamento,
     direccion,
     aditionalData,
+    kit,
     valorCompra
   ) {
     (this.nombre = nombre),
@@ -18,7 +19,8 @@ export default class Client {
       (this.departamento = departamento);
     this.direccion = direccion;
     this.aditionalData = aditionalData;
-    this.valor_compra = Number(valorCompra.replace(/\./g, ""));
+    this.kit = kit
+    this.valor_compra = Number(valorCompra.replace(/\,/g, ""));
     this.fecha_compra = new Date();
   }
 

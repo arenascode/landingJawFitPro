@@ -1,14 +1,23 @@
 import { createContext, useContext, useState } from "react";
 import ReactPixel from "react-facebook-pixel";
 import propTypes from "prop-types";
+import useLocalStorage from "../hooks/useLocalStorage.js";
 
 export const PurchaseContext = createContext({
   openForm: false,
   setOpenForm: () => {},
   openThanksPage: false,
   setThanksPage: () => {},
-  handleOpenForm: () => { },
-  fbq: ReactPixel
+  handleOpenForm: () => {},
+  kitSelected: {
+    kit: "",
+    price: 0,
+    priceBefore: 0,
+    urlImg: "",
+    productDesc: "",
+  },
+  setKitSelected: () => {},
+  fbq: ReactPixel,
 });
 
 export const usePurchase = () => {
@@ -18,7 +27,13 @@ export const usePurchase = () => {
 export const PurchaseContextProvider = ({ children }) => {
   const [openForm, setOpenForm] = useState(false);
   const [openThanksPage, setThanksPage] = useState(false);
-
+  const [kitSelected, setKitSelected] = useLocalStorage("cart", {
+    kit: "",
+    price: 0,
+    priceBefore: 0,
+    urlImg: "",
+    productDesc: ""
+  });
   const fbq = ReactPixel;
 
   const handleOpenForm = () => {
@@ -33,7 +48,9 @@ export const PurchaseContextProvider = ({ children }) => {
     openThanksPage: openThanksPage,
     setThanksPage: setThanksPage,
     handleOpenForm: handleOpenForm,
-    fbq: fbq
+    fbq: fbq,
+    kitSelected: kitSelected,
+    setKitSelected: setKitSelected
   };
 
   return (

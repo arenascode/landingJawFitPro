@@ -37,7 +37,7 @@
   .promo-description {
     font-size: 1.2rem;
     // color: #535353;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     @include mobile {
       margin-top: 1rem;
     }
@@ -143,7 +143,17 @@
     &.highlight-card {
       border: 2px solid #3498db;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-
+      display: flex;
+      flex-direction: column;
+      .card-bestPrice {
+        padding:0.2rem 0.4rem;
+        margin: 0.2rem;
+        color: white;
+        background-color: green;
+        font-weight: 800;
+        align-self: center;
+        
+      }
       .cta-button-highlight {
         // background-color: #e74c3c;
 

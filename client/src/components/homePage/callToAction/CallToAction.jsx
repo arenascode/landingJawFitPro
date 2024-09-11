@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
 import "./callToAction.scss";
 const CallToAction = ({ message, handleOpenForm }) => {
   return (
     <div className="ctaContainer w-screen p-1">
-      <button className="bg-success" onClick={handleOpenForm}>
+      <button className="bg-success" >
+        <a href={'/#productPromo'}>
         <span>
           {message}
           <svg
@@ -32,6 +34,8 @@ const CallToAction = ({ message, handleOpenForm }) => {
             />
           </svg>
         </span>
+        </a>
+        
         <span>+ Rutina de Entrenamiento GRATIS</span>
       </button>
     </div>

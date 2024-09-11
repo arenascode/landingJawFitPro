@@ -4,7 +4,7 @@ export async function newPurchase(req, res, next) {
   
   try {
     const fbclid = req.query.fbclid;
-
+    
     // Obtener el _fbc de las cookies
     const fbc = req.cookies._fbc;
 

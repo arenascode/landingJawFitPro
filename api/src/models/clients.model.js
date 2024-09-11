@@ -11,6 +11,7 @@ const clientsSchema = mongoose.Schema(
     departamento: { type: String, require: true },
     direccion: { type: String, require: true },
     aditionalData: { type: String, require: false },
+    kit: {type: String, required: true},
     valor_compra: { type: Number, require: true },
     fecha_compra: { type: String, require: true },
   },

@@ -5,17 +5,58 @@ import promoKit from "/assets/product/kitPromo-sm.webp";
 import whiteStrength from "/assets/product/whiteStrength-sm.webp"
 import greyStrength from "/assets/product/greyStrength-sm.webp"
 import blackStrength from "/assets/product/blackStrength-sm.webp"
+import { usePurchase } from "../../../context/PurchaseContext.jsx";
 
 const ProductPromo = () => {
+
+  const { setKitSelected, setOpenForm } = usePurchase()
+  
+  const extractRelativePath = (url) => {
+
+    try {
+      const urlObject = new URL(url)
+      return urlObject.pathname
+    } catch (error) {
+      console.error('Invalid URL:', error)
+      return url
+    }
+  } 
+  const handleKitSelected = (e) => {
+    
+    const {kit, price} = e.target.dataset
+    const kitHtmlElement = e.target.parentNode
+
+    const imgProductElement = kitHtmlElement.querySelector('img')
+    const imgSrc = imgProductElement ? extractRelativePath(imgProductElement.src) : null
+    
+      
+    const productDescElement = kitHtmlElement.querySelector('.promo-text')
+    const productDesc = productDescElement ? productDescElement.innerText : ''
+    
+    const priceBeforeElement = kitHtmlElement.querySelector('del')
+    const priceBefore = priceBeforeElement.innerText
+    
+    
+
+    setKitSelected({
+      kit: kit,
+      price: price,
+      priceBefore: priceBefore,
+      urlImg: imgSrc,
+      productDesc: productDesc
+    })
+
+    setOpenForm(true)
+  }
+
   return (
     <div className="promo-section">
       <h2 className="promo-title">
-        ¡Fortalece tu mandíbula con nuestras promociones especiales!
+        ¡Nuestras promociones exclusivas para una mandíbula más fuerte!
       </h2>
       <p className="promo-description">
-        Consigue la mejor versión de ti mismo con nuestros kits de ejercitadores
-        mandibulares. Asegura tu progreso continuo y mantén tu mandíbula fuerte
-        y definida con nuestras ofertas especiales.
+        Asegura tu progreso y mantén una mandíbula definida con nuestras ofertas
+        especiales.
       </p>
 
       <div className="cards-container">
@@ -37,13 +78,20 @@ const ProductPromo = () => {
             </li>
           </ul>
           <p className="promo-text">
-            Empieza desde cero y sigue hasta dominar los niveles más avanzados.
+            Empieza desde cero y sigue hasta dominar el nivel más avanzado.
             Perfecto para quienes recién comienzan.
           </p>
           <span className="price">
             <del>$79.900</del> <strong>$64.900</strong>
           </span>
-          <button className="cta-button">Empieza tu transformación ahora</button>
+          <button
+            className="cta-button"
+            onClick={handleKitSelected}
+            data-kit="Kit Primera Vez"
+            data-price="64900"
+          >
+            Empieza tu transformación ahora
+          </button>
         </div>
         {/* Card: Kit Solo Avanzado */}
         <div className="promo-card">
@@ -64,16 +112,25 @@ const ProductPromo = () => {
             </li>
           </ul>
           <p className="promo-text">
-            Perfecto para quienes buscan mantener y potenciar sus resultados con
-            disciplina.
+            Perfecto para aquellos que ya entrenan su mandíbula
+            y quieren llevar su fuerza y definición al siguiente nivel.
           </p>
           <span className="price">
             <del>$89.900</del> <strong>$74.900</strong>
           </span>
-          <button className="cta-button"> ¡Comprar Kit Avanzado!</button>
+          <button
+            className="cta-button"
+            onClick={handleKitSelected}
+            data-kit="Kit Avanzado"
+            data-price="74900"
+          >
+            {" "}
+            ¡Comprar Kit Avanzado!
+          </button>
         </div>
         {/* Card: Kit Normal + Avanzado */}
         <div className="promo-card highlight-card">
+          <span className="card-bestPrice">MEJOR PRECIO</span>
           <img
             src={promoKit}
             alt="Kit Normal + Avanzado"
@@ -93,22 +150,26 @@ const ProductPromo = () => {
               (Negro)
             </li>
             <li>
-              <img src={blackStrength} alt="advanced" width="48" />
-              3 Pares Avanzado Extra
+              <img src={blackStrength} alt="advanced" width="48" />3 Pares
+              Avanzado Extra
             </li>
           </ul>
           <p className="promo-text">
             ¡Ahorro máximo garantizado! 🤑
             <br />
-            Lleva el Kit Básico + Kit Avanzado a un mejor precio y
-            sigue ejercitando tu mandíbula sin pausas 💪.
+            Lleva el Kit Básico + Kit Avanzado a un mejor precio y sigue
+            ejercitando tu mandíbula sin pausas 💪.
           </p>
           <span className="price">
             <del>$139.900</del> <strong>$119.900</strong>
           </span>
-          <br />
           <span className="discount-text"> ¡Ahorra $20.000!</span>
-          <button className="cta-button btn bg-success">
+          <button
+            className="cta-button btn bg-success"
+            onClick={handleKitSelected}
+            data-kit="Primera Vez + Avanzado"
+            data-price="129900"
+          >
             Comprar el Combo
           </button>
         </div>

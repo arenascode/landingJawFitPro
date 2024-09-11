@@ -3,14 +3,18 @@ import "./purchaseForm.scss";
 import PropTypes from "prop-types";
 import { makeRequest } from "../../../axios.js";
 import ReactPixel from "react-facebook-pixel";
+import { usePurchase } from "../../../context/PurchaseContext.jsx";
 
 const PurchaseForm = ({ setOpenForm, setThanksPage }) => {
-  const [subtotal, setSubtotal] = useState("69.900");
   const [errMail, setErrMail] = useState(false);
   const [errID, setErrID] = useState(false);
   const [someErr, setSomeErr] = useState();
-  const [idValue, setIdValue] = useState('');
-  const [phoneValue, setPhoneValue] = useState('');
+  const [idValue, setIdValue] = useState("");
+  const [phoneValue, setPhoneValue] = useState("");
+
+  const { kitSelected } = usePurchase();
+
+  const priceFormattedKit = parseInt(kitSelected.price, 10).toLocaleString("en-US");
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -19,15 +23,15 @@ const PurchaseForm = ({ setOpenForm, setThanksPage }) => {
     e.target.style.borderColor = "gray";
     const errorMsg = e.target.parentNode.querySelector(".emptyField");
     console.log(e.target.id);
-    if (e.target.id === 'ciudad' || e.target.id === 'departamento') {
+    if (e.target.id === "ciudad" || e.target.id === "departamento") {
       if (e.target.value === "") {
         e.target.style.color = "grey";
       } else {
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          console.log('dark mode');
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          console.log("dark mode");
           e.target.style.color = "white";
         } else {
-          console.log('light mode');
+          console.log("light mode");
           e.target.style.color = "black";
         }
       }
@@ -41,16 +45,15 @@ const PurchaseForm = ({ setOpenForm, setThanksPage }) => {
   const handleNumber = (e) => {
     const numberOnlyRegex = /^[0-9]*$/;
 
-    const { id, value } = e.target
-    
+    const { id, value } = e.target;
+
     if (numberOnlyRegex.test(value)) {
-      if (id === 'cedula') {
-        setIdValue(value)
-      } else if (id === 'telefono') {
-        setPhoneValue(value)
+      if (id === "cedula") {
+        setIdValue(value);
+      } else if (id === "telefono") {
+        setPhoneValue(value);
       }
     }
-    
   };
   const fbq = ReactPixel;
 
@@ -58,13 +61,13 @@ const PurchaseForm = ({ setOpenForm, setThanksPage }) => {
     e.preventDefault();
     const form = document.querySelector(".formToSend");
     const inputs = form.querySelectorAll("input");
-    const selectInputs = form.querySelectorAll("select")
-    const inputsForm = [...inputs, ...selectInputs]
+    const selectInputs = form.querySelectorAll("select");
+    const inputsForm = [...inputs, ...selectInputs];
 
     const inputsRequired = Array.from(inputsForm).filter(
       (input) => input.id !== "datosAdicionales"
     );
-    console.log(inputsRequired);
+    
     const formToSend = new FormData(form);
 
     inputsForm.forEach((input) => {
@@ -75,7 +78,11 @@ const PurchaseForm = ({ setOpenForm, setThanksPage }) => {
     });
 
     inputsRequired.forEach((input) => {
-      if (input.value == "" || input.value == "Ciudad" || input.value == "Departamento") {
+      if (
+        input.value == "" ||
+        input.value == "Ciudad" ||
+        input.value == "Departamento"
+      ) {
         input.style.border = "1px solid #ff5252";
 
         const errorMessage = document.createElement("span");
@@ -104,17 +111,22 @@ const PurchaseForm = ({ setOpenForm, setThanksPage }) => {
         return;
       }
       const purchaseData = {};
-      purchaseData.valorCompra = subtotal;
-      console.log({ purchaseData });
+      purchaseData.valorCompra = priceFormattedKit;
+      purchaseData.kit = kitSelected.kit;
+      
       for (const [key, value] of formToSend.entries()) {
         purchaseData[key] = value;
-        if (value == "" && key !== "datosAdicionales" || value=="Ciudad" || value == "Departamento") {
+        if (
+          (value == "" && key !== "datosAdicionales") ||
+          value == "Ciudad" ||
+          value == "Departamento"
+        ) {
           return;
         }
       }
 
       await makeRequest.post("/purchase/newPurchase", purchaseData);
-      fbq.track("Purchase", { currency: "COL", value: 69900 });
+      fbq.track("Purchase", { currency: "COL", value: kitSelected.price });
       setOpenForm(false);
       setThanksPage(true);
       setSomeErr("");
@@ -130,6 +142,116 @@ const PurchaseForm = ({ setOpenForm, setThanksPage }) => {
     setOpenForm(false);
     fbq.trackCustom("FormClosed");
   };
+  
+  const ProductChosen = ({ productSelected }) => {
+    
+    const { kit, price, urlImg, productDesc } = productSelected;
+
+    const formattedPrice = parseInt(price, 10).toLocaleString("en-US");
+
+    return (
+      <div className="horizontal-card">
+        <div className="card-content">
+          <div className="up">
+            <div className="titleAndDesc">
+              <h3 className="card-title">{kit}</h3>
+              <p className="card-description">{productDesc}</p>
+            </div>
+            <img src={urlImg} alt="Producto" className="card-image" />
+          </div>
+          <div className="down">
+            <div className="prices">
+              <span className="card-priceBefore">
+                <del>{kitSelected.priceBefore}</del>
+              </span>
+              <span className="card-price">${formattedPrice}</span>
+            </div>
+            <button className="card-cta" onClick={() => setOpenForm(false)}>
+              <svg
+                enableBackground="new 0 0 32 32"
+                id="Editable-line"
+                version="1.1"
+                viewBox="0 0 32 32"
+                xmlns="http://www.w3.org/2000/svg"
+                className="svg-trashCan"
+              >
+                <path
+                  d="  M25,10H7v17c0,1.105,0.895,2,2,2h14c1.105,0,2-0.895,2-2V10z"
+                  fill="none"
+                  id="XMLID_129_"
+                  stroke="#575656"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeMiterlimit="10"
+                  strokeWidth="2"
+                />
+                <path
+                  d="  M20,7h-8V5c0-1.105,0.895-2,2-2h4c1.105,0,2,0.895,2,2V7z"
+                  fill="none"
+                  id="XMLID_145_"
+                  stroke="#575656"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeMiterlimit="10"
+                  strokeWidth="2"
+                />
+                <path
+                  d="  M28,10H4V8c0-0.552,0.448-1,1-1h22c0.552,0,1,0.448,1,1V10z"
+                  fill="none"
+                  id="XMLID_146_"
+                  stroke="#575656"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeMiterlimit="10"
+                  strokeWidth="2"
+                />
+                <line
+                  fill="none"
+                  id="XMLID_148_"
+                  stroke="#575656"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeMiterlimit="10"
+                  strokeWidth="2"
+                  x1="16"
+                  x2="16"
+                  y1="15"
+                  y2="24"
+                />
+                <line
+                  fill="none"
+                  id="XMLID_147_"
+                  stroke="#575656"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeMiterlimit="10"
+                  strokeWidth="2"
+                  x1="12"
+                  x2="12"
+                  y1="15"
+                  y2="24"
+                />
+                <line
+                  fill="none"
+                  id="XMLID_149_"
+                  stroke="#575656"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeMiterlimit="10"
+                  strokeWidth="2"
+                  x1="20"
+                  x2="20"
+                  y1="15"
+                  y2="24"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
 
   return (
     <div id="modalForm">
@@ -147,14 +269,14 @@ const PurchaseForm = ({ setOpenForm, setThanksPage }) => {
           </span>
           <br />
           <div className="form_productAndGift">
-            {/* <h4>Selecciona el color</h4> */}
-            <div className="productAndGift_img imgProductContainer">
+            <ProductChosen productSelected={kitSelected} />
+            {/* <div className="productAndGift_img imgProductContainer">
               <img src="/assets/product/productIntro1-xs.webp" alt="" />
             </div>
             <span>+</span>
             <div className="productAndGift_img imgGiftContainer">
               <img src="/assets/product/Rutine-xs.webp" alt="" />
-            </div>
+            </div> */}
           </div>
           <p className="completeFormText">
             Completa el formulario a continuación para que te llevemos tu
@@ -164,7 +286,7 @@ const PurchaseForm = ({ setOpenForm, setThanksPage }) => {
         <div className="formContainer">
           <div className="purchaseDetail">
             <div className="purchaseItem purchaseDetail_subtotal">
-              <span>Subtotal</span> <span>$ {subtotal}</span>
+              <span>Subtotal</span> <span>$ {priceFormattedKit}</span>
             </div>
             <div className="purchaseItem purchaseDetail_envio">
               <span>Envío</span>
@@ -173,7 +295,7 @@ const PurchaseForm = ({ setOpenForm, setThanksPage }) => {
             <hr />
             <div className="purchaseItem purchaseDetail_total">
               <span>Total</span>
-              <span>$ {subtotal}</span>
+              <span>$ {priceFormattedKit}</span>
             </div>
           </div>
           <div className="alertAdvice">
@@ -301,7 +423,7 @@ const PurchaseForm = ({ setOpenForm, setThanksPage }) => {
                   name="Departamento"
                   onChange={handleChange}
                 >
-                  <option defaultValue="" >Departamento</option>
+                  <option defaultValue="">Departamento</option>
                   <option value="Amazonas">Amazonas</option>
                   <option value="Antioquia">Antioquia</option>
                   <option value="Arauca">Arauca</option>
@@ -374,7 +496,7 @@ const PurchaseForm = ({ setOpenForm, setThanksPage }) => {
                 stroke="#ffffff"
                 height="27"
                 viewBox="0 0 30 27"
-                width="30"
+                width="25"
                 xmlns="http://www.w3.org/2000/svg"
                 style={{ fontWeight: 600 }}
                 strokeWidth={2}
@@ -406,5 +528,6 @@ const PurchaseForm = ({ setOpenForm, setThanksPage }) => {
 PurchaseForm.propTypes = {
   setOpenForm: PropTypes.func.isRequired,
   setThanksPage: PropTypes.func.isRequired,
+  productSelected: PropTypes.func.isRequired
 };
 export default PurchaseForm;

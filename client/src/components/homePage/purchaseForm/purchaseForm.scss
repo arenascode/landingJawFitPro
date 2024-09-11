@@ -8,7 +8,6 @@
   width: 100%;
   height: 100%;
   background: rgba(90, 89, 89, 0.54);
-  padding: 1rem 20rem;
   overflow-y: scroll;
   z-index: 999;
   color: black;
@@ -21,7 +20,7 @@
     padding: 2rem 2rem;
   }
   @include desktop {
-    padding: 2rem 14rem;
+    padding: 2rem 18rem;
   }
   .purchaseForm {
     position: relative;
@@ -30,14 +29,17 @@
     align-items: center;
     justify-content: center;
     background: white;
-    padding: 2rem;
+    padding: 1rem;
     border-radius: 20px;
     @media (prefers-color-scheme: dark) {
       background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
       color: #ffffff;
     }
     @include mobile {
-      padding: 1.2rem;
+      padding: 1rem;
+    }
+    @include desktop {
+      padding: 1rem 5rem;
     }
     .closeBtn {
       position: absolute;
@@ -98,7 +100,7 @@
         flex-direction: column;
         gap: 0.3rem;
         width: 100px;
-        border: solid #00b8fc;
+        border: solid #090b0c;
         border-radius: 10px;
         overflow: hidden;
         padding: 1rem;
@@ -130,6 +132,103 @@
           font-size: 1.8rem;
         }
       }
+      .horizontal-card {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 0.7rem;
+        max-width: 600px;
+        margin: 0 auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+        &:hover {
+          transform: translateY(-3px);
+        }
+
+        .card-content {
+          display: flex;
+          flex-direction: column;
+          .up {
+            display: flex;
+            .titleAndDesc {
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              flex: 1;
+              @include desktop {
+                justify-content: flex-start;
+              }
+              .card-title {
+                font-size: 0.9rem;
+                margin: 0;
+                width: 50%;
+                text-wrap: nowrap;
+              }
+              .card-description {
+                font-size: 0.9rem;
+                // margin: 8px 0;
+                color: #666;
+                text-align: left;
+              }
+            }
+            .card-image {
+              flex: 0.5;
+              width: 100%;
+              height: 100%;
+              border-radius: 8px;
+              object-fit: cover;
+              // margin-right: 16px;
+            }
+          }
+          .down {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .prices {
+              display: flex;
+              gap: 0.5rem;
+              align-items: center;
+              .card-priceBefore {
+                font-size: 1.1rem;
+                color:#535151;
+                font-style: italic;
+              }
+              .card-price {
+              font-size: 1.2rem;
+              font-weight: bold;
+              color: #333;
+            }
+            }
+            
+            .card-cta {
+              width: 32px;
+              color: #575656;
+              border: none;
+              border-radius: 20px;
+              cursor: pointer;
+              transition: background-color 0.3s ease;
+              padding: 0.3rem;
+              &:hover {
+                background-color: rgb(203, 199, 199);
+              }
+              &:hover .svg-trashCan path {
+                stroke: black;
+                // scale: 1.05;
+              }
+               
+              &:hover .svg-trashCan line{
+                stroke: black;
+                // scale: 1.05;
+              }
+               
+              @include desktop {
+                margin: 0.5rem;
+              }
+            }
+          }
+        }
+      }
     }
     .completeFormText {
       margin-top: 1rem;
@@ -150,7 +249,7 @@
         padding: 0 3rem;
       }
       @include desktop {
-        padding: 0 3rem;
+        padding: 0rem;
       }
       .purchaseDetail {
         width: 100%;
@@ -198,7 +297,6 @@
           }
         }
         label {
-          
           font-size: 1rem;
           font-weight: 600;
           .clarification {
@@ -244,7 +342,7 @@
           align-items: center;
           margin-top: 1rem;
           color: white;
-          font-size: 1.3rem;
+          font-size: 1.2rem;
           background: rgba(12, 151, 0, 1);
           box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.279);
           @include mobile {

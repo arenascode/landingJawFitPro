@@ -302,7 +302,7 @@ const ProductIntro = ({ setOpenForm }) => {
                 />
               </div>
               <a href="#clientReviews" className="rating">
-                4.5/5 • 4 Reviews
+                4.5/5 • 10 Reviews
               </a>
             </div>
             <div className="textContainer_title w-full flex justify-start">
@@ -322,8 +322,9 @@ const ProductIntro = ({ setOpenForm }) => {
             </div>
             <div className="ctaContainer">
               {/* openForm */}
-              <button className="bg-success" onClick={handleOpenForm}>
-                <span>
+              <button className="bg-success">
+                <a href="#productPromo">
+                  <span>
                   ¡Redefine Tu Imagen!
                   <svg
                     fill="none"
@@ -353,6 +354,8 @@ const ProductIntro = ({ setOpenForm }) => {
                   </svg>
                 </span>
                 <span>Rutina de Entrenamiento GRATIS</span>
+                </a>
+                
               </button>
             </div>
           </div>

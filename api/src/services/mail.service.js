@@ -14,8 +14,8 @@ class MailService {
         pass: NodeMailerPass
       }
     })
-    console.log({ newClient });
-    console.log({mailTo});
+    // console.log({ newClient });
+    // console.log({mailTo});
     
     const templateNotifyPurchase = `
     <body style="font-family: Arial, sans-serif;">
@@ -54,6 +54,10 @@ class MailService {
     <tr>
       <td><strong>Dirección de Envío:</strong></td>
       <td>${newClient.direccion}</td>
+    </tr>
+    <tr>
+      <td><strong>Kit Adquirido:</strong></td>
+      <td>${newClient.kit}</td>
     </tr>
     <tr>
       <td><strong>Datos Adicionales:</strong></td>
