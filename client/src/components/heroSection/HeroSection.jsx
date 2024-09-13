@@ -1,9 +1,10 @@
 import HomeNavBar from "../homeNavBar/HomeNavBar.jsx";
 import PropTypes from "prop-types";
 import "./heroSection.scss";
-import { Link, useLocation } from "react-router-dom"
+import { Link } from "react-router-dom"
+import heroBackground from "/assets/valueProposition/heroSection.webp";
 
-export const HeroSection = ({ handleOpenHeroBtn, backgroundHero }) => {
+export const HeroSection = ({ handleOpenHeroBtn }) => {
 
   // const location = useLocation()
 
@@ -27,18 +28,17 @@ export const HeroSection = ({ handleOpenHeroBtn, backgroundHero }) => {
   //     : "#productRedirect";
 
   return (
-    <div className="relative bg-[#4C4C4C] h-screen text-white overflow-hidden">
+    <div className="hero-container">
       <HomeNavBar />
-      <div className="absolute inset-0 lg:align-middle flex justify-center">
+      <div className="hero-bgImg">
         <img
-          src={backgroundHero}
+          src={heroBackground}
           alt="Background Image"
           className="object-cover object-center lg:object-contain w-full h-full lg:w-max lg:object-center lg:align-middle masked-image"
         />
-        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="hero-bgOpacity"></div>
       </div>
-
-      <div className="relative z-10 flex flex-col justify-center items-center h-full text-center mt-4">
+      <div className="hero-textContainer">
         <span className=" hero-title">Ejercitador de Mandibula</span>
         <h1 className="hero-subtitle">
           <Link to={"/"} className="linkName">

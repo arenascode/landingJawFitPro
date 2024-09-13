@@ -22,7 +22,6 @@ import ReactPixel from "react-facebook-pixel";
 import PurchaseGift from "../../components/homePage/purchaseGift/PurchaseGift.jsx";
 import BeforeAndAfter from "../../components/homePage/beforeAndAfter/BeforeAndAfter.jsx";
 import { HeroSection } from "../../components/heroSection/HeroSection.jsx";
-import heroBackground from "/assets/valueProposition/heroSection.webp"
 import { usePurchase } from "../../context/PurchaseContext.jsx";
 import ProductPromo from "../../components/homePage/productPromo/ProductPromo.jsx";
 import HowItWorks from "../../components/homePage/ValueProposition/ValueProposition.jsx";
@@ -138,7 +137,7 @@ const HomePage = () => {
       )} */}
       <HeroSection
         handleOpenHeroBtn={handleOpenHeroBtn}
-        backgroundHero={heroBackground}
+        // backgroundHero={heroBackground}
         // ctaMessage={"Conocelo"}
         // subHeadline={
         //   "Esculpe y define tu mandíbula para transformar tu atractivo."

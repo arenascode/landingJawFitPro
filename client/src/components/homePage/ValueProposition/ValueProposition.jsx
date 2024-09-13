@@ -1,6 +1,5 @@
 import "./valueProposition.scss";
 import { useEffect, useRef } from "react";
-import "../../../pages/HowItWorks/howItWorks.scss";
 import jawMuscle1 from "/assets/videos/jawMuscleBit.mp4";
 import jawMuscle2 from "/assets/videos/jawMuscleBit2.mp4";
 import chewingVideo from "/assets/videos/chewingVideoLanding.mp4";
@@ -109,6 +108,8 @@ const HowItWorks = () => {
                 muted
                 loop
                 playsInline
+                preload="metadata"
+                loading="lazy"
               ></video>
             </div>
           </div>
@@ -127,9 +128,7 @@ const HowItWorks = () => {
             </div>
           </div>
           <div className="callToActionContainer">
-            <CallToAction
-              message={"Transforma Tu Mandibula"}
-            />
+            <CallToAction message={"Transforma Tu Mandibula"} />
           </div>
         </div>
         <div className="dumbelsJaw">
@@ -158,6 +157,8 @@ const HowItWorks = () => {
                 muted
                 loop
                 playsInline
+                preload="metadata"
+                loading="lazy"
               ></video>
             </div>
             <p>
@@ -201,9 +202,7 @@ const HowItWorks = () => {
       </section>
       {/* <PriceContainer /> */}
       <div className="callToActionContainer">
-        <CallToAction
-          message={"Transforma Tu Mandibula"}
-        />
+        <CallToAction message={"Transforma Tu Mandibula"} />
       </div>
       {/* {openForm && (
         <PurchaseForm setOpenForm={setOpenForm} setThanksPage={setThanksPage} />

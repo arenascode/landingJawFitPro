@@ -12,7 +12,6 @@ import HomePage from "./pages/Home/HomePage.jsx";
 import AdminDashboard from "./pages/admin/AdminDashboard.jsx";
 import { useSessions } from "./context/AuthContext.jsx";
 import HowItWorks from "./pages/HowItWorks/HowItWorks.jsx";
-import HomeNavBar from "./components/homeNavBar/HomeNavBar.jsx";
 
 function App() {
 

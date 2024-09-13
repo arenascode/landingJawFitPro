@@ -168,7 +168,7 @@ const ProductPromo = () => {
             className="cta-button btn bg-success"
             onClick={handleKitSelected}
             data-kit="Primera Vez + Avanzado"
-            data-price="129900"
+            data-price="119900"
           >
             Comprar el Combo
           </button>

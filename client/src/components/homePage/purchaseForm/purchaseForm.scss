@@ -145,7 +145,9 @@
         &:hover {
           transform: translateY(-3px);
         }
-
+        @media (prefers-color-scheme: dark) {
+          background: #171717;
+        }
         .card-content {
           display: flex;
           flex-direction: column;
@@ -160,9 +162,8 @@
                 justify-content: flex-start;
               }
               .card-title {
-                font-size: 0.9rem;
+                font-size: 1rem;
                 margin: 0;
-                width: 50%;
                 text-wrap: nowrap;
               }
               .card-description {
@@ -171,7 +172,7 @@
                 color: #666;
                 text-align: left;
                 @media (prefers-color-scheme: dark) {
-                  color: #a5a5a5;
+                  color: whitesmoke;
                 }
               }
             }
@@ -194,19 +195,22 @@
               align-items: center;
               .card-priceBefore {
                 font-size: 1.1rem;
-                color:#535151;
+                color: #535151;
                 font-style: italic;
+                @media (prefers-color-scheme: dark) {
+                  color: rgb(170, 170, 170);
+                }
               }
               .card-price {
-              font-size: 1.2rem;
-              font-weight: bold;
-              color: #333;
-              @media (prefers-color-scheme: dark) {
-                color: #c8c8c8;
+                font-size: 1.2rem;
+                font-weight: bold;
+                color: #333;
+                @media (prefers-color-scheme: dark) {
+                  color: white;
+                }
               }
             }
-            }
-            
+
             .card-cta {
               width: 32px;
               color: #575656;
@@ -215,25 +219,46 @@
               cursor: pointer;
               transition: background-color 0.3s ease;
               padding: 0.3rem;
+
               &:hover {
                 background-color: rgb(203, 199, 199);
               }
-              &:hover .svg-trashCan path {
-                stroke: black;
-                @media (prefers-color-scheme: dark) {
-                color: #c8c8c8;
+
+              .svg-trashCan {
+                path,
+                line {
+                  stroke: #575656; // Default color
+                  transition: stroke 0.3s ease;
+                }
               }
-                // scale: 1.05;
+
+              &:hover .svg-trashCan {
+                path,
+                line {
+                  stroke: black;
+                }
               }
-               
-              &:hover .svg-trashCan line{
-                stroke: black;
-                @media (prefers-color-scheme: dark) {
-                color: #c8c8c8;
+
+              @media (prefers-color-scheme: dark) {
+                .svg-trashCan {
+                  path,
+                  line {
+                    stroke: whitesmoke;
+                  }
+                }
+
+                &:hover {
+                  background-color: rgba(203, 199, 199, 0.2);
+
+                  .svg-trashCan {
+                    path,
+                    line {
+                      stroke: white;
+                    }
+                  }
+                }
               }
-                // scale: 1.05;
-              }
-               
+
               @include desktop {
                 margin: 0.5rem;
               }
@@ -270,7 +295,9 @@
         background: rgba(171, 171, 171, 0.788);
         border-radius: 10px;
         font-weight: 600;
-
+        @media (prefers-color-scheme: dark) {
+          background: #161616;
+        }
         .purchaseItem {
           display: flex;
           justify-content: space-between;
