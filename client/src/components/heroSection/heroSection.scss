@@ -37,6 +37,33 @@
     mask-image: none;
   }
 }
+
+.hero-title {
+ @include desktop {
+  font-size: 1.25rem;
+ }
+}
+
+.hero-subtitle {
+font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+
+  @include desktop {  // lg breakpoint
+    font-size: 3.75rem;   // text-6xl
+  }
+}
+
+.hero-subheadline {
+  font-size: 1.125rem;  // text-lg
+  color: #d1d5db;       // text-gray-300
+  margin-bottom: 2rem;  // mb-8
+
+  @include desktop {  // lg breakpoint
+    font-size: 1.5rem;  // text-2xl
+  }
+}
 .cta-btn {
   background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
   &:hover {

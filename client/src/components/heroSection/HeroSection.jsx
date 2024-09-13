@@ -39,13 +39,13 @@ export const HeroSection = ({ handleOpenHeroBtn, backgroundHero, ctaMessage, sub
       </div>
 
       <div className={HeroLayoutStyle}>
-        <span className="lg:text-xl">Ejercitador de Mandibula</span>
-        <h1 className="text-5xl font-bold leading-tight mb-4 lg:text-6xl">
+        <span className=" hero-title">Ejercitador de Mandibula</span>
+        <h1 className="hero-subtitle">
           <Link to={"/"} className="linkName">
             JawFit-Pro
           </Link>
         </h1>
-        <p className="text-lg text-gray-300 mb-8 lg:text-2xl">{subHeadline}</p>
+        <p className="hero-subheadline">{subHeadline}</p>
         <a
           href={linkRedirection}
           className={heroBtnLayout}

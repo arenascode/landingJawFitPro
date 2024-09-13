@@ -83,6 +83,8 @@ const HowItWorks = () => {
                 muted
                 loop
                 playsInline
+                preload="metadata"
+                loading="lazy"
               ></video>
             </div>
           </div>
