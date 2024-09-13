@@ -14,17 +14,17 @@
 
 .masked-image {
   mask-image: linear-gradient(
-    to right, 
-    transparent, 
-    #4C4C4C 20%, 
-    #4C4C4C 80%, 
+    to right,
+    transparent,
+    #4c4c4c 20%,
+    #4c4c4c 80%,
     transparent
   );
   -webkit-mask-image: linear-gradient(
-    to right, 
-    transparent, 
-    #4C4C4C 20%, 
-    #4C4C4C 80%, 
+    to right,
+    transparent,
+    #4c4c4c 20%,
+    #4c4c4c 80%,
     transparent
   );
   mask-size: 100% 100%;
@@ -39,36 +39,47 @@
 }
 
 .hero-title {
- @include desktop {
-  font-size: 1.25rem;
- }
+  @include desktop {
+    font-size: 1.25rem;
+  }
 }
 
 .hero-subtitle {
-font-size: 3rem;
+  font-size: 3rem;
   font-weight: 700;
   line-height: 1.25;
   margin-bottom: 1rem;
 
-  @include desktop {  // lg breakpoint
-    font-size: 3.75rem;   // text-6xl
+  @include desktop {
+    // lg breakpoint
+    font-size: 3.75rem; // text-6xl
   }
 }
 
 .hero-subheadline {
-  font-size: 1.125rem;  // text-lg
-  color: #d1d5db;       // text-gray-300
-  margin-bottom: 2rem;  // mb-8
+  font-size: 1.125rem; // text-lg
+  color: #d1d5db; // text-gray-300
+  margin-bottom: 2rem; // mb-8
 
-  @include desktop {  // lg breakpoint
-    font-size: 1.5rem;  // text-2xl
+  @include desktop {
+    // lg breakpoint
+    font-size: 1.5rem; // text-2xl
   }
 }
 .cta-btn {
+  color: white; // text-white
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
   background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
   &:hover {
     background: linear-gradient(to bottom, #1081ab, #00bfff);
     color: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
+    transform: scale(1.05); // hover:scale-105
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
     /* Clip the background to the text */
     // -webkit-background-clip: text;
     // background-clip: text;
@@ -76,4 +87,3 @@ font-size: 3rem;
     // color: transparent;
   }
 }
-
