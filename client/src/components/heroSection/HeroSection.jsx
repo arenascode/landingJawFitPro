@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./heroSection.scss";
 import { Link, useLocation } from "react-router-dom"
 
-export const HeroSection = ({ handleOpenHeroBtn, backgroundHero, ctaMessage, subHeadline }) => {
+export const HeroSection = ({ handleOpenHeroBtn, backgroundHero }) => {
 
   const location = useLocation()
 
@@ -45,13 +45,15 @@ export const HeroSection = ({ handleOpenHeroBtn, backgroundHero, ctaMessage, sub
             JawFit-Pro
           </Link>
         </h1>
-        <p className="hero-subheadline">{subHeadline}</p>
+        <p className="hero-subheadline">
+          Esculpe y define tu mandíbula para transformar tu atractivo.
+        </p>
         <a
           href={linkRedirection}
           className={heroBtnLayout}
           onClick={handleOpenHeroBtn}
         >
-          {ctaMessage}
+          Conocelo
         </a>
       </div>
     </div>

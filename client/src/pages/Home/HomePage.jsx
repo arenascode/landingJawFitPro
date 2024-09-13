@@ -139,10 +139,10 @@ const HomePage = () => {
       <HeroSection
         handleOpenHeroBtn={handleOpenHeroBtn}
         backgroundHero={heroBackground}
-        ctaMessage={"Conocelo"}
-        subHeadline={
-          "Esculpe y define tu mandíbula para transformar tu atractivo."
-        }
+        // ctaMessage={"Conocelo"}
+        // subHeadline={
+        //   "Esculpe y define tu mandíbula para transformar tu atractivo."
+        // }
       />
       <div id="productRedirect"></div>
       <ProductIntro />
