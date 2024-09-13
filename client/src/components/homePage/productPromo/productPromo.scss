@@ -5,7 +5,7 @@
   padding: 2rem;
   background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
   @include mobile {
-    padding: 0.7rem;
+    padding: 0.7rem 0.7rem 1.1rem;
   }
   .promo-title {
       font-size: 1.4rem;
@@ -109,7 +109,7 @@
     .price {
       font-size: 1.5rem;
       color: #333;
-      margin-bottom: 0.5rem;
+      // margin-bottom: 0.5rem;
       del {
         color: #9a9797;
       }
@@ -118,7 +118,7 @@
     .discount-text {
       font-size: 1rem;
       color: #e74c3c;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
     }
 
     .cta-button {

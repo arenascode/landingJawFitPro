@@ -70,15 +70,15 @@ const QuestionsAndAnswers = () => {
         <div className="firstImg">
           <picture>
             <source
-              srcSet="/assets/valueProposition/mostAttractiveMuscle-tablet.webp"
+              srcSet="/assets/valueProposition/mostAttractiveMuscleV2-xs.webp"
               media="(max-width: 961px)"
             />
             <source
-              srcSet="/assets/valueProposition/mostAttractiveMuscle-desktop.webp"
+              srcSet="/assets/valueProposition/mostAttractiveMuscleV2-small.webp"
               media="(min-width: 962px)"
             />
             <img
-              src="/assets/valueProposition/mostAttractiveMuscle.webp"
+              src="/assets/valueProposition/mostAttractiveMuscleV2-small.webp"
               alt="AtractiveMuscleQ&A"
             />
           </picture>
@@ -86,11 +86,11 @@ const QuestionsAndAnswers = () => {
         <div className="secondImg">
           <picture>
             <source
-              srcSet="/assets/product/strenghts-tablet.webp"
+              srcSet="/assets/product/strenghtLevelsV2-xs.webp"
               media="(max-width: 961px)"
             />
             <source
-              srcSet="/assets/product/strenghts-desktop.webp"
+              srcSet="/assets/product/strenghtLevelsV2-small.webp"
               media="(min-width: 962px)"
             />
             <img src="/assets/product/strenghts.webp" alt="strenghtsQ&A" />
@@ -98,16 +98,16 @@ const QuestionsAndAnswers = () => {
         </div>
         <div className="thirdImg">
           <picture>
-          <source
-            srcSet="/assets/product/QAPic-tablet.webp"
-            media="(max-width: 961px)"
-          />
-          <source
-            srcSet="/assets/product/QAPic-desktop.webp"
-            media="(min-width: 962px)"
-          />
-          <img src="/assets/product/Q&APic-desktop.webp" alt="picQ&A" />
-        </picture>
+            <source
+              srcSet="/assets/product/productIntroV2-xs.webp"
+              media="(max-width: 961px)"
+            />
+            <source
+              srcSet="/assets/product/productIntroV2-small.webp"
+              media="(min-width: 962px)"
+            />
+            <img src="/assets/product/productIntroV2-small.webp" alt="picQ&A" />
+          </picture>
         </div>
       </div>
     </div>

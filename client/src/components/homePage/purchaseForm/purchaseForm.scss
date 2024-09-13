@@ -170,6 +170,9 @@
                 // margin: 8px 0;
                 color: #666;
                 text-align: left;
+                @media (prefers-color-scheme: dark) {
+                  color: #a5a5a5;
+                }
               }
             }
             .card-image {
@@ -198,6 +201,9 @@
               font-size: 1.2rem;
               font-weight: bold;
               color: #333;
+              @media (prefers-color-scheme: dark) {
+                color: #c8c8c8;
+              }
             }
             }
             
@@ -214,11 +220,17 @@
               }
               &:hover .svg-trashCan path {
                 stroke: black;
+                @media (prefers-color-scheme: dark) {
+                color: #c8c8c8;
+              }
                 // scale: 1.05;
               }
                
               &:hover .svg-trashCan line{
                 stroke: black;
+                @media (prefers-color-scheme: dark) {
+                color: #c8c8c8;
+              }
                 // scale: 1.05;
               }
                

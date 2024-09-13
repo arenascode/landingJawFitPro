@@ -3,7 +3,7 @@ import "./homeNavBar.scss";
 import { Link } from "react-router-dom";
 const HomeNavBar = () => {
 
-  const { handleOpenForm, fbq } = usePurchase();
+  const { fbq } = usePurchase();
 
   const openMenuModal = () => {
     console.log("helooo");
@@ -49,23 +49,23 @@ const HomeNavBar = () => {
           <path
             d="M7.94977 11.9498H39.9498"
             stroke="white"
-            stroke-width="4"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M7.94977 23.9498H39.9498"
             stroke="white"
-            stroke-width="4"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             d="M7.94977 35.9498H39.9498"
             stroke="white"
-            stroke-width="4"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       </div>
@@ -111,12 +111,12 @@ const HomeNavBar = () => {
               <a href="/">Home</a>
             </li>
             <li>
-              <a href="/como-funciona" onClick={trackPixel}>
+              <a href="/#ValueProposition" onClick={trackPixel}>
                 Cómo funciona <small>(La ciencia detrás)</small>
               </a>
             </li>
             <li>
-              <a href="#featuredFilms" onClick={handleOpenForm}>
+              <a href="/#productPromo">
                 Comprar
               </a>
             </li>

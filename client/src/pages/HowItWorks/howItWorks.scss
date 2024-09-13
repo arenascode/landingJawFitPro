@@ -2,8 +2,9 @@
 
 #howItWorks {
   color: black;
-  background: #000;
-  height: 100vh;
+  background: #f1f0f0;
+  padding: 0.2rem 0rem 0.6rem;
+  // height: 100vh;
   @media (prefers-color-scheme: dark) {
     color: white;
   }
@@ -128,7 +129,7 @@
       }
     }
     .dumbelsJaw {
-      margin-top: 2rem;
+      margin-top: 0.6rem;
       width: 100%;
       background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
       color: white;

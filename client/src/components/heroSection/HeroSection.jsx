@@ -1,4 +1,5 @@
 import HomeNavBar from "../homeNavBar/HomeNavBar.jsx";
+import PropTypes from "prop-types";
 import "./heroSection.scss";
 import { Link, useLocation } from "react-router-dom"
 
@@ -55,4 +56,11 @@ export const HeroSection = ({ handleOpenHeroBtn, backgroundHero, ctaMessage, sub
       </div>
     </div>
   );
+};
+
+HeroSection.propTypes = {
+  handleOpenHeroBtn: PropTypes.func.isRequired,
+  backgroundHero: PropTypes.func.isRequired,
+  ctaMessage: PropTypes.func.isRequired,
+  subHeadline: PropTypes.func.isRequired
 };

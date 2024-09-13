@@ -48,7 +48,7 @@ const ThanksPage = ({ setThanksPage }) => {
             <div className="socialMedia_item fb">
               <a
                 href="https://www.facebook.com/profile.php?id=61560686750109"
-                target="_blanl"
+                target="_blank"
                 className="icon"
               >
                 <img src="assets/icons/facebook.webp" alt="" />

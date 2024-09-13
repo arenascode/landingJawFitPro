@@ -13,9 +13,9 @@ import beforeAndAfter1Mini from "/assets/product/beforeAfter1-xs.webp";
 import beforeAndAfter2Img from "/assets/product/beforeAfter2-Small.webp";
 import beforeAndAfter2Mini from "/assets/product/beforeAfter2-xs.webp";
 import strenghtLevelsImgMini from "/assets/product/strenghtLevelsV2-xs.webp";
-import Reactpixel from "react-facebook-pixel";
+import PropTypes from "prop-types";
 
-const ProductIntro = ({ setOpenForm }) => {
+const ProductIntro = () => {
   useEffect(() => {
     Aos.init({
       duration: 2000,
@@ -43,13 +43,6 @@ const ProductIntro = ({ setOpenForm }) => {
     const miniImgs = document.querySelectorAll(".miniImg");
     miniImgs.forEach((img) => (img.style.borderColor = "#697172"));
     e.currentTarget.style.borderColor = "#00b8fc";
-  };
-
-  const fbq = Reactpixel;
-  const handleOpenForm = () => {
-    fbq.track("OpenForm");
-    setOpenForm(true);
-    console.log("open form");
   };
 
   return (
@@ -306,56 +299,69 @@ const ProductIntro = ({ setOpenForm }) => {
               </a>
             </div>
             <div className="textContainer_title w-full flex justify-start">
-              <h1 className="text-3xl">JawFit-Pro</h1>
+              <h1 className="text-3xl font-semibold">JawFit-Pro</h1>
             </div>
-            <div className="priceProductContainer">
+            {/* <div className="priceProductContainer">
               <div className="before">$99.999 COP</div>
               <div className="after">$69.900 COP</div>
-            </div>
+            </div> */}
             <div className="text_body">
-              <p>
+              {/* <p>
                 JawFit-Pro te ayuda a fortalecer y esculpir los músculos
                 faciales, <span>Mejorando tu apariencia y confianza</span>.
                 Transforma tu perfil facial y{" "}
                 <span>Deslumbra con una mandíbula firme y atractiva.</span>
-              </p>
+              </p> */}
+              <ul>
+                <li>✅ Fortalece y esculpe los músculos faciales.</li>
+                <li>
+                  ✅ Define y tonifica tu mandíbula para un perfil más
+                  atractivo.
+                </li>
+                <li>
+                  ✅ Resalta los rasgos cuadrados que mejoran la estética
+                  facial.
+                </li>
+                <li>
+                  ✅ Despierta tu confianza con un rostro firme y cincelado.
+                </li>
+              </ul>
             </div>
             <div className="ctaContainer">
               {/* openForm */}
               <button className="bg-success">
                 <a href="#productPromo">
                   <span>
-                  ¡Redefine Tu Imagen!
-                  <svg
-                    fill="none"
-                    stroke="#ffffff"
-                    height="27"
-                    viewBox="0 0 30 27"
-                    width="23"
-                    xmlns="http://www.w3.org/2000/svg"
-                    style={{ fontWeight: 500 }}
-                    strokeWidth={2}
-                  >
-                    <path d="M1.39999 1.70001H6.60001" stroke="#ffffff" />
-                    <path d="M6.60001 1.70001L11 18.9" />
-                    <path d="M11.8 18.9H28.3" stroke="##ffffff" />
-                    <path
-                      d="M13.8 25.7C15.4569 25.7 16.8 24.3569 16.8 22.7C16.8 21.0432 15.4569 19.7 13.8 19.7C12.1431 19.7 10.8 21.0432 10.8 22.7C10.8 24.3569 12.1431 25.7 13.8 25.7Z"
+                    ¡Redefine Tu Imagen!
+                    <svg
+                      fill="none"
                       stroke="#ffffff"
-                    />
-                    <path
-                      d="M25.3 25.7C26.9568 25.7 28.3 24.3569 28.3 22.7C28.3 21.0432 26.9568 19.7 25.3 19.7C23.6431 19.7 22.3 21.0432 22.3 22.7C22.3 24.3569 23.6431 25.7 25.3 25.7Z"
-                      stroke="#ffffff"
-                    />
-                    <path
-                      d="M25.7 14.6H11.3C10.7 14.6 10.1 14.2 10 13.6L8.1 6.90001C7.9 6.00001 8.49999 5.20001 9.39999 5.20001H27.5C28.4 5.20001 29.1 6.10001 28.8 6.90001L26.9 13.6C26.9 14.2 26.4 14.6 25.7 14.6Z"
-                      stroke="#ffffff"
-                    />
-                  </svg>
-                </span>
-                <span>Rutina de Entrenamiento GRATIS</span>
+                      height="27"
+                      viewBox="0 0 30 27"
+                      width="23"
+                      xmlns="http://www.w3.org/2000/svg"
+                      style={{ fontWeight: 500 }}
+                      strokeWidth={2}
+                    >
+                      <path d="M1.39999 1.70001H6.60001" stroke="#ffffff" />
+                      <path d="M6.60001 1.70001L11 18.9" />
+                      <path d="M11.8 18.9H28.3" stroke="##ffffff" />
+                      <path
+                        d="M13.8 25.7C15.4569 25.7 16.8 24.3569 16.8 22.7C16.8 21.0432 15.4569 19.7 13.8 19.7C12.1431 19.7 10.8 21.0432 10.8 22.7C10.8 24.3569 12.1431 25.7 13.8 25.7Z"
+                        stroke="#ffffff"
+                      />
+                      <path
+                        d="M25.3 25.7C26.9568 25.7 28.3 24.3569 28.3 22.7C28.3 21.0432 26.9568 19.7 25.3 19.7C23.6431 19.7 22.3 21.0432 22.3 22.7C22.3 24.3569 23.6431 25.7 25.3 25.7Z"
+                        stroke="#ffffff"
+                      />
+                      <path
+                        d="M25.7 14.6H11.3C10.7 14.6 10.1 14.2 10 13.6L8.1 6.90001C7.9 6.00001 8.49999 5.20001 9.39999 5.20001H27.5C28.4 5.20001 29.1 6.10001 28.8 6.90001L26.9 13.6C26.9 14.2 26.4 14.6 25.7 14.6Z"
+                        stroke="#ffffff"
+                      />
+                    </svg>
+                  </span>
+                  <span>Rutina de Entrenamiento GRATIS</span>
                 </a>
-                
               </button>
             </div>
           </div>
@@ -364,4 +370,9 @@ const ProductIntro = ({ setOpenForm }) => {
     </div>
   );
 };
+
+ProductIntro.propTypes = {
+  setOpenForm: PropTypes.func.isRequired,
+};
 export default ProductIntro;
+

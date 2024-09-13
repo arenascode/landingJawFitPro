@@ -5,7 +5,7 @@ import { useEffect } from "react";
 // import Vsl from "../../components/homePage/vsl/Vsl.jsx";
 import ProductIntro from "../../components/homePage/ProductIntro/ProductIntro.jsx";
 import "./home.scss";
-import ValueProposition from "../../components/homePage/ValueProposition/ValueProposition.jsx";
+// import ValueProposition from "../../components/homePage/ValueProposition/ValueProposition.jsx";
 import HowToUseIt from "../../components/homePage/howToUseIt/HowToUseIt.jsx";
 import Banner from "../../components/banner/Banner.jsx";
 import CallToAction from "../../components/homePage/callToAction/CallToAction.jsx";
@@ -14,7 +14,7 @@ import Characteristics from "../../components/homePage/characteristics/Character
 import { TrustSignals } from "../../components/homePage/trustSignals/TrustSignals.jsx";
 import QuestionsAndAnswers from "../../components/homePage/questionsAndAnswers/QuestionsAndAnswers.jsx";
 import Footer from "../../components/homePage/footer/Footer.jsx";
-import PriceContainer from "../../components/homePage/priceContainer/PriceContainer.jsx";
+// import PriceContainer from "../../components/homePage/priceContainer/PriceContainer.jsx";
 import Reviews from "../../components/homePage/reviews/Reviews.jsx";
 import PurchaseForm from "../../components/homePage/purchaseForm/PurchaseForm.jsx";
 import ThanksPage from "../../components/thanksPage/ThanksPage.jsx";
@@ -25,6 +25,7 @@ import { HeroSection } from "../../components/heroSection/HeroSection.jsx";
 import heroBackground from "/assets/valueProposition/heroSection.webp"
 import { usePurchase } from "../../context/PurchaseContext.jsx";
 import ProductPromo from "../../components/homePage/productPromo/ProductPromo.jsx";
+import HowItWorks from "../../components/homePage/ValueProposition/ValueProposition.jsx";
 
 const HomePage = () => {
   // const [showProduct, setShowProduct] = useLocalStorage("vslViewed", false);
@@ -144,12 +145,12 @@ const HomePage = () => {
         }
       />
       <div id="productRedirect"></div>
-      <ProductIntro setOpenForm={setOpenForm} />
+      <ProductIntro />
       <section id="reviews" className="reviewsContainer">
         <Reviews />
       </section>
-      <section id="ValueProposition" className="section h-full">
-        <ValueProposition />
+      <section id="ValueProposition" className="section">
+        <HowItWorks />
       </section>
       <section id="productPromo">
         <ProductPromo/>
@@ -164,7 +165,7 @@ const HomePage = () => {
         messageOne={"🔥 Aprovecha Esta Oferta 🔥"}
         messageTwo={"¡Transforma Tu Rostro Hoy Mismo!"}
       />
-      <PriceContainer />
+      {/* <PriceContainer /> */}
       <div className="callToAction3 mt-6">
         <CallToAction
           message={"¡Potencia tu atractivo ahora!"}
@@ -174,7 +175,7 @@ const HomePage = () => {
       <div id="howToUseIt" className="section sm:h-full">
         <HowToUseIt />
       </div>
-      <PriceContainer />
+      {/* <PriceContainer /> */}
       <div className="callToAction2 mt-5">
         <CallToAction
           message={"Oferta Por Tiempo Limitado!"}
@@ -187,7 +188,7 @@ const HomePage = () => {
       <section id="characteristics">
         <Characteristics />
       </section>
-      <PriceContainer />
+      {/* <PriceContainer /> */}
       <div className="callToAction3 mt-6">
         <CallToAction
           message={"¡Potencia tu atractivo ahora!"}
@@ -204,7 +205,7 @@ const HomePage = () => {
       <section id="questionsAndAnswers">
         <QuestionsAndAnswers />
       </section>
-      <PriceContainer />
+      {/* <PriceContainer /> */}
       <div className="callToAction3 mt-3">
         <CallToAction
           message={"!Llevalo y Paga en Casa!"}
