@@ -61,26 +61,26 @@ const Footer = () => {
       <div className="footer_imgContainer">
         <div className="iconsRRSSContainer">
           <p>
-          Si tienes alguna duda o consulta, contáctanos a través de nuestras
-          redes:
-        </p>
+            Si tienes alguna duda o consulta, contáctanos a través de nuestras
+            redes:
+          </p>
           <div className="icons flex align-middle justify-center gap-3 mt-3">
-          <a
-            className="fa-brands fa-whatsapp fa-xl"
-            href="https://wa.link/h7b918"
-            target="_blank"
-          ></a>
-          <a
-            className="fa-brands fa-instagram fa-xl"
-            href="https://www.instagram.com/focus_fitshop/"
-            target="_blank"
-          ></a>
-          <a
-            className="fa-brands fa-facebook fa-xl"
-            href="https://www.facebook.com/profile.php?id=61560686750109"
-            target="_blank"
-          ></a>
-        </div>
+            <a
+              className="fa-brands fa-whatsapp fa-xl"
+              href="https://wa.link/21loa7"
+              target="_blank"
+            ></a>
+            <a
+              className="fa-brands fa-instagram fa-xl"
+              href="https://www.instagram.com/focus_fitshop/"
+              target="_blank"
+            ></a>
+            <a
+              className="fa-brands fa-facebook fa-xl"
+              href="https://www.facebook.com/profile.php?id=61560686750109"
+              target="_blank"
+            ></a>
+          </div>
         </div>
         <img src="/assets/icons/logoNombre-xs.webp" alt="" />
       </div>

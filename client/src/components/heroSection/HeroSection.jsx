@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import "./heroSection.scss";
 import { Link } from "react-router-dom"
 import heroBackground from "/assets/valueProposition/heroSection.webp";
+import heroBackgroundMobile from "/assets/valueProposition/heroSection_mobile.webp";
+import { useEffect, useState } from "react";
 
 export const HeroSection = ({ handleOpenHeroBtn }) => {
 
@@ -27,15 +29,36 @@ export const HeroSection = ({ handleOpenHeroBtn }) => {
   //     ? "#howItWorks-science"
   //     : "#productRedirect";
 
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 480)
+
+  useEffect(() => {
+    
+    setIsMobile(window.innerWidth <= 480)
+    
+  }, [])
+  
+  console.log(window.innerWidth);
+  
+  
+  
+
   return (
     <div className="hero-container">
       <HomeNavBar />
       <div className="hero-bgImg">
-        <img
-          src={heroBackground}
-          alt="Background Image"
-          className="object-cover object-center lg:object-contain w-full h-full lg:w-max lg:object-center lg:align-middle masked-image"
-        />
+        {isMobile ? (
+          <img
+            src={heroBackgroundMobile}
+            alt="Background Mobile Image"
+            className="object-cover object-center lg:object-contain w-full h-full lg:w-max lg:object-center lg:align-middle masked-image"
+          />
+        ) : (
+          <img
+            src={heroBackground}
+            alt="Background Desktop Image"
+            className="object-cover object-center lg:object-contain w-full h-full lg:w-max lg:object-center lg:align-middle masked-image"
+          />
+        )}
         <div className="hero-bgOpacity"></div>
       </div>
       <div className="hero-textContainer">
