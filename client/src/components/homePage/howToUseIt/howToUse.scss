@@ -35,7 +35,13 @@
       align-items: center;
       gap: 0.6rem;
     }
-    
+    @include desktop {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
     .step {
       background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
       padding: 0.7rem;
@@ -50,7 +56,12 @@
         width: 80%;
       }
       @include desktop {
-        width: 70%;
+        // width: 70%;
+        width: 40%;
+        // flex: 1;
+        height: 15rem;
+        padding: 1rem;
+        margin-top: 0.5rem;
     }
       .imgContainer {
         width: 120px;

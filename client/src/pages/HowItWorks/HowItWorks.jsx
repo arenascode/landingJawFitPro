@@ -11,6 +11,7 @@ import Footer from "../../components/homePage/footer/Footer.jsx";
 import { usePurchase } from "../../context/PurchaseContext.jsx";
 import PurchaseForm from "../../components/homePage/purchaseForm/PurchaseForm.jsx";
 import ThanksPage from "../../components/thanksPage/ThanksPage.jsx";
+import { useNavigate } from "react-router-dom";
 
 const HowItWorks = () => {
   const video1Ref = useRef(null);
@@ -60,7 +61,20 @@ const HowItWorks = () => {
     };
   }, [scrollY]);
 
+  const navigate = useNavigate();
 
+  const goToProductPromo = () => {
+    navigate("/");
+
+    setTimeout(() => {
+      const element = document.getElementById("productPromo");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        
+      }
+    }, 0.2);
+  }
+  
   return (
     <main id="howItWorks">
       <HeroSection
@@ -78,65 +92,65 @@ const HowItWorks = () => {
         </div>
         <div className="science-body">
           <div className="paragraph para1">
-           <p>
-            <b>
-              JAWFIT-PRO trabaja fortaleciendo y desarrollando los músculos
-              maseteros, responsables de darle fuerza a la mordida.
-            </b>{" "}
-            Al masticar las piezas de alta resistencia de JAWFIT-PRO, estimulas
-            directamente estos músculos, lo que resulta en un crecimiento
-            muscular (hipertrofia). Con un uso consistente cada semana,
-            empezarás a notar un impacto visual en la apariencia de tu
-            mandíbula.
-          </p>
-          <div className="videoContainer bgEffect">
-            <video
-              ref={video1Ref}
-              src={jawMuscle1}
-              id="videoJaw1"
-              muted
-              loop
-              playsInline
-            ></video>
-          </div> 
+            <p>
+              <b>
+                JAWFIT-PRO trabaja fortaleciendo y desarrollando los músculos
+                maseteros, responsables de darle fuerza a la mordida.
+              </b>{" "}
+              Al masticar las piezas de alta resistencia de JAWFIT-PRO,
+              estimulas directamente estos músculos, lo que resulta en un
+              crecimiento muscular (hipertrofia). Con un uso consistente cada
+              semana, empezarás a notar un impacto visual en la apariencia de tu
+              mandíbula.
+            </p>
+            <div className="videoContainer bgEffect">
+              <video
+                ref={video1Ref}
+                src={jawMuscle1}
+                id="videoJaw1"
+                muted
+                loop
+                playsInline
+              ></video>
+            </div>
           </div>
           <div className="paragraph para2">
-<p>
-            <b>
-              El cambio más evidente ocurre en las esquinas de la mandíbula
-              inferior.
-            </b>{" "}
-            Estas áreas comienzan a sobresalir hacia los lados, creando un
-            contraste más pronunciado entre el cuello y la mandíbula. Este
-            contraste es lo que genera la sombra conocida como &quot;línea de la
-            mandíbula.&quot; Al aumentar este contraste mediante el
-            fortalecimiento de los músculos maseteros, tu línea de la mandíbula
-            se vuelve más visible y definida.
-          </p>
-          <div className="videoContainer bgEffect">
-            <video
-              ref={video2Ref}
-              src={jawMuscle2}
-              id="videoJaw2"
-              muted
-              loop
-              playsInline
-            ></video>
-          </div>
+            <p>
+              <b>
+                El cambio más evidente ocurre en las esquinas de la mandíbula
+                inferior.
+              </b>{" "}
+              Estas áreas comienzan a sobresalir hacia los lados, creando un
+              contraste más pronunciado entre el cuello y la mandíbula. Este
+              contraste es lo que genera la sombra conocida como &quot;línea de
+              la mandíbula.&quot; Al aumentar este contraste mediante el
+              fortalecimiento de los músculos maseteros, tu línea de la
+              mandíbula se vuelve más visible y definida.
+            </p>
+            <div className="videoContainer bgEffect">
+              <video
+                ref={video2Ref}
+                src={jawMuscle2}
+                id="videoJaw2"
+                muted
+                loop
+                playsInline
+              ></video>
+            </div>
           </div>
           <div className="paragraph para3">
- <p>
-            <b>
-              Además del contraste, también verás una mejora en la forma general
-              de tu rostro.
-            </b>{" "}
-            A medida que los músculos de la mandíbula crecen, la mandíbula
-            inferior se percibe más ancha en proporción al rostro, lo que aporta
-            un aspecto más atractivo y cuadrado a tus rasgos faciales.
-          </p>
-          <div className="imgContainer bgEffect">
-            <img src="/assets/howToUseIt/jawline2-sm.jpg" alt="" />
-          </div>
+            <p>
+              <b>
+                Además del contraste, también verás una mejora en la forma
+                general de tu rostro.
+              </b>{" "}
+              A medida que los músculos de la mandíbula crecen, la mandíbula
+              inferior se percibe más ancha en proporción al rostro, lo que
+              aporta un aspecto más atractivo y cuadrado a tus rasgos faciales.
+            </p>
+            <div className="imgContainer bgEffect">
+              <img src="/assets/howToUseIt/jawline2-sm.jpg" alt="" />
+            </div>
           </div>
         </div>
         <div className="dumbelsJaw">
@@ -206,18 +220,50 @@ const HowItWorks = () => {
           </div>
         </div>
       </section>
-      <PriceContainer />
+      {/* <PriceContainer /> */}
       <div className="callToActionContainer">
-        <CallToAction
-          message={
-            "Transforma Tu Mandibula"
-          } handleOpenForm={handleOpenForm}
-        />
+        <div className="ctaContainer w-screen p-1">
+          <button className="bg-success">
+            <a onClick={goToProductPromo}>
+              <span>
+                Transforma Tu Mandibula
+                <svg
+                  fill="none"
+                  stroke="#ffffff"
+                  height="25"
+                  viewBox="0 0 30 27"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ fontWeight: 600 }}
+                  strokeWidth={2}
+                >
+                  <path d="M1.39999 1.70001H6.60001" stroke="#ffffff" />
+                  <path d="M6.60001 1.70001L11 18.9" />
+                  <path d="M11.8 18.9H28.3" stroke="##ffffff" />
+                  <path
+                    d="M13.8 25.7C15.4569 25.7 16.8 24.3569 16.8 22.7C16.8 21.0432 15.4569 19.7 13.8 19.7C12.1431 19.7 10.8 21.0432 10.8 22.7C10.8 24.3569 12.1431 25.7 13.8 25.7Z"
+                    stroke="#ffffff"
+                  />
+                  <path
+                    d="M25.3 25.7C26.9568 25.7 28.3 24.3569 28.3 22.7C28.3 21.0432 26.9568 19.7 25.3 19.7C23.6431 19.7 22.3 21.0432 22.3 22.7C22.3 24.3569 23.6431 25.7 25.3 25.7Z"
+                    stroke="#ffffff"
+                  />
+                  <path
+                    d="M25.7 14.6H11.3C10.7 14.6 10.1 14.2 10 13.6L8.1 6.90001C7.9 6.00001 8.49999 5.20001 9.39999 5.20001H27.5C28.4 5.20001 29.1 6.10001 28.8 6.90001L26.9 13.6C26.9 14.2 26.4 14.6 25.7 14.6Z"
+                    stroke="#ffffff"
+                  />
+                </svg>
+              </span>
+            </a>
+
+            <span>+ Rutina de Entrenamiento GRATIS</span>
+          </button>
+        </div>
       </div>
-      {openForm && (
+      {/* {openForm && (
         <PurchaseForm setOpenForm={setOpenForm} setThanksPage={setThanksPage} />
       )}
-      {openThanksPage && <ThanksPage setThanksPage={setThanksPage} />}
+      {openThanksPage && <ThanksPage setThanksPage={setThanksPage} />} */}
       <Footer />
     </main>
   );

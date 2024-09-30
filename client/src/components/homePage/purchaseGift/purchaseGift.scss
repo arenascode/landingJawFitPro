@@ -1,11 +1,13 @@
 @import "../../../scss/base";
 
 #purchaseGiftContainer {
-  margin-top: 1rem;
+  margin-top: 0.6rem;
   margin-bottom: 0.2rem;
-  padding: 0 0.5rem;
+  padding: 0 0.6rem;
   display: flex;
   flex-direction: column;
+  color: #2d3748;
+  justify-self: center;
   @include tablet {
     padding: 0 1rem;
     margin: 1rem;
@@ -15,10 +17,13 @@
     margin: 3rem 4rem;
     display: flex;
     justify-content: center;
+    width: 70%;
+    align-items: center;
   }
   .purchaseGift_title {
-    display: flex;
-    justify-content: center;
+    // display: flex;
+    // justify-content: center;
+    color: #2d3748;
     align-items: center;
     gap: 0.3rem;
     margin-bottom: 3rem;
@@ -29,25 +34,28 @@
       width: 100%;
       // gap: 0.1rem;
       font-size: 1.5rem;
-      text-align: center;
-      padding: 0 1.8rem;
+      // text-align: center;
+      // padding: 0 0.4rem;
       margin-bottom: 1.5rem;
       // justify-content: space-between;
     }
     span {
+      font-size: 0.7rem;
+      letter-spacing: 0.8px;
+      @include desktop {
+        font-size: 0.8rem;
+      }
+    }
+    h2 {
+      font-size: 1.1rem;
       font-weight: 600;
-      font-size: 1.8rem;
-      letter-spacing: 1px;
-      color: transparent;
-      background: linear-gradient(to bottom, #1081ab, black);
-      /* Clip the background to the text */
-      -webkit-background-clip: text;
-      background-clip: text;
-      /* Set the text color to transparent to show the gradient background */
-      color: transparent;
-      @include mobile {
-        font-size: 1.6rem;
-        width: 70%;
+      // text-align: center
+      @include tablet {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+      }
+      @include desktop {
+        font-size: 2rem;
       }
       @media (prefers-color-scheme: dark) {
         background: linear-gradient(to bottom, #1081ab, #00bfff);
@@ -57,6 +65,15 @@
         /* Set the text color to transparent to show the gradient background */
         color: transparent;
       }
+      span {
+        font-size: 1rem;
+      }
+    }
+    hr {
+      height: 3px;
+      width: 25vw;
+      background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
+      margin-top: 0.3rem;
     }
   }
 
@@ -65,10 +82,10 @@
     flex-direction: column;
     align-items: center;
     .description {
-      background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
-      padding: 10px 16px;
-      border-radius: 10px;
-      box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.347);
+      // background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
+      // padding: 10px 0.6rem;
+      // border-radius: 10px;
+      // box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.347);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -79,16 +96,15 @@
       }
       @include desktop {
         // flex-direction: row;
-        width: 80%;
-        justify-content: center;
+        // width: 80%;
+        align-items: flex-start;
       }
       p {
-        font-size: 1.15rem;
+        font-size: 1.1rem;
         // text-align: left;
         display: flex;
         flex-direction: column;
-        gap: 1rem;
-        letter-spacing: 1px;
+        
         text-wrap: pretty;
         width: 100%;
         @include tablet {
@@ -96,12 +112,14 @@
         }
       }
       ul {
+        padding: 0rem 0.5rem;
         margin-top: 1rem;
         display: flex;
         flex-direction: column;
         // text-align: center;
         gap: 0.8rem;
-        font-size: 1.15rem;
+        font-size: 1.1rem;
+        color: black;
       }
     }
     .purchaseGift_imgContainer {

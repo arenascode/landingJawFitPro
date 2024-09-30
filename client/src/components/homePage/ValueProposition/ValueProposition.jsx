@@ -2,27 +2,29 @@ import "./valueProposition.scss";
 
 const ValueProposition = () => {
 
-  
+
   return (
     <>
       <div className="valueProposition_container">
         <div className="valueProposition_textContainer">
-          <h2 className="valueProposition_textContainer_title">
-            Por qué Necesitas el JawFit-Pro?
-          </h2>
+          <div className="valueProposition_title">
+            <span>TRANSFORMA TU ROSTRO, IMPULSA TU CONFIANZA</span>
+            <h2 className="valueProposition_textContainer_title">
+              ¿POR QUÉ DEBERÍAS ELEGIR JAWFIT-PRO?
+            </h2>
+            <hr />
+          </div>
           <div className="textContainer_body">
             <p>
               Desafortunadamente, los hábitos alimenticios de la sociedad
               moderna han cambiado de tal manera que casi exclusivamente comemos
-              alimentos blandos. Es por eso que nuestras mandíbulas ya no son
+              alimentos blandos. Es por eso que nuestras mandíbulas se han debilitado y ya no son
               tan pronunciadas como solían ser.
             </p>
-            <div
-              className="imgContainer rounded-md overflow-x-hidden"
-            >
+            <div className="imgContainer bgEffect">
               <img
                 src="/assets/valueProposition/human-face-evolution-small.webp"
-                alt=""
+                alt="Human-face-evolution" className=""
               />
             </div>
             <p>
@@ -31,9 +33,7 @@ const ValueProposition = () => {
               que caracterizaba a nuestros antepasados, quienes solían
               fortalecer sus mandíbulas al morder alimentos más resistentes.
             </p>
-            <div
-              className="imgContainer overflow-x-hidden"
-            >
+            <div className="imgContainer overflow-x-hidden bgEffect2">
               <img
                 src="/assets/valueProposition/beforeAndAfter3-small.webp"
                 alt=""
@@ -49,10 +49,13 @@ const ValueProposition = () => {
         </div>
       </div>
       <div className="valueProposition_productBenefits">
-        <h2 className="productBenefits_title tracking-wider">
-          <span>Descubre Tu Transformación:</span> <br />
-          <span><b>Los Poderes Detrás de JawFit-Pro</b></span>
-        </h2>
+        <div className="productBenefits_title tracking-wider">
+          <span>DESCUBRE TU TRANSFORMACIÓN</span>
+          <h2>
+            LOS PODERES DETRÁS DE JAWFIT-PRO
+          </h2>
+          <hr />
+        </div>
         <div className="productBenefits_card">
           <div className="imgContainer">
             <img src="/assets/valueProposition/menAndWomen-small.webp" alt="" />

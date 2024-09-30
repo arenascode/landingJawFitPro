@@ -161,7 +161,7 @@ const HomePage = () => {
       <section id="productPromo">
         <ProductPromo/>
       </section>
-      <section id="Gift" className="section h-full">
+      <section id="Gift" className="section h-full flex justify-center">
         <PurchaseGift />
       </section>
       <section id="beforeAndAfter">

@@ -4,55 +4,91 @@
   margin-top: 1rem;
   padding: 0 0.5rem;
   background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
+  padding-bottom: 1rem;
   @include tablet {
     padding: 0 1rem;
     margin: 1rem;
     margin-top: 3rem;
   }
   @include desktop {
-    margin: 3rem 4rem;
+    margin: 0;
     display: flex;
     justify-content: center;
   }
   .valueProposition_textContainer {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    // padding: 5px;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
     display: flex;
     @include desktop {
       align-items: center;
     }
-    .valueProposition_textContainer_title {
-      font-size: 1.4rem;
-      font-weight: 600;
-      text-align: center;
-      background: linear-gradient(to bottom, #1081ab, black);
-      /* Clip the background to the text */
-      -webkit-background-clip: text;
-      background-clip: text;
-      /* Set the text color to transparent to show the gradient background */
-      color: transparent;
-      @include tablet {
-        font-size: 1.8rem;
-      }
+    .valueProposition_title {
+      margin: 0.5rem;
       @include desktop {
-        font-size: 2rem;
+        margin: 1rem;
       }
-      @media (prefers-color-scheme: dark) {
-        background: linear-gradient(to bottom, #1081ab, #00bfff);
+      span {
+        font-size: 0.65rem;
+        letter-spacing: 0.8px;
+        @include desktop {
+          font-size: 0.8rem;
+        }
+      }
+      h2 {
+        font-weight: 600;
+        font-size: 1.2rem;
+        letter-spacing: 0.5px;
+        margin-top: 0.3rem;
+        background: linear-gradient(to bottom, #36b1dd, #138ebb);
         /* Clip the background to the text */
         -webkit-background-clip: text;
         background-clip: text;
         /* Set the text color to transparent to show the gradient background */
         color: transparent;
+        @include desktop {
+          font-size: 1.5rem;
+        }
+      }
+      hr {
+        height: 3px;
+        width: 35vw;
+        margin-left: 0.2rem;
+        margin-top: 0.2rem;
+        background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
       }
     }
+    // .valueProposition_textContainer_title {
+    //   font-size: 1.4rem;
+    //   font-weight: 600;
+    //   text-align: center;
+    //   background: linear-gradient(to bottom, #1081ab, black);
+    //   /* Clip the background to the text */
+    //   -webkit-background-clip: text;
+    //   background-clip: text;
+    //   /* Set the text color to transparent to show the gradient background */
+    //   color: transparent;
+    //   @include tablet {
+    //     font-size: 1.8rem;
+    //   }
+    //   @include desktop {
+    //     font-size: 2rem;
+    //   }
+    //   @media (prefers-color-scheme: dark) {
+    //     background: linear-gradient(to bottom, #1081ab, #00bfff);
+    //     /* Clip the background to the text */
+    //     -webkit-background-clip: text;
+    //     background-clip: text;
+    //     /* Set the text color to transparent to show the gradient background */
+    //     color: transparent;
+    //   }
+    // }
     .textContainer_body {
       // background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
       padding: 10px;
-      border-radius: 10px;
-      box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.347);
+      // border-radius: 10px;
+      // box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.347);
       display: flex;
       flex-direction: column;
       gap: 1.3rem;
@@ -77,7 +113,7 @@
       }
     }
     .imgContainer {
-      border: solid 1.5px #00b8fc;
+      // border: solid 1.5px #00b8fc;
       overflow: hidden;
       border-radius: 1rem;
       display: flex;
@@ -101,41 +137,46 @@
 .valueProposition_productBenefits {
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
+  margin-top: 1rem;
   gap: 1rem;
   align-items: center;
   margin-bottom: 1.5rem;
-  
+
   @include tablet {
     margin-top: 3rem;
   }
-  h2 {
-    text-align: center;
-
+  .productBenefits_title {
+    color: #2d3748;
+    padding: 0rem 0.8rem;
+    @include desktop {
+      margin: 1rem;
+    }
     span {
-      font-weight: 600;
-      font-size: 1.4rem;
-      letter-spacing: 1px;
-      color: transparent;
-      background: linear-gradient(to bottom, #1081ab, black);
-      /* Clip the background to the text */
-      -webkit-background-clip: text;
-      background-clip: text;
-      /* Set the text color to transparent to show the gradient background */
-      color: transparent;
-      @include tablet {
-        font-size: 1.8rem;
-      }
-      @media (prefers-color-scheme: dark) {
-        background: linear-gradient(to bottom, #1081ab, #00bfff);
-        /* Clip the background to the text */
-        -webkit-background-clip: text;
-        background-clip: text;
-        /* Set the text color to transparent to show the gradient background */
-        color: transparent;
+      font-size: 0.65rem;
+      letter-spacing: 0.8px;
+      @include desktop {
+        font-size: 0.8rem;
       }
     }
+    h2 {
+      font-weight: 600;
+      font-size: 1.2rem;
+      letter-spacing: 0.5px;
+      margin-top: 0.1rem;
+      text-wrap: pretty;
+      @include desktop {
+        font-size: 1.5rem;
+      }
+    }
+    hr {
+      height: 3px;
+      width: 35vw;
+      margin-left: 0.2rem;
+      margin-top: 0.2rem;
+      background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
+    }
   }
+
   .productBenefits_card {
     display: flex;
     flex-direction: column;

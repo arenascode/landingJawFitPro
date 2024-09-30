@@ -51,14 +51,17 @@ const ProductPromo = () => {
 
   return (
     <div className="promo-section">
-      <h2 className="promo-title">
-        ¡Nuestras promociones exclusivas para una mandíbula más fuerte!
-      </h2>
-      <p className="promo-description">
+      <div className="promo-title-container">
+        <span>MAXIMIZA TU POTENCIAL</span>
+        <h2 className="promo-title">
+          PROMOCIONES IRRESTISTIBLES PARA ESCULPIR TU MANDÍBULA
+        </h2>
+        <hr />
+      </div>
+      {/* <p className="promo-description">
         Asegura tu progreso y mantén una mandíbula definida con nuestras ofertas
         especiales.
-      </p>
-
+      </p> */}
       <div className="cards-container">
         {/* Card: Kit Normal */}
         <div className="promo-card">
@@ -112,8 +115,8 @@ const ProductPromo = () => {
             </li>
           </ul>
           <p className="promo-text">
-            Perfecto para aquellos que ya entrenan su mandíbula
-            y quieren llevar su fuerza y definición al siguiente nivel.
+            Perfecto para aquellos que ya entrenan su mandíbula y quieren llevar
+            su fuerza y definición al siguiente nivel.
           </p>
           <span className="price">
             <del>$89.900</del> <strong>$74.900</strong>

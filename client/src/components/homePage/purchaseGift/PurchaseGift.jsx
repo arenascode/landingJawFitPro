@@ -5,11 +5,9 @@ const PurchaseGift = () => {
     return (
       <div id="purchaseGiftContainer">
         <div className="purchaseGift_title">
-          🎁
-          <h2>
-            <span>Obtén Más</span> <span>Con Tu Compra </span>
-          </h2>
-          🎁
+          <span>NO TE QUEDES CON LAS GANAS</span>
+          <h2>MÁS BENEFICIOS CON TU COMPRA HOY MISMO <span>🎁</span></h2>
+          <hr />
         </div>
         <div className="purchaseGift_body">
           <div className="description">

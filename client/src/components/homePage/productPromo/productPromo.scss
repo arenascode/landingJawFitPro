@@ -1,36 +1,51 @@
 @import "../../../scss/base";
 
 .promo-section {
-  text-align: center;
+  // text-align: center;
   padding: 2rem;
   background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
   @include mobile {
     padding: 0.7rem 0.7rem 1.1rem;
   }
-  .promo-title {
-    font-size: 1.4rem;
-    font-weight: 600;
-    text-align: center;
-    background: linear-gradient(to bottom, #36b1dd, #138ebb);
-    /* Clip the background to the text */
-    -webkit-background-clip: text;
-    background-clip: text;
-    /* Set the text color to transparent to show the gradient background */
-    color: transparent;
-    @include tablet {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
+  .promo-title-container {
+    span {
+      font-size: 0.7rem;
+      letter-spacing: 0.8px;
+      @include desktop {
+        font-size: 0.8rem;
+      }
     }
-    @include desktop {
-      font-size: 2rem;
-    }
-    @media (prefers-color-scheme: dark) {
-      background: linear-gradient(to bottom, #1081ab, #00bfff);
+    .promo-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      // text-align: center;
+      background: linear-gradient(to bottom, #36b1dd, #138ebb);
       /* Clip the background to the text */
       -webkit-background-clip: text;
       background-clip: text;
       /* Set the text color to transparent to show the gradient background */
       color: transparent;
+      @include tablet {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+      }
+      @include desktop {
+        font-size: 2rem;
+      }
+      @media (prefers-color-scheme: dark) {
+        background: linear-gradient(to bottom, #1081ab, #00bfff);
+        /* Clip the background to the text */
+        -webkit-background-clip: text;
+        background-clip: text;
+        /* Set the text color to transparent to show the gradient background */
+        color: transparent;
+      }
+    }
+    hr {
+      height: 3px;
+      width: 30vw;
+      background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
+      margin-top: 0.3rem;
     }
   }
 
@@ -47,6 +62,7 @@
     display: flex;
     justify-content: center;
     gap: 2rem;
+    margin-top: 1.5rem;
     @include mobile {
       flex-direction: column;
       align-items: center;
@@ -114,8 +130,8 @@
       color: #666;
       margin-bottom: 1rem;
       @media (prefers-color-scheme: dark) {
-      color: whitesmoke;
-    }
+        color: whitesmoke;
+      }
     }
 
     .price {
@@ -123,8 +139,8 @@
       color: #333;
       // margin-bottom: 0.5rem;
       @media (prefers-color-scheme: dark) {
-      color: whitesmoke;
-    }
+        color: whitesmoke;
+      }
       del {
         color: #9a9797;
       }
