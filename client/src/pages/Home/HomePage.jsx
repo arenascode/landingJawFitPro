@@ -1,11 +1,11 @@
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 // import useLocalStorage from "../../hooks/useLocalStorage.js";
 // import Vsl from "../../components/homePage/vsl/Vsl.jsx";
 import ProductIntro from "../../components/homePage/ProductIntro/ProductIntro.jsx";
 import "./home.scss";
-// import ValueProposition from "../../components/homePage/ValueProposition/ValueProposition.jsx";
+import ValueProposition from "../../components/homePage/ValueProposition/ValueProposition.jsx";
 import HowToUseIt from "../../components/homePage/howToUseIt/HowToUseIt.jsx";
 import Banner from "../../components/banner/Banner.jsx";
 import CallToAction from "../../components/homePage/callToAction/CallToAction.jsx";
@@ -24,11 +24,18 @@ import BeforeAndAfter from "../../components/homePage/beforeAndAfter/BeforeAndAf
 import { HeroSection } from "../../components/heroSection/HeroSection.jsx";
 import { usePurchase } from "../../context/PurchaseContext.jsx";
 import ProductPromo from "../../components/homePage/productPromo/ProductPromo.jsx";
-import HowItWorks from "../../components/homePage/ValueProposition/ValueProposition.jsx";
+import heroBackground from "/assets/valueProposition/heroSection.webp";
+import heroBackgroundMobile from "/assets/valueProposition/heroSection_mobile.webp";
 
 const HomePage = () => {
   // const [showProduct, setShowProduct] = useLocalStorage("vslViewed", false);
 
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
+  useEffect(() => {
+    setIsMobile(window.innerWidth <= 480);
+  }, []);
+  console.log({isMobile});
+  
   const {openForm, setOpenForm, setThanksPage, openThanksPage, handleOpenForm} = usePurchase()
   useEffect(() => {
     Aos.init({
@@ -137,11 +144,11 @@ const HomePage = () => {
       )} */}
       <HeroSection
         handleOpenHeroBtn={handleOpenHeroBtn}
-        // backgroundHero={heroBackground}
-        // ctaMessage={"Conocelo"}
-        // subHeadline={
-        //   "Esculpe y define tu mandíbula para transformar tu atractivo."
-        // }
+        heroBackground={isMobile ? heroBackgroundMobile : heroBackground }
+        ctaMessage={"Conocelo"}
+        subHeadline={
+          "Esculpe y define tu mandíbula para transformar tu atractivo."
+        }
       />
       <div id="productRedirect"></div>
       <ProductIntro />
@@ -149,7 +156,7 @@ const HomePage = () => {
         <Reviews />
       </section>
       <section id="ValueProposition" className="section">
-        <HowItWorks />
+        <ValueProposition />
       </section>
       <section id="productPromo">
         <ProductPromo/>
@@ -211,7 +218,6 @@ const HomePage = () => {
           handleOpenForm={handleOpenForm}
         />
       </div>
-
       <Footer />
       <div className="wtspIconContainer animated-icon">
         <a

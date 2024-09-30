@@ -79,7 +79,7 @@ const HomeNavBar = () => {
               <a href="/">Home</a>
             </li>
             <li>
-              <a href="/#ValueProposition" onClick={trackPixel}>
+              <a href="/como-funciona" onClick={trackPixel}>
                 Cómo funciona <small>(La ciencia detrás)</small>
               </a>
             </li>
@@ -103,7 +103,7 @@ const HomeNavBar = () => {
             <Link to={"/"}>Home</Link>
           </li>
           <li>
-            <a href={"/#ValueProposition"} onClick={trackPixel}>
+            <a href={"/como-funciona"} onClick={trackPixel}>
               Cómo funciona JawFit-Pro / <small> La ciencia detrás</small>
             </a>
           </li>

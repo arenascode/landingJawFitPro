@@ -301,10 +301,10 @@ const ProductIntro = () => {
             <div className="textContainer_title w-full flex justify-start">
               <h1 className="text-3xl font-semibold">JawFit-Pro</h1>
             </div>
-            {/* <div className="priceProductContainer">
+            <div className="priceProductContainer">
               <div className="before">$99.999 COP</div>
-              <div className="after">$69.900 COP</div>
-            </div> */}
+              <div className="after">$64.900 COP</div>
+            </div>
             <div className="text_body">
               {/* <p>
                 JawFit-Pro te ayuda a fortalecer y esculpir los músculos

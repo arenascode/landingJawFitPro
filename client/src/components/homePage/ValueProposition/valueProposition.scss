@@ -1,404 +1,404 @@
 @import "../../../scss/base";
 
-// .valueProposition_container {
-//   margin-top: 1rem;
-//   padding: 0 0.5rem;
-  
-//   @include tablet {
-//     padding: 0 1rem;
-//     margin: 1rem;
-//     margin-top: 3rem;
-//   }
-//   @include desktop {
-//     margin: 3rem 4rem;
-//     display: flex;
-//     justify-content: center;
-//   }
-//   .valueProposition_textContainer {
-//     display: flex;
-//     flex-direction: column;
-//     gap: 1rem;
-//     // padding: 5px;
-//     display: flex;
-//     @include desktop {
-//       align-items: center;
-//     }
-//     .valueProposition_textContainer_title {
-//       font-size: 1.4rem;
-//       font-weight: 600;
-//       text-align: center;
-//       background: linear-gradient(to bottom, #1081ab, black);
-//       /* Clip the background to the text */
-//       -webkit-background-clip: text;
-//       background-clip: text;
-//       /* Set the text color to transparent to show the gradient background */
-//       color: transparent;
-//       @include tablet {
-//         font-size: 1.8rem;
-//       }
-//       @include desktop {
-//         font-size: 2rem;
-//       }
-//       @media (prefers-color-scheme: dark) {
-//         background: linear-gradient(to bottom, #1081ab, #00bfff);
-//         /* Clip the background to the text */
-//         -webkit-background-clip: text;
-//         background-clip: text;
-//         /* Set the text color to transparent to show the gradient background */
-//         color: transparent;
-//       }
-//     }
-//     .textContainer_body {
-//       background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
-//       padding: 10px;
-//       border-radius: 10px;
-//       box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.347);
-//       display: flex;
-//       flex-direction: column;
-//       gap: 1.3rem;
-//       // margin-top: 1rem;
-//       @include tablet {
-//         justify-content: center;
-//       }
-//       @include desktop {
-//         // flex-direction: row;
-//         width: 80%;
-//       }
-//       p {
-//         font-size: 1.1rem;
-//         display: flex;
-//         flex-direction: column;
-//         gap: 1rem;
-//         letter-spacing: 1px;
-//         text-wrap: pretty;
-//         @include tablet {
-//           font-size: 1.3rem;
-//         }
-//       }
-//     }
-//     .imgContainer {
-//       border: solid 1.5px #00b8fc;
-//       overflow: hidden;
-//       border-radius: 1rem;
-//       display: flex;
-//       align-items: center;
-//       justify-content: center;
-//       @include tablet {
-//         align-self: center;
-//         width: 60%;
-//       }
-//       @include mobile {
-//         width: 100%;
-//       }
-
-//       img {
-//         width: 100%;
-//       }
-//     }
-//   }
-// }
-
-// .valueProposition_productBenefits {
-//   display: flex;
-//   flex-direction: column;
-//   margin-top: 2rem;
-//   gap: 1rem;
-//   align-items: center;
-//   margin-bottom: 1.5rem;
-  
-//   @include tablet {
-//     margin-top: 3rem;
-//   }
-//   h2 {
-//     text-align: center;
-
-//     span {
-//       font-weight: 600;
-//       font-size: 1.4rem;
-//       letter-spacing: 1px;
-//       color: transparent;
-//       background: linear-gradient(to bottom, #1081ab, black);
-//       /* Clip the background to the text */
-//       -webkit-background-clip: text;
-//       background-clip: text;
-//       /* Set the text color to transparent to show the gradient background */
-//       color: transparent;
-//       @include tablet {
-//         font-size: 1.8rem;
-//       }
-//       @media (prefers-color-scheme: dark) {
-//         background: linear-gradient(to bottom, #1081ab, #00bfff);
-//         /* Clip the background to the text */
-//         -webkit-background-clip: text;
-//         background-clip: text;
-//         /* Set the text color to transparent to show the gradient background */
-//         color: transparent;
-//       }
-//     }
-//   }
-//   .productBenefits_card {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     justify-content: center;
-//     padding: 0 0.5rem;
-//     .imgContainer {
-//       // border: solid 1.5px #00b8fc;
-//       overflow: hidden;
-//       border-radius: 1rem;
-//       // margin: 0.2rem;
-//       height: 170px;
-//       display: flex;
-//       @include mobile {
-//         width: 100%;
-//       }
-//       @include tablet {
-//         width: 80%;
-//         height: 210px;
-//       }
-//       @include desktop {
-//         width: 70%;
-//       }
-//       img {
-//         width: 100%;
-//         height: 100%;
-//       }
-//     }
-//     .productBenefits_items {
-//       padding: 0.3rem;
-//       padding-bottom: 0.6rem;
-//       display: flex;
-//       flex-direction: column;
-//       align-items: center;
-//       justify-content: center;
-//       gap: 1.5rem;
-//       margin-top: 1rem;
-//       @include tablet {
-//         margin-top: 1.5rem;
-//         gap: 2rem;
-//       }
-//       .benefit {
-//         display: flex;
-//         align-items: center;
-//         justify-content: center;
-//         gap: 0.5rem;
-//         width: 100%;
-//         @include tablet {
-//           width: 85%;
-//         }
-//         @include desktop {
-//           width: 80%;
-//         }
-//         .imgBenefit {
-//           width: max-content;
-//         }
-//         p {
-//           // text-align: start;
-//           letter-spacing: 1px;
-//           width: 90%;
-//           text-wrap: balance;
-//           background: linear-gradient(
-//             to bottom right,
-//             #1a202c,
-//             #2d3748,
-//             #4a5568
-//           );
-//           padding: 5px;
-//           border-radius: 10px;
-//           box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.347);
-//           // display: flex;
-//           font-size: 1.1rem;
-//           @include tablet {
-//             font-size: 1.5rem;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
-
-#howItWorks {
-  color: black;
-  background: #f1f0f0;
-  padding: 0.2rem 0rem 0.6rem;
-  // height: 100vh;
-  @media (prefers-color-scheme: dark) {
-      color: white;
-      background: var(--background-color);
+.valueProposition_container {
+  margin-top: 1rem;
+  padding: 0 0.5rem;
+  background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
+  @include tablet {
+    padding: 0 1rem;
+    margin: 1rem;
+    margin-top: 3rem;
   }
-  #howItWorks-science {
-    .science-title {
-      margin: 0.5rem;
+  @include desktop {
+    margin: 3rem 4rem;
+    display: flex;
+    justify-content: center;
+  }
+  .valueProposition_textContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    // padding: 5px;
+    display: flex;
+    @include desktop {
+      align-items: center;
+    }
+    .valueProposition_textContainer_title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      text-align: center;
+      background: linear-gradient(to bottom, #1081ab, black);
+      /* Clip the background to the text */
+      -webkit-background-clip: text;
+      background-clip: text;
+      /* Set the text color to transparent to show the gradient background */
+      color: transparent;
+      @include tablet {
+        font-size: 1.8rem;
+      }
       @include desktop {
-        margin: 1rem;
+        font-size: 2rem;
       }
-      span {
-        font-size: 0.6rem;
-        letter-spacing: 0.8px;
-        @include desktop {
-          font-size: 0.8rem;
-        }
-      }
-      h1 {
-        font-weight: 600;
-        font-size: 1.1rem;
-        letter-spacing: 0.5px;
-        @include desktop {
-          font-size: 1.5rem;
-        }
-      }
-      hr {
-        height: 3px;
-        width: 20vw;
-        background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
+      @media (prefers-color-scheme: dark) {
+        background: linear-gradient(to bottom, #1081ab, #00bfff);
+        /* Clip the background to the text */
+        -webkit-background-clip: text;
+        background-clip: text;
+        /* Set the text color to transparent to show the gradient background */
+        color: transparent;
       }
     }
-    .science-body {
-      padding: 0.6rem 1rem;
+    .textContainer_body {
+      // background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.347);
       display: flex;
-      align-items: center;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1.3rem;
+      // margin-top: 1rem;
       @include tablet {
-        gap: 3rem;
-        padding: 0.6rem 1.5rem 0.6rem 1rem;
+        justify-content: center;
       }
       @include desktop {
-        margin: 0.6rem 10rem;
+        // flex-direction: row;
+        width: 80%;
       }
-      .paragraph {
+      p {
+        font-size: 1.1rem;
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        align-items: center;
+        letter-spacing: 1px;
+        text-wrap: pretty;
         @include tablet {
-          flex-direction: row;
-        }
-        @include desktop {
-          gap: 3rem;
-        }
-        &:nth-of-type(2n) {
-          @include tablet {
-            flex-direction: row-reverse;
-            gap: 1.7rem;
-            text-align: end;
-          }
-          @include desktop {
-            gap: 3rem;
-          }
-        }
-        p {
-          @include tablet {
-            flex: 2;
-            align-content: center;
-            font-size: 1.1rem;
-          }
-          @include desktop {
-            font-size: 1.2rem;
-          }
-        }
-        p:nth-of-type(2n) {
-          margin-top: 1rem;
-        }
-        p:nth-of-type(2n + 1) {
-          margin-top: 1rem;
-          flex: 1.5;
-        }
-
-        .bgEffect {
-          width: 65%;
-          position: relative;
-          z-index: 9;
-          // overflow: hidden;
-          @include tablet {
-            flex: 1;
-            // width: 50%;
-          }
-          video {
-            border-radius: 10px;
-            &:hover {
-              translate: 0.8rem 0.8rem;
-            }
-          }
-          img {
-            @extend video;
-            img:hover {
-              translate: 0.8rem 0.8rem;
-            }
-          }
-          &:nth-of-type(3) {
-            width: 75%;
-            @include tablet {
-              flex: 2;
-            }
-          }
-          &:after {
-            content: "";
-            position: absolute;
-            top: 0.8rem;
-            height: 100%;
-            width: 100%;
-            left: 0.8rem;
-            background: var(--background-color);
-            z-index: -9;
-            border-radius: 10px;
-          }
-        }
-      }
-    }
-    .dumbelsJaw {
-      margin-top: 0.6rem;
-      width: 100%;
-      background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
-      color: white;
-      padding: 0.5rem 0.2rem;
-      .dumbelsJaw-title {
-        @extend .science-title;
-      }
-      .dumbelsJaw-body {
-        @extend .science-body;
-        @include tablet {
-          gap: 1.5rem;
-        }
-        p {
-          @include tablet {
-            font-size: 1.1rem;
-          }
-          @include desktop {
-            font-size: 1.3rem;
-          }
-        }
-        .videoContainer {
-          width: 70%;
-          @include tablet {
-            width: 50%;
-            border-radius: 10px;
-            overflow: hidden;
-          }
-          @include desktop {
-            width: 35%;
-          }
-        }
-      }
-    }
-
-    .whatToExpect {
-      .whatToExpect-title {
-        @extend .science-title;
-      }
-      .whatToExpect-body {
-        @extend .science-body;
-        @include tablet {
-          font-size: 1.1rem;
-          gap: 1.3rem;
-        }
-        @include desktop {
           font-size: 1.3rem;
         }
       }
     }
-  }
-  .callToActionContainer {
-    padding: 0.3rem;
+    .imgContainer {
+      border: solid 1.5px #00b8fc;
+      overflow: hidden;
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include tablet {
+        align-self: center;
+        width: 60%;
+      }
+      @include mobile {
+        width: 100%;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
   }
 }
+
+.valueProposition_productBenefits {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  
+  @include tablet {
+    margin-top: 3rem;
+  }
+  h2 {
+    text-align: center;
+
+    span {
+      font-weight: 600;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+      color: transparent;
+      background: linear-gradient(to bottom, #1081ab, black);
+      /* Clip the background to the text */
+      -webkit-background-clip: text;
+      background-clip: text;
+      /* Set the text color to transparent to show the gradient background */
+      color: transparent;
+      @include tablet {
+        font-size: 1.8rem;
+      }
+      @media (prefers-color-scheme: dark) {
+        background: linear-gradient(to bottom, #1081ab, #00bfff);
+        /* Clip the background to the text */
+        -webkit-background-clip: text;
+        background-clip: text;
+        /* Set the text color to transparent to show the gradient background */
+        color: transparent;
+      }
+    }
+  }
+  .productBenefits_card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.5rem;
+    .imgContainer {
+      // border: solid 1.5px #00b8fc;
+      overflow: hidden;
+      border-radius: 1rem;
+      // margin: 0.2rem;
+      height: 170px;
+      display: flex;
+      @include mobile {
+        width: 100%;
+      }
+      @include tablet {
+        width: 80%;
+        height: 210px;
+      }
+      @include desktop {
+        width: 70%;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .productBenefits_items {
+      padding: 0.3rem;
+      padding-bottom: 0.6rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      @include tablet {
+        margin-top: 1.5rem;
+        gap: 2rem;
+      }
+      .benefit {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        @include tablet {
+          width: 85%;
+        }
+        @include desktop {
+          width: 80%;
+        }
+        .imgBenefit {
+          width: max-content;
+        }
+        p {
+          // text-align: start;
+          letter-spacing: 1px;
+          width: 90%;
+          text-wrap: balance;
+          background: linear-gradient(
+            to bottom right,
+            #1a202c,
+            #2d3748,
+            #4a5568
+          );
+          padding: 5px;
+          border-radius: 10px;
+          box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.347);
+          // display: flex;
+          font-size: 1.1rem;
+          @include tablet {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+// #howItWorks {
+//   color: black;
+//   background: #f1f0f0;
+//   padding: 0.2rem 0rem 0.6rem;
+//   // height: 100vh;
+//   @media (prefers-color-scheme: dark) {
+//       color: white;
+//       background: var(--background-color);
+//   }
+//   #howItWorks-science {
+//     .science-title {
+//       margin: 0.5rem;
+//       @include desktop {
+//         margin: 1rem;
+//       }
+//       span {
+//         font-size: 0.6rem;
+//         letter-spacing: 0.8px;
+//         @include desktop {
+//           font-size: 0.8rem;
+//         }
+//       }
+//       h1 {
+//         font-weight: 600;
+//         font-size: 1.1rem;
+//         letter-spacing: 0.5px;
+//         @include desktop {
+//           font-size: 1.5rem;
+//         }
+//       }
+//       hr {
+//         height: 3px;
+//         width: 20vw;
+//         background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
+//       }
+//     }
+//     .science-body {
+//       padding: 0.6rem 1rem;
+//       display: flex;
+//       align-items: center;
+//       flex-direction: column;
+//       gap: 1.5rem;
+//       @include tablet {
+//         gap: 3rem;
+//         padding: 0.6rem 1.5rem 0.6rem 1rem;
+//       }
+//       @include desktop {
+//         margin: 0.6rem 10rem;
+//       }
+//       .paragraph {
+//         display: flex;
+//         flex-direction: column;
+//         gap: 1rem;
+//         align-items: center;
+//         @include tablet {
+//           flex-direction: row;
+//         }
+//         @include desktop {
+//           gap: 3rem;
+//         }
+//         &:nth-of-type(2n) {
+//           @include tablet {
+//             flex-direction: row-reverse;
+//             gap: 1.7rem;
+//             text-align: end;
+//           }
+//           @include desktop {
+//             gap: 3rem;
+//           }
+//         }
+//         p {
+//           @include tablet {
+//             flex: 2;
+//             align-content: center;
+//             font-size: 1.1rem;
+//           }
+//           @include desktop {
+//             font-size: 1.2rem;
+//           }
+//         }
+//         p:nth-of-type(2n) {
+//           margin-top: 1rem;
+//         }
+//         p:nth-of-type(2n + 1) {
+//           margin-top: 1rem;
+//           flex: 1.5;
+//         }
+
+//         .bgEffect {
+//           width: 65%;
+//           position: relative;
+//           z-index: 9;
+//           // overflow: hidden;
+//           @include tablet {
+//             flex: 1;
+//             // width: 50%;
+//           }
+//           video {
+//             border-radius: 10px;
+//             &:hover {
+//               translate: 0.8rem 0.8rem;
+//             }
+//           }
+//           img {
+//             @extend video;
+//             img:hover {
+//               translate: 0.8rem 0.8rem;
+//             }
+//           }
+//           &:nth-of-type(3) {
+//             width: 75%;
+//             @include tablet {
+//               flex: 2;
+//             }
+//           }
+//           &:after {
+//             content: "";
+//             position: absolute;
+//             top: 0.8rem;
+//             height: 100%;
+//             width: 100%;
+//             left: 0.8rem;
+//             background: var(--background-color);
+//             z-index: -9;
+//             border-radius: 10px;
+//           }
+//         }
+//       }
+//     }
+//     .dumbelsJaw {
+//       margin-top: 0.6rem;
+//       width: 100%;
+//       background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
+//       color: white;
+//       padding: 0.5rem 0.2rem;
+//       .dumbelsJaw-title {
+//         @extend .science-title;
+//       }
+//       .dumbelsJaw-body {
+//         @extend .science-body;
+//         @include tablet {
+//           gap: 1.5rem;
+//         }
+//         p {
+//           @include tablet {
+//             font-size: 1.1rem;
+//           }
+//           @include desktop {
+//             font-size: 1.3rem;
+//           }
+//         }
+//         .videoContainer {
+//           width: 70%;
+//           @include tablet {
+//             width: 50%;
+//             border-radius: 10px;
+//             overflow: hidden;
+//           }
+//           @include desktop {
+//             width: 35%;
+//           }
+//         }
+//       }
+//     }
+
+//     .whatToExpect {
+//       .whatToExpect-title {
+//         @extend .science-title;
+//       }
+//       .whatToExpect-body {
+//         @extend .science-body;
+//         @include tablet {
+//           font-size: 1.1rem;
+//           gap: 1.3rem;
+//         }
+//         @include desktop {
+//           font-size: 1.3rem;
+//         }
+//       }
+//     }
+//   }
+//   .callToActionContainer {
+//     padding: 0.3rem;
+//   }
+// }

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { HeroSection } from "../../components/heroSection/HeroSection.jsx";
 import "./howItWorks.scss";
 import heroHowItWorksBackground from "/assets/howToUseIt/jawline2.webp";
@@ -17,6 +17,11 @@ const HowItWorks = () => {
   const video2Ref = useRef(null);
   const video3Ref = useRef(null);
 
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
+  
+  useEffect(() => {
+    setIsMobile(window.innerWidth <= 480);
+  }, []);
   const windowHeight = window.innerHeight;
 
   const { openForm, setOpenForm, openThanksPage, setThanksPage, handleOpenForm } = usePurchase()
@@ -59,7 +64,7 @@ const HowItWorks = () => {
   return (
     <main id="howItWorks">
       <HeroSection
-        backgroundHero={heroHowItWorksBackground}
+        heroBackground={heroHowItWorksBackground}
         ctaMessage={"Descubre Como Funciona"}
         subHeadline={
           "Conoce el secreto detrás de una mandíbula definida y poderosa"
