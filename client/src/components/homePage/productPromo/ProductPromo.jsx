@@ -2,9 +2,9 @@ import "./productPromo.scss";
 import BasicKit from "/assets/product/productIntroV2-small.webp";
 import advancedKit from "/assets/product/kitAdvanced-sm.webp";
 import promoKit from "/assets/product/kitPromo-sm.webp";
-import whiteStrength from "/assets/product/whiteStrength-sm.webp"
-import greyStrength from "/assets/product/greyStrength-sm.webp"
-import blackStrength from "/assets/product/blackStrength-sm.webp"
+import whiteStrength from "/assets/product/whitePairs.webp"
+import greyStrength from "/assets/product/greyPairs.webp"
+import blackStrength from "/assets/product/blackPairs.webp"
 import { usePurchase } from "../../../context/PurchaseContext.jsx";
 
 const ProductPromo = () => {
@@ -69,14 +69,14 @@ const ProductPromo = () => {
           <h3 className="card-title">Kit de 3 Niveles (Primera vez)</h3>
           <ul className="promo-features">
             <li>
-              <img src={whiteStrength} alt="basic" width="48" /> Básico (Blanco)
+              <img src={whiteStrength} alt="basic" width="48" /> 1 Par Principiante (Blanco)
             </li>
             <li>
               <img src={greyStrength} alt="intermediate" width="48" />{" "}
-              Intermedio (Gris)
+              1 Par Intermedio (Gris)
             </li>
             <li>
-              <img src={blackStrength} alt="advanced" width="48" /> Avanzado
+              <img src={blackStrength} alt="advanced" width="48" /> 1 Par Avanzado
               (Negro)
             </li>
           </ul>
@@ -99,7 +99,7 @@ const ProductPromo = () => {
         {/* Card: Kit Solo Avanzado */}
         <div className="promo-card">
           <img src={advancedKit} alt="Kit advanced" className="promo-image" />
-          <h3 className="card-title">Kit Avanzado</h3>
+          <h3 className="card-title">Kit Avanzado <small>(3 pares)</small></h3>
           <ul className="promo-features">
             <li>
               <img src={blackStrength} alt="advanced" width="50" />
@@ -142,14 +142,14 @@ const ProductPromo = () => {
           <h3 className="card-title">Kit Primera vez + Kit Avanzado 🖤</h3>
           <ul className="promo-features">
             <li>
-              <img src={whiteStrength} alt="basic" width="48" /> Básico (Blanco)
+              <img src={whiteStrength} alt="basic" width="48" /> 1 Par Básico (Blanco)
             </li>
             <li>
               <img src={greyStrength} alt="intermediate" width="48" />{" "}
-              Intermedio (Gris)
+              1 Par Intermedio (Gris)
             </li>
             <li>
-              <img src={blackStrength} alt="advanced" width="48" /> Avanzado
+              <img src={blackStrength} alt="advanced" width="48" /> 1 Par Avanzado
               (Negro)
             </li>
             <li>
