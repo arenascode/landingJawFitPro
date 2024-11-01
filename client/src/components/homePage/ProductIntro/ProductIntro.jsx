@@ -123,7 +123,7 @@ const ProductIntro = () => {
                 <img
                   src={beforeAndAfter2Img}
                   className="w-full"
-                  alt="Morral Verde Olivo"
+                  alt=""
                 />
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-0.5 right-5 top-1/2 w-[98%]">
                   <button
@@ -144,7 +144,7 @@ const ProductIntro = () => {
                 <img
                   src={strenghtLevelsImg}
                   className="w-full"
-                  alt="Bee Panel"
+                  alt="strenght levels"
                 />
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-0.5 right-5 top-1/2 w-[98%]">
                   <button
