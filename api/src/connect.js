@@ -2,6 +2,7 @@ import { CNX_STR } from "./config/mongo.config.js";
 import mongoose from "mongoose";
 
 const environment = process.env.NODE_ENV || "dev";
+console.log({CNX_STR});
 
 export const connectDB = async () => {
   try {
