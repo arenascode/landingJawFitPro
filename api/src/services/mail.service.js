@@ -110,11 +110,11 @@ class MailService {
 
     const productImages = {
       "1 Par de Gafas Amber Vision con filtro de luz azul": {
-        path: "./public/img/amberLensesSingle.webp",
+        path: "https://ambervision.focusfitshop.com/assets/product/amberLensesSingle.webp",
         cid: "1ParAmberVision",
       },
       "2 Pares de Gafas Amber Vision con filtro de luz azul": {
-        path: "./public/img/amberLensesPair.webp",
+        path: "https://ambervision.focusfitshop.com/assets/product/AmberLensesPair.webp",
         cid: "2ParesAmberVision",
       },
       "Jawfit Kit Primera Vez": {
@@ -154,7 +154,6 @@ class MailService {
         <p style="color: #777;">Pedido #${newClient.numero_orden}</p>
         <h3>¡Gracias por tu compra!</h3>
         <p>Tu pedido ha sido recibido con éxito y estamos trabajando para enviártelo lo antes posible.</p>
-        <a href="https://tu-sitio.com/mi-pedido" style="background-color: #000; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Ver tu pedido</a>
         <br><br>
       </td>
     </tr>
@@ -165,7 +164,7 @@ class MailService {
         <table style="width: 100%; font-size: 14px; margin-top: 10px;">
           <tr>
             <td style="width: 80px;">
-              <img src="https://tuservidor.com/images/gafas-basic.jpg" alt="Producto" style="width: 70px; border: 1px solid #ccc; border-radius: 4px;">
+              <img src=${productImage} alt="Producto" style="width: 70px; border: 1px solid #ccc; border-radius: 4px;">
             </td>
             <td>
               ${newClient.producto}<br>
@@ -210,15 +209,7 @@ class MailService {
               ${newClient.ciudad} - ${newClient.departamento}<br>
               Colombia<br>
               Tel: ${newClient.telefono}<br>
-              ${newClient.datos_adicionales}
-            </td>
-            <td style="vertical-align: top;">
-              <strong>Dirección de facturación</strong><br>
-              ${newClient.nombre}<br>
-              ${newClient.direccion}<br>
-              ${newClient.ciudad} - ${newClient.departamento}<br>
-              Colombia<br>
-              Tel: ${newClient.telefono}
+              ${newClient.datos_adicionales && `Datos Adicionales: ${newClient.datos_adicionales}`}
             </td>
           </tr>
         </table>
@@ -226,7 +217,7 @@ class MailService {
         <div style="padding: 20px;">
         <p style="font-size: 15px;">📦 Tu pedido será despachado pronto. Te estaremos contactando por WhatsApp para confirmar los detalles.</p>
         <p style="font-size: 15px;">Si tenés alguna duda, podés escribirnos en cualquier momento.</p>
-        <p style="font-weight: bold; margin-top: 20px;">¡Gracias por elegir Focus Fit Shop!</p>
+        <p style="font-weight: bold; margin-top: 20px; font-size: 17px;">¡Gracias por elegir Focus Fit Shop!</p>
       </div>
       </td>
     </tr>
@@ -239,7 +230,6 @@ class MailService {
     </tr>
   </table>
 </body>
-
 `;
 
     const mailOptions = {
@@ -247,18 +237,6 @@ class MailService {
       to: clientEmail,
       subject: `Gracias por tu compra de ${newClient.producto}`,
       html: templateClient,
-      attachments: [
-        {
-          filename: "logo.png",
-          path: "./public/img/FocusFitShopLogo.webp",
-          cid: "logoFocuFitShop",
-        },
-        {
-          filename: "productImage.webp",
-          path: productImage.path,
-          cid: productImage.cid,
-        },
-      ],
     };
 
     try {
