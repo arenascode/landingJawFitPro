@@ -111,23 +111,18 @@ class MailService {
     const productImages = {
       "1 Par de Gafas Amber Vision con filtro de luz azul": {
         path: "https://ambervision.focusfitshop.com/assets/product/amberLensesSingle.webp",
-        cid: "1ParAmberVision",
       },
       "2 Pares de Gafas Amber Vision con filtro de luz azul": {
         path: "https://ambervision.focusfitshop.com/assets/product/AmberLensesPair.webp",
-        cid: "2ParesAmberVision",
       },
       "Jawfit Kit Primera Vez": {
         path: "./public/img/JF_basicKit.webp",
-        cid: "jawfitKitPrimeraVez",
       },
       "Kit Avanzado": {
         path: "./public/img/kitAdvanced.webp",
-        cid: "jawFitKitAvanzado",
       },
       "Primera Vez + Avanzado": {
         path: "./public/img/JF_kitPromo.webp",
-        cid: "jawfitKitPromo",
       },
     };
 
@@ -164,7 +159,7 @@ class MailService {
         <table style="width: 100%; font-size: 14px; margin-top: 10px;">
           <tr>
             <td style="width: 80px;">
-              <img src=${productImage} alt="Producto" style="width: 70px; border: 1px solid #ccc; border-radius: 4px;">
+              <img src=${productImage.path} alt="Producto" style="width: 70px; border: 1px solid #ccc; border-radius: 4px;">
             </td>
             <td>
               ${newClient.producto}<br>
