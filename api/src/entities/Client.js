@@ -1,15 +1,17 @@
 export default class Client {
   constructor(
-    nombre,
+    {nombre,
     email,
     telefono,
     cedula,
     ciudad,
     departamento,
     direccion,
-    aditionalData,
     kit,
-    valorCompra
+    numero_orden,
+    valor_compra,
+    producto,
+    datos_adicionales}
   ) {
     (this.nombre = nombre),
       (this.email = email),
@@ -18,9 +20,11 @@ export default class Client {
       (this.ciudad = ciudad),
       (this.departamento = departamento);
     this.direccion = direccion;
-    this.aditionalData = aditionalData;
-    this.kit = kit
-    this.valor_compra = Number(valorCompra.replace(/\,/g, ""));
+    this.kit = kit;
+    this.numero_orden = numero_orden;
+    this.valor_compra = valor_compra;
+    this.producto = producto;
+    this.datos_adicionales = datos_adicionales;
     this.fecha_compra = new Date();
   }
 

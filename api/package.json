@@ -21,8 +21,6 @@
     "facebook-nodejs-business-sdk": "^20.0.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.3.1",
-    "mysql2": "^3.9.3",
-    "mysql2-promise": "^0.1.4",
     "nodemailer": "^6.9.13",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",

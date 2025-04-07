@@ -1,4 +1,3 @@
-import adminDaoMySql from "../daos/admin.mySqlDao.js"
 import adminRepository from "../repositories/admin.repository.js";
 import { isValidPassword } from "../utils/cryptography.js";
 

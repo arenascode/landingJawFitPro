@@ -1,5 +1,4 @@
 import clientDaoMongoDb from "../daos/purchase.mongoDao.js";
-import clientDaoMysql from "../daos/purchase.mySqlDao.js";
 
 class UsersRepository {
   constructor(daoSelected) {
@@ -16,11 +15,7 @@ class UsersRepository {
 
 }
 
-let clientRepository
-if (process.env.NODE_ENV == 'prod') {
-  clientRepository = new UsersRepository(clientDaoMongoDb)
-} else {
-  clientRepository = new UsersRepository(clientDaoMysql)
-}
+const clientRepository = new UsersRepository(clientDaoMongoDb)
+
 
 export default clientRepository;

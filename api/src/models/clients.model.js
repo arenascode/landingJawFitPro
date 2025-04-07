@@ -10,9 +10,11 @@ const clientsSchema = mongoose.Schema(
     ciudad: { type: String, require: true },
     departamento: { type: String, require: true },
     direccion: { type: String, require: true },
-    aditionalData: { type: String, require: false },
     kit: {type: String, required: true},
+    numero_orden: { type: String, require: true },
     valor_compra: { type: Number, require: true },
+    producto: { type: String, require: true },
+    datos_adicionales: { type: String, require: false },
     fecha_compra: { type: String, require: true },
   },
   { versionKey: false }

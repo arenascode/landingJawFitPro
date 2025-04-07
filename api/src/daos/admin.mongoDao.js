@@ -16,6 +16,6 @@ class AdminMongoDao {
   }
 } 
 
-const adminMongoDao = new AdminMongoDao()
+const adminMongoDao = new AdminMongoDao(adminModel)
 
 export default adminMongoDao

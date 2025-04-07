@@ -1,6 +1,4 @@
-import { useEffect } from "react";
 import "./productIntro.scss";
-import Aos from "aos";
 import Banner from "../../banner/Banner.jsx";
 //*Imgs //
 import strenghtLevelsImg from "/assets/product/strenghtLevelsV2-small.webp";
@@ -16,12 +14,12 @@ import strenghtLevelsImgMini from "/assets/product/strenghtLevelsV2-xs.webp";
 import PropTypes from "prop-types";
 
 const ProductIntro = () => {
-  useEffect(() => {
-    Aos.init({
-      duration: 2000,
-      delay: 500,
-    });
-  }, []);
+  // useEffect(() => {
+  //   Aos.init({
+  //     duration: 2000,
+  //     delay: 500,
+  //   });
+  // }, []);
 
   const changeSlide = (slideId) => {
     const targetSlide = document.getElementById(slideId);

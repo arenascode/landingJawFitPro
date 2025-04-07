@@ -26,8 +26,10 @@ export async function newPurchase(req, res, next) {
       remoteAddress: req.connection.remoteAddress,
       headers: req.headers["user-agent"]
     });
+    console.log({result});
+    //check and send the correct response when the Meta token works.
     if (result) {
-      res.status(200).json({message: 'purchase was saved succesfully'})
+      res.status(201).json({message: 'purchase was saved succesfully'})
     }
   } catch (error) {
     res.status(500).json({error: error.message})

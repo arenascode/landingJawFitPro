@@ -3,21 +3,28 @@ import Client from "../entities/Client.js";
 import clientRepository from "../repositories/purchase.repository.js";
 import mailService from "./mail.service.js";
 import adsSdk, { AdAccount } from "facebook-nodejs-business-sdk";
-import bizSdk from "facebook-nodejs-business-sdk"
+import bizSdk from "facebook-nodejs-business-sdk";
 
 class ClientService {
-
   async newClient(clientData) {
-    const newClient = new Client(clientData.Nombre, clientData.Email, clientData.Telefono, clientData.Cedula, clientData.Ciudad, clientData.Departamento, clientData.Direccion, clientData.datosAdicionales,clientData.kit, clientData.valorCompra)
-     
+    console.log({ clientData });
+
+    const newClient = new Client(clientData);
+
+    console.log({ newClient });
+
     try {
-      const clientSaved = await clientRepository.newClient(newClient)
-      
+      const clientSaved = await clientRepository.newClient(newClient);
+      console.log({ clientSaved });
+
       if (clientSaved) {
-        const sendMail = await mailService.sendMailToNotifyPurchase(newClient)
+        const sendMailToAdmin = await mailService.sendMailToNotifyPurchase(newClient);
+        const sendMailToClient = await mailService.sendMailToCofirmClientPurchase(newClient)
+        console.log({ sendMailToAdmin });
+        console.log({ sendMailToClient });
         //*FB PIXEL *//
-        console.log('log in pixel section');
-        const metaAds = adsSdk
+        console.log("log in pixel section");
+        const metaAds = adsSdk;
         const Content = metaAds.Content;
         const CustomData = metaAds.CustomData;
         const DeliveryCategory = metaAds.DeliveryCategory;
@@ -70,23 +77,23 @@ class ClientService {
           }
         );
       }
-      return clientSaved
+      return {success: true, message: "Purchase saved successfully", client: clientSaved};
     } catch (error) {
-      console.log({error});
-      return error.message
+      console.log("Error in purchase service");
+      console.log({ error });
+      return { success: false, message: error.message, client: null};
     }
   }
 
   async getClients() {
-
     try {
-      const clients = await clientRepository.getClients()
-      return clients
+      const clients = await clientRepository.getClients();
+      return clients;
     } catch (error) {
-      return error.message
+      return error.message;
     }
   }
 }
 
-const clientService = new ClientService()
-export default clientService
+const clientService = new ClientService();
+export default clientService;
