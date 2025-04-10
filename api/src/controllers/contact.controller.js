@@ -11,8 +11,8 @@ export async function newContactForm(req, res, next) {
   const contactServiceResponse = await contactService.saveContactForm(req.body)
 
   if (contactServiceResponse.success) {
-    return res.status(200).json({success: true, message: "Gracias por escribirnos. En breve un miembro de nuestro equipo se pondrá en contacto contigo" });
+    return res.status(200).json({message: "Gracias por escribirnos. En breve un miembro de nuestro equipo se pondrá en contacto contigo" });
   } else {
-    return res.status(500).json({success: false, message: "Hubo un error. Intentalo de nuevo más tarde."})
+    return res.status(500).json({message: "Hubo un error. Intentalo de nuevo más tarde."})
   }
 }
