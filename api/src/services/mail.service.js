@@ -127,8 +127,8 @@ class MailService {
     };
 
     function getImageForKit(kitNombre) {
-      console.log({kitNombre});
-      
+      console.log({ kitNombre });
+
       return (
         productImages[kitNombre] || {
           path: "./public/img/FocusFitShopLogo.webp", // fallback
@@ -139,7 +139,7 @@ class MailService {
 
     const productImage = getImageForKit(newClient.producto);
     console.log({ productImage });
-    
+
     const templateClient = `
   <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; color: #333;">
   <table style="max-width: 600px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 8px;">
@@ -159,7 +159,9 @@ class MailService {
         <table style="width: 100%; font-size: 14px; margin-top: 10px;">
           <tr>
             <td style="width: 80px;">
-              <img src=${productImage.path} alt="Producto" style="width: 70px; border: 1px solid #ccc; border-radius: 4px;">
+              <img src=${
+                productImage.path
+              } alt="Producto" style="width: 70px; border: 1px solid #ccc; border-radius: 4px;">
             </td>
             <td>
               ${newClient.producto}<br>
@@ -184,10 +186,6 @@ class MailService {
               newClient.valor_compra
             )} COP</td>
           </tr>
-          <tr>
-            <td>Total pagado hoy</td>
-            <td style="text-align: right;">$0,00 COP</td>
-          </tr>
         </table>
       </td>
     </tr>
@@ -204,7 +202,10 @@ class MailService {
               ${newClient.ciudad} - ${newClient.departamento}<br>
               Colombia<br>
               Tel: ${newClient.telefono}<br>
-              ${newClient.datos_adicionales && `Datos Adicionales: ${newClient.datos_adicionales}`}
+              ${
+                newClient.datos_adicionales &&
+                `Datos Adicionales: ${newClient.datos_adicionales}`
+              }
             </td>
           </tr>
         </table>
@@ -239,6 +240,95 @@ class MailService {
       console.log(`✅ Email sent to Client: ${info.response}`);
     } catch (error) {
       console.error(`❌ Error sending email to Client:`, error);
+    }
+  }
+
+  async sendMailToThanksContact(formContact) {
+     
+    const clientEmail = formContact.email;
+    const transport = nodemailer.createTransport({
+      host: "smtp.hostinger.com",
+      port: 465,
+      secure: true,
+      auth: {
+        user: adminEmail,
+        pass: adminPass,
+      },
+    });
+
+    const templateThanksForContacting = `
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; color: #333;">
+  <table style="max-width: 600px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 8px;">
+    <tr>
+      <td style="text-align: center;">
+        <h2 style="margin-bottom: 5px;">Focus Fit Shop</h2>
+        <h3 style="color: #4CAF50;">¡Gracias por contactarnos!</h3>
+        <p>Hemos recibido tu mensaje y te responderemos lo antes posible.</p>
+        <br>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <h3>Resumen del mensaje recibido</h3>
+        <table style="width: 100%; font-size: 14px; margin-top: 10px;">
+          <tr>
+            <td style="padding: 8px 0;"><strong>Nombre:</strong></td>
+            <td style="padding: 8px 0;">${formContact.nombre}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0;"><strong>Email:</strong></td>
+            <td style="padding: 8px 0;">${formContact.email}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0;"><strong>Teléfono:</strong></td>
+            <td style="padding: 8px 0;">${
+              formContact.telefono || "No proporcionado"
+            }</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0;"><strong>Mensaje:</strong></td>
+            <td style="padding: 8px 0;">${formContact.mensaje}</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="padding-top: 30px;">
+        <div style="padding: 20px;">
+          <p style="font-size: 15px;">💬 Nuestro equipo te responderá a la brevedad por correo o WhatsApp.</p>
+          <p style="font-size: 15px;">Si tenés una consulta urgente, también podés escribirnos directamente a nuestro correo o redes sociales.</p>
+          <p style="font-weight: bold; margin-top: 20px; font-size: 17px;">¡Gracias por confiar en Focus Fit Shop!</p>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="text-align: center; padding-top: 30px; font-size: 13px; color: #777;">
+        Si tienes alguna pregunta, responde este correo o contáctanos a través de <a href="mailto:ventas@focusfitshop.com">ventas@focusfitshop.com</a><br><br>
+        Focus Fit Shop © 2025 - Todos los derechos reservados
+      </td>
+    </tr>
+  </table>
+</body>
+`;
+
+
+    const mailOptions = {
+      from: `"Focus Fit Shop" <ventas@focusfitshop.com>`,
+      to: clientEmail,
+      subject: `Gracias por contactarte con nosotros`,
+      html: templateThanksForContacting,
+    };
+
+    try {
+      const info = await transport.sendMail(mailOptions);
+      console.log(`✅ Email sent to Client: ${info.response}`);
+      return {success: true, message: "Email enviado con éxito"}
+    } catch (error) {
+      console.error(`❌ Error sending email to Client:`, error);
+      return { success: false, message: "Error en el envío del email" };
     }
   }
 }
