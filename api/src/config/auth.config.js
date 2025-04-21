@@ -8,4 +8,5 @@ export const mailToAdmin = process.env.MAIL_TO;
 
 //* Meta Tkn
 export const metaTkn = process.env.META_ACCESS_TOKEN;
-export const metaPixel = process.env.META_PIXEL;
+export const metaJFPixel = process.env.META_JF_PIXEL;
+export const metaAVPixel = process.env.META_AV_PIXEL;

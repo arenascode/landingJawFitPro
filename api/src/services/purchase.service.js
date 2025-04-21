@@ -1,4 +1,4 @@
-import { metaPixel, metaTkn } from "../config/auth.config.js";
+import { metaJFPixel, metaAVPixel, metaTkn } from "../config/auth.config.js";
 import Client from "../entities/Client.js";
 import clientRepository from "../repositories/purchase.repository.js";
 import mailService from "./mail.service.js";
@@ -18,10 +18,11 @@ class ClientService {
       console.log({ clientSaved });
 
       if (clientSaved) {
-        const sendMailToAdmin = await mailService.sendMailToNotifyPurchase(newClient);
-        const sendMailToClient = await mailService.sendMailToCofirmClientPurchase(newClient)
-        console.log({ sendMailToAdmin });
-        console.log({ sendMailToClient });
+        const sendMailToAdmin = await mailService.sendMailToNotifyPurchase(
+          newClient
+        );
+        const sendMailToClient =
+          await mailService.sendMailToCofirmClientPurchase(newClient);
         //*FB PIXEL *//
         console.log("log in pixel section");
         const metaAds = adsSdk;
@@ -33,7 +34,10 @@ class ClientService {
         const ServerEvent = metaAds.ServerEvent;
 
         const access_token = metaTkn;
-        const pixel_id = metaPixel;
+        //check the prefix of the order number to know what product is and assign the pixel_id to the API
+        const prefixOrderNumber = newClient.numero_orden.slice(0, 2);
+        const pixel_id = prefixOrderNumber === "AV" ? metaAVPixel : metaJFPixel;
+
         const api = bizSdk.FacebookAdsApi.init(access_token);
         let current_timestamp = Math.floor(new Date() / 1000);
         const userData = new UserData()
@@ -77,11 +81,15 @@ class ClientService {
           }
         );
       }
-      return {success: true, message: "Purchase saved successfully", client: clientSaved};
+      return {
+        success: true,
+        message: "Purchase saved successfully",
+        client: clientSaved,
+      };
     } catch (error) {
       console.log("Error in purchase service");
       console.log({ error });
-      return { success: false, message: error.message, client: null};
+      return { success: false, message: error.message, client: null };
     }
   }
 
