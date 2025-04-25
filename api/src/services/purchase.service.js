@@ -4,6 +4,7 @@ import clientRepository from "../repositories/purchase.repository.js";
 import mailService from "./mail.service.js";
 import adsSdk, { AdAccount } from "facebook-nodejs-business-sdk";
 import bizSdk from "facebook-nodejs-business-sdk";
+import whatsappService from "./whatsapp.service.js";
 
 class ClientService {
   async newClient(clientData) {
@@ -18,11 +19,15 @@ class ClientService {
       console.log({ clientSaved });
 
       if (clientSaved) {
-        const sendMailToAdmin = await mailService.sendMailToNotifyPurchase(
-          newClient
-        );
-        const sendMailToClient =
-          await mailService.sendMailToCofirmClientPurchase(newClient);
+        // const sendMailToAdmin = await mailService.sendMailToNotifyPurchase(
+        //   newClient
+        // );
+
+        const sendWhatsappToClient = await whatsappService.sendConfirmationMessage(clientSaved)
+        console.log({sendWhatsappToClient});
+        
+        // const sendMailToClient =
+        //   await mailService.sendMailToCofirmClientPurchase(newClient);
         //*FB PIXEL *//
         console.log("log in pixel section");
         const metaAds = adsSdk;

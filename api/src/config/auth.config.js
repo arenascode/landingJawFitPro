@@ -10,3 +10,5 @@ export const mailToAdmin = process.env.MAIL_TO;
 export const metaTkn = process.env.META_ACCESS_TOKEN;
 export const metaJFPixel = process.env.META_JF_PIXEL;
 export const metaAVPixel = process.env.META_AV_PIXEL;
+export const wtspToken = process.env.WTSP_TOKEN;
+export const phoneNumberId = process.env.PHONE_NUMBER_ID
