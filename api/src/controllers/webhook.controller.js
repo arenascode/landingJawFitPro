@@ -22,8 +22,11 @@ export async function verifyWhatsappWebhook(req, res) {
 }
 
 export async function handleWhatsappWebhook(req, res) {
+  console.log(`petición entrando desde WTSP`);
+  
   const body = req.body;
-
+  console.log({body});
+  
   try {
     if (body.object) {
       const entry = body.entry?.[0];

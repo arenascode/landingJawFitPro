@@ -9,7 +9,7 @@ class WhatsappService {
     console.log({phoneNumberId});
     
     const whatsappToken = wtspToken
-    const originPhone = 672453412607432;
+    const originPhone = phoneNumberId;
   
     try {
       console.log({client});
