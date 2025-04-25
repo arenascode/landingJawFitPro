@@ -75,6 +75,14 @@ export async function handleWhatsappWebhook(req, res) {
           console.log({sendCorrectAdressMessage})
         }
       }
+
+      if (message?.type === "text") {
+        const textContent = message?.text
+        console.log(`Acá debo recibir el mensaje de corrección de la dirección`);
+        
+        console.log({textContent});
+        
+      }
     }
 
     res.sendStatus(200);
