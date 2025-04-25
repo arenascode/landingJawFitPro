@@ -25,7 +25,7 @@ export async function handleWhatsappWebhook(req, res) {
   console.log(`petición entrando desde WTSP`);
   
   const body = req.body;
-  console.log({body});
+  console.log(body.entry?.[0]);
   
   try {
     if (body.object) {
