@@ -1,5 +1,6 @@
 import { wtspToken } from "../config/auth.config.js";
 import util from "util";
+import whatsappService from "../services/whatsapp.service.js";
 
 
 export async function verifyWhatsappWebhook(req, res) {
@@ -28,7 +29,7 @@ export async function handleWhatsappWebhook(req, res) {
   const body = req.body;
   console.log({ value: body.entry?.[0].changes?.[0]?.value });
   const entry = req.body.entry?.[0]
-  
+
   console.log(
     util.inspect(entry, { showHidden: false, depth: null, colors: true })
   );
@@ -45,14 +46,17 @@ export async function handleWhatsappWebhook(req, res) {
       const message = changes?.value?.messages?.[0];
 
       if (message?.type === "button") {
-        const from = message.from;
+        const from_customerName = changes?.contacts?.[0]?.profile?.name
+        const from_number = message.from;
         const payload = message.button.payload;
 
         if (payload === "Sí, Confirmo") {
           // ✔️ Cliente confirmó
           console.log(`✅ Pedido confirmado por ${from}`);
           //Envía otro mensaje de agradecimiento wtspService
-
+          const sendThanksConfirmationMessage = await whatsappService.thanksForConfirmData(from_customerName, from_number)
+          console.log({sendThanksConfirmationMessage});
+          
           //Notifica al admin que confirmó los datos mail service
           // Aquí podrías actualizar la DB, enviar otro mensaje, etc.
         }

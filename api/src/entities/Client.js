@@ -15,7 +15,7 @@ export default class Client {
   ) {
     (this.nombre = nombre),
       (this.email = email),
-      (this.telefono = telefono),
+      (this.telefono = `57${telefono}`),
       (this.cedula = cedula),
       (this.ciudad = ciudad),
       (this.departamento = departamento);

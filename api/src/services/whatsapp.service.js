@@ -4,23 +4,19 @@ import axios from "axios"
 class WhatsappService {
   //first template message after client purchase on landing
   async sendConfirmationMessage(client) {
-    console.log({ wtspToken });
-    console.log({ phoneNumberId });
 
     const whatsappToken = wtspToken;
     const originPhone = phoneNumberId;
 
     try {
-      console.log({ client });
       const nameClient = client.nombre.split(" ");
       const primerNombre = nameClient[0];
-      console.log({ primerNombre });
-
+     
       const response = await axios.post(
         `https://graph.facebook.com/v22.0/${originPhone}/messages`,
         {
           messaging_product: "whatsapp",
-          to: `57${client.telefono}`,
+          to: client.telefono,
           type: "template",
           template: {
             name: "confirmacion_datos_compra",
@@ -83,16 +79,16 @@ class WhatsappService {
   }
 
   //Message to send after client confirm data purchase on Whatsapp
-  async thanksForConfirmData(client) {
-    console.log({ wtspToken });
-    console.log({ phoneNumberId });
+  async thanksForConfirmData(clientName, clientNumber) {
+    console.log({ clientName });
+    console.log({ clientNumber });
 
     const whatsappToken = wtspToken;
     const originPhone = phoneNumberId;
 
     try {
-      console.log({ client });
-      const nameClient = client.nombre.split(" ");
+      console.log({ clientName });
+      const nameClient = clientName.split(" ");
       const primerNombre = nameClient[0];
       console.log({ primerNombre });
 
@@ -100,10 +96,10 @@ class WhatsappService {
         `https://graph.facebook.com/v22.0/${originPhone}/messages`,
         {
           messaging_product: "whatsapp",
-          to: `57${client.telefono}`,
+          to: clientNumber,
           type: "template",
           template: {
-            name: "confirmacion_datos_compra",
+            name: "agradecimiento_confirmacion_pedido",
             language: { code: "es_CO" },
             components: [
               {
@@ -113,31 +109,6 @@ class WhatsappService {
                     type: "text",
                     parameter_name: "nombre_cliente",
                     text: primerNombre,
-                  },
-                  {
-                    type: "text",
-                    parameter_name: "producto",
-                    text: client.producto,
-                  },
-                  {
-                    type: "text",
-                    parameter_name: "precio",
-                    text: client.valor_compra,
-                  },
-                  {
-                    type: "text",
-                    parameter_name: "ciudad",
-                    text: client.ciudad,
-                  },
-                  {
-                    type: "text",
-                    parameter_name: "departamento",
-                    text: client.departamento,
-                  },
-                  {
-                    type: "text",
-                    parameter_name: "direccion",
-                    text: client.direccion,
                   },
                 ],
               },
