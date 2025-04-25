@@ -46,9 +46,10 @@ export async function handleWhatsappWebhook(req, res) {
       const changes = entry?.changes?.[0];
       const message = changes?.value?.messages?.[0];
       const contacts = changes?.value?.contacts?.[0];
+      const from_customerName = contacts?.profile?.name;
+      const from_number = message.from;
+
       if (message?.type === "button") {
-        const from_customerName = contacts?.profile?.name;
-        const from_number = message.from;
         const payload = message.button.payload;
 
         if (payload === "Sí, Confirmo") {
@@ -56,7 +57,7 @@ export async function handleWhatsappWebhook(req, res) {
           console.log(`✅ Pedido confirmado por ${from_customerName}`);
           //Envía otro mensaje de agradecimiento wtspService
           const sendThanksConfirmationMessage =
-            await whatsappService.thanksForConfirmData(
+            await whatsappService.thanksForConfirmDataMessage(
               from_customerName,
               from_number
             );
@@ -68,8 +69,10 @@ export async function handleWhatsappWebhook(req, res) {
 
         if (payload === "Corregir dirección") {
           // ✏️ Cliente quiere corregir su dirección
-          console.log(`✏️ Pedido necesita corrección de dirección: ${from}`);
+          console.log(`✏️ Pedido necesita corrección de dirección: ${from_customerName}`);
           // Podés reenviarle un formulario, o contactarlo por WhatsApp
+          const sendCorrectAdressMessage = await whatsappService.correctAdressMessage(from_customerName, from_number)
+          console.log({sendCorrectAdressMessage})
         }
       }
     }
