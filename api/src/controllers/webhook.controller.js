@@ -27,7 +27,7 @@ export async function handleWhatsappWebhook(req, res) {
   const body = req.body;
   console.log({ buttonObject: body.entry?.[0].changes?.[0]?.value?.messages?.[0]?.button });
   
-  console.log({ messageObject: body.entry?.[0].changes?.[0]?.value?.messages?.[0]?.button });
+  console.log({ messageObject: body.entry?.[0].changes?.[0]?.value?.messages?.[0]?.text });
   
   console.log({payloadButton: body.entry?.[0].changes?.[0]?.value?.messages?.[0]?.button?.payload});
   
@@ -41,13 +41,13 @@ export async function handleWhatsappWebhook(req, res) {
         const from = message.from;
         const payload = message.button.payload;
 
-        if (payload === "SÍ_CONFIRMAR_PEDIDO") {
+        if (payload === "S") {
           // ✔️ Cliente confirmó
           console.log(`✅ Pedido confirmado por ${from}`);
           // Aquí podrías actualizar la DB, enviar otro mensaje, etc.
         }
 
-        if (payload === "CORREGIR_DIRECCION") {
+        if (payload === "Corregir dirección") {
           // ✏️ Cliente quiere corregir su dirección
           console.log(`✏️ Pedido necesita corrección de dirección: ${from}`);
           // Podés reenviarle un formulario, o contactarlo por WhatsApp
