@@ -1,4 +1,5 @@
 import { wtspToken } from "../config/auth.config.js";
+import util from "util";
 
 
 export async function verifyWhatsappWebhook(req, res) {
@@ -25,8 +26,13 @@ export async function handleWhatsappWebhook(req, res) {
   console.log(`petición entrando desde WTSP`);
   
   const body = req.body;
-  console.log({ buttonObject: body.entry?.[0].changes?.[0]?.value?.messages?.[0]?.button });
+  console.log({ value: body.entry?.[0].changes?.[0]?.value });
+  const entry = req.body.entry?.[0]
   
+  console.log(
+    util.inspect(entry, { showHidden: false, depth: null, colors: true })
+  );
+
   console.log({ messageObject: body.entry?.[0].changes?.[0]?.value?.messages?.[0]?.text });
   
   console.log({payloadButton: body.entry?.[0].changes?.[0]?.value?.messages?.[0]?.button?.payload});
@@ -45,6 +51,9 @@ export async function handleWhatsappWebhook(req, res) {
         if (payload === "Sí, Confirmo") {
           // ✔️ Cliente confirmó
           console.log(`✅ Pedido confirmado por ${from}`);
+          //Envía otro mensaje de agradecimiento wtspService
+
+          //Notifica al admin que confirmó los datos mail service
           // Aquí podrías actualizar la DB, enviar otro mensaje, etc.
         }
 
