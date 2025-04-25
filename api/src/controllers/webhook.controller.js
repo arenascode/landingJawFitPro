@@ -52,7 +52,7 @@ export async function handleWhatsappWebhook(req, res) {
 
         if (payload === "Sí, Confirmo") {
           // ✔️ Cliente confirmó
-          console.log(`✅ Pedido confirmado por ${from}`);
+          console.log(`✅ Pedido confirmado por ${from_customerName}`);
           //Envía otro mensaje de agradecimiento wtspService
           const sendThanksConfirmationMessage = await whatsappService.thanksForConfirmData(from_customerName, from_number)
           console.log({sendThanksConfirmationMessage});
