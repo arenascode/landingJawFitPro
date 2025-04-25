@@ -30,6 +30,7 @@ export async function handleWhatsappWebhook(req, res) {
   console.log({ messageObject: body.entry?.[0].changes?.[0]?.value?.messages?.[0]?.text });
   
   console.log({payloadButton: body.entry?.[0].changes?.[0]?.value?.messages?.[0]?.button?.payload});
+  console.log({bodyObject: body.object});
   
   try {
     if (body.object) {
@@ -41,7 +42,7 @@ export async function handleWhatsappWebhook(req, res) {
         const from = message.from;
         const payload = message.button.payload;
 
-        if (payload === "S") {
+        if (payload === "Sí, Confirmo") {
           // ✔️ Cliente confirmó
           console.log(`✅ Pedido confirmado por ${from}`);
           // Aquí podrías actualizar la DB, enviar otro mensaje, etc.
