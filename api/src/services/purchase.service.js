@@ -103,6 +103,7 @@ class ClientService {
 
     try {
       const clientUpdated = await clientRepository.updateClient(phoneClientNumber, dataToUpdate);
+      console.log({ phoneClientNumber });
       console.log({ clientUpdated });
 
       if (clientUpdated) {
@@ -116,7 +117,7 @@ class ClientService {
       }
       return {
         success: true,
-        message: "Purchase confirmed successfully",
+        message: "Purchase confirmed on whatsapp successfully",
         clientUpdated: clientUpdated,
       };
     } catch (error) {

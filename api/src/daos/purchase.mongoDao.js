@@ -19,7 +19,22 @@ class PurchaseMongoDao {
   }
 
   async updateClient(phoneClientNumber, dataToUpdate) {
-    return await this.collection.findOneAndUpdate({telefono: phoneClientNumber},dataToUpdate)
+    try {
+       const updatedClient = await this.collection.findOneAndUpdate(
+         { telefono: phoneClientNumber },
+         dataToUpdate,
+         { new: true }
+       );
+
+       if (!updatedClient) {
+         throw new Error("Cliente no encontrado para actualizar");
+       }
+
+       return updatedClient;
+      
+    } catch (error) {
+      console.error("Error actualizando cliente:", error.message);
+    }
   }
 }
 

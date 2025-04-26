@@ -268,19 +268,19 @@ class MailService {
   <table style="width: 100%; margin-top: 20px;">
     <tr>
       <td><strong>Nombre:</strong></td>
-      <td>${newClient.nombre}</td>
+      <td>${clientUpdated.nombre}</td>
     </tr>
     <tr>
       <td><strong>Email:</strong></td>
-      <td>${newClient.email}</td>
+      <td>${clientUpdated.email}</td>
     </tr>
     <tr>
       <td><strong>Teléfono-wtsp:</strong></td>
-      <td>${newClient.telefono}</td>
+      <td>${clientUpdated.telefono}</td>
     </tr>
     <tr>
       <td><strong>Cedula:</strong></td>
-      <td>${newClient.cedula}</td>
+      <td>${clientUpdated.cedula}</td>
     </tr>
     <tr>
       <td><strong>Ciudad:</strong></td>
@@ -288,11 +288,11 @@ class MailService {
     </tr>
     <tr>
       <td><strong>Departamento:</strong></td>
-      <td>${newClient.departamento}</td>
+      <td>${clientUpdated.departamento}</td>
     </tr>
     <tr>
       <td><strong>Dirección de Envío:</strong></td>
-      <td>${newClient.direccion}</td>
+      <td>${clientUpdated.direccion}</td>
     </tr>
     <tr>
       <td><strong>Producto Adquirido:</strong></td>
