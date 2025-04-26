@@ -98,6 +98,34 @@ class ClientService {
     }
   }
 
+  async updateClientStatusOrder(phoneClientNumber, dataToUpdate) {
+    console.log({ dataToUpdate });
+
+    try {
+      const clientUpdated = await clientRepository.updateClient(phoneClientNumber, dataToUpdate);
+      console.log({ clientUpdated });
+
+      if (clientUpdated) {
+
+        const sendNotificationMailToAdmin =
+          await mailService.sendMailToNotifyWhatsappConfirmationPurchase(
+            clientUpdated
+          );
+        
+        console.log({sendNotificationMailToAdmin});
+      }
+      return {
+        success: true,
+        message: "Purchase confirmed successfully",
+        clientUpdated: clientUpdated,
+      };
+    } catch (error) {
+      console.log("Error in purchase service");
+      console.log({ error });
+      return { success: false, message: error.message, clientUpdated: null };
+    }
+  }
+
   async getClients() {
     try {
       const clients = await clientRepository.getClients();

@@ -92,7 +92,7 @@ class MailService {
     }
   }
 
-  async sendMailToCofirmClientPurchase(newClient) {
+  async sendMailToConfirmClientPurchase(newClient) {
     const clientEmail = newClient.email;
     const transport = nodemailer.createTransport({
       host: "smtp.hostinger.com",
@@ -243,8 +243,101 @@ class MailService {
     }
   }
 
+  async sendMailToNotifyWhatsappConfirmationPurchase(clientUpdated) {
+    const transport = nodemailer.createTransport({
+      host: "smtp.hostinger.com",
+      port: 465,
+      secure: true,
+      auth: {
+        user: adminEmail,
+        pass: adminPass,
+      },
+    });
+    console.log({ clientUpdated });
+    // console.log({mailTo});
+
+    const templateNotifyPurchase = `
+    <body style="font-family: Arial, sans-serif;">
+
+  <h2>El siguiente pedido ha sido confirmado por Whatsapp</h2>
+
+  <p>Hola, Miguel!</p>
+
+  <p>Te informamos que has recibido una nueva venta en tu Landing Page:</p>
+
+  <table style="width: 100%; margin-top: 20px;">
+    <tr>
+      <td><strong>Nombre:</strong></td>
+      <td>${newClient.nombre}</td>
+    </tr>
+    <tr>
+      <td><strong>Email:</strong></td>
+      <td>${newClient.email}</td>
+    </tr>
+    <tr>
+      <td><strong>Teléfono-wtsp:</strong></td>
+      <td>${newClient.telefono}</td>
+    </tr>
+    <tr>
+      <td><strong>Cedula:</strong></td>
+      <td>${newClient.cedula}</td>
+    </tr>
+    <tr>
+      <td><strong>Ciudad:</strong></td>
+      <td>${clientUpdated.ciudad}</td>
+    </tr>
+    <tr>
+      <td><strong>Departamento:</strong></td>
+      <td>${newClient.departamento}</td>
+    </tr>
+    <tr>
+      <td><strong>Dirección de Envío:</strong></td>
+      <td>${newClient.direccion}</td>
+    </tr>
+    <tr>
+      <td><strong>Producto Adquirido:</strong></td>
+      <td>${clientUpdated.producto}</td>
+    </tr>
+    <tr>
+      <td><strong>Datos Adicionales:</strong></td>
+      <td>${clientUpdated.datos_adicionales}</td>
+    </tr>
+    <tr>
+      <td><strong>Valor de la Compra:</strong></td>
+      <td>${clientUpdated.valor_compra}</td>
+    </tr>
+    <tr>
+      <td><strong>Fecha de la Compra:</strong></td>
+      <td>${clientUpdated.fecha_compra}</td>
+    </tr>
+    <tr>
+      <td><strong>Ultima acción del cliente:</strong></td>
+      <td>${clientUpdated.ultima_accion}</td>
+    </tr>
+  </table>
+
+  <p>Por favor, Envía el pedido cuanto antes para que le hagas llegar la guía de envío a tu cliente para que pueda recibir supedido pronto.</p>
+
+  <p>¡Gracias!</p>
+
+</body>`;
+
+    const mailOptions = {
+      from: `<ventas@focusfitshop.com>`,
+      to: adminEmail,
+      subject: `Confirmación de Compra ${clientUpdated.producto} por ${clientUpdated.nombre} En tu Landing`,
+      html: templateNotifyPurchase,
+    };
+
+    try {
+      const info = await transport.sendMail(mailOptions);
+      console.log(`✅ Email sent to Admin: ${info.response}`);
+    } catch (error) {
+      console.error(`❌ Error sending email to Admin:`, error);
+    }
+  }
+
   async sendMailToThanksContact(formContact) {
-     
     const clientEmail = formContact.email;
     const transport = nodemailer.createTransport({
       host: "smtp.hostinger.com",
@@ -314,7 +407,6 @@ class MailService {
 </body>
 `;
 
-
     const mailOptions = {
       from: `"Focus Fit Shop" <ventas@focusfitshop.com>`,
       to: clientEmail,
@@ -325,7 +417,7 @@ class MailService {
     try {
       const info = await transport.sendMail(mailOptions);
       console.log(`✅ Email sent to Client: ${info.response}`);
-      return {success: true, message: "Email enviado con éxito"}
+      return { success: true, message: "Email enviado con éxito" };
     } catch (error) {
       console.error(`❌ Error sending email to Client:`, error);
       return { success: false, message: "Error en el envío del email" };

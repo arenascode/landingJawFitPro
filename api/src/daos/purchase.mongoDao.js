@@ -14,7 +14,13 @@ class PurchaseMongoDao {
     return await this.collection.create(dataNewClient)
   }
 
+  async findClientByPhoneNumber(clientPhone) {
+    return await this.collection.findOne({telefono: clientPhone})
+  }
 
+  async updateClient(phoneClientNumber, dataToUpdate) {
+    return await this.collection.findOneAndUpdate({telefono: phoneClientNumber},dataToUpdate)
+  }
 }
 
 const clientDaoMongoDb = new PurchaseMongoDao()

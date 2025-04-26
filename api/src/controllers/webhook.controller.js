@@ -1,6 +1,7 @@
 import { wtspToken } from "../config/auth.config.js";
 import util from "util";
 import whatsappService from "../services/whatsapp.service.js";
+import clientService from "../services/purchase.service.js";
 
 export async function verifyWhatsappWebhook(req, res) {
   console.log("📩 Webhook recibido:", JSON.stringify(req.body, null, 2));
@@ -23,22 +24,10 @@ export async function handleWhatsappWebhook(req, res) {
   console.log(`petición entrando desde WTSP`);
 
   const body = req.body;
-  console.log({ value: body.entry?.[0].changes?.[0]?.value });
   const entry = req.body.entry?.[0];
-
   console.log(
     util.inspect(entry, { showHidden: false, depth: null, colors: true })
   );
-
-  console.log({
-    messageObject: body.entry?.[0].changes?.[0]?.value?.messages?.[0]?.text,
-  });
-
-  console.log({
-    payloadButton:
-      body.entry?.[0].changes?.[0]?.value?.messages?.[0]?.button?.payload,
-  });
-  console.log({ bodyObject: body.object });
 
   try {
     if (body.object) {
@@ -56,6 +45,10 @@ export async function handleWhatsappWebhook(req, res) {
           // ✔️ Cliente confirmó
           console.log(`✅ Pedido confirmado por ${from_customerName}`);
           //Envía otro mensaje de agradecimiento wtspService
+          const updatedStateOrder = await clientService.updateClientStatusOrder(from_number, {ultima_accion: "pedido_confirmado"})
+
+          console.log({updatedStateOrder});
+          
           const sendThanksConfirmationMessage =
             await whatsappService.thanksForConfirmDataMessage(
               from_customerName,
@@ -67,7 +60,7 @@ export async function handleWhatsappWebhook(req, res) {
           // Aquí podrías actualizar la DB, enviar otro mensaje, etc.
         }
 
-        if (payload === "Corregir dirección") {
+        if (payload === "Corregir Dirección") {
           // ✏️ Cliente quiere corregir su dirección
           console.log(`✏️ Pedido necesita corrección de dirección: ${from_customerName}`);
           // Podés reenviarle un formulario, o contactarlo por WhatsApp

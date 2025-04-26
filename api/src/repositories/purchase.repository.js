@@ -13,6 +13,10 @@ class UsersRepository {
     return this.dao.newClient(dataNewUser);
   }
 
+  async updateClient(phoneClientNumber, dataToUpdate) {
+    return this.dao.updateClient(phoneClientNumber, dataToUpdate)
+  }
+
 }
 
 const clientRepository = new UsersRepository(clientDaoMongoDb)

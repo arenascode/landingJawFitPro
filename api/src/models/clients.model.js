@@ -10,12 +10,23 @@ const clientsSchema = mongoose.Schema(
     ciudad: { type: String, require: true },
     departamento: { type: String, require: true },
     direccion: { type: String, require: true },
-    kit: {type: String, required: true},
+    kit: { type: String, required: true },
     numero_orden: { type: String, require: true },
     valor_compra: { type: Number, require: true },
     producto: { type: String, require: true },
     datos_adicionales: { type: String, require: false },
     fecha_compra: { type: String, require: true },
+    ultima_accion: {
+      type: String,
+      enum: [
+        "esperando_confirmacion",
+        "pedido_confirmado",
+        "esperando_direccion_corregida",
+        "direccion_corregida",
+        "guia_enviada",
+      ],
+      default: "esperando_confirmacion"
+    },
   },
   { versionKey: false }
 );
