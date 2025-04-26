@@ -66,7 +66,6 @@ class WhatsappService {
           },
         }
       );
-      console.log({ response });
 
       return response.data;
     } catch (error) {
@@ -121,7 +120,6 @@ class WhatsappService {
           },
         }
       );
-      console.log({ response });
 
       return response.data;
     } catch (error) {
@@ -176,7 +174,6 @@ class WhatsappService {
           },
         }
       );
-      console.log({ response });
 
       return response.data;
     } catch (error) {
@@ -231,7 +228,6 @@ class WhatsappService {
           },
         }
       );
-      console.log({ response });
 
       return response.data;
     } catch (error) {
@@ -269,7 +265,6 @@ class WhatsappService {
          },
        }
      );
-     console.log({ response });
 
      return response.data;
    } catch (error) {
