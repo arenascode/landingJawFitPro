@@ -166,6 +166,7 @@ class ClientService {
     }
   }
 
+  
   async getClients() {
     try {
       const clients = await clientRepository.getClients();

@@ -242,6 +242,43 @@ class WhatsappService {
     }
   }
 
+  async sendTextMessage(clientNumber, message) {
+   console.log({ message });
+   console.log({ clientNumber });
+
+   const whatsappToken = wtspToken;
+   const originPhone = phoneNumberId;
+
+   try {
+
+     const response = await axios.post(
+       `https://graph.facebook.com/v22.0/${originPhone}/messages`,
+       {
+         messaging_product: "whatsapp",
+         to: clientNumber,
+         type: "text",
+         text: {
+           preview_url: false,
+           body: message,
+         },
+       },
+       {
+         headers: {
+           Authorization: `Bearer ${whatsappToken}`,
+           "Content-Type": "application/json",
+         },
+       }
+     );
+     console.log({ response });
+
+     return response.data;
+   } catch (error) {
+     console.error(
+       "Error al enviar mensaje de WhatsApp:",
+       error.response?.data || error.message
+     );
+   }
+ }
 }
 
 const whatsappService = new WhatsappService

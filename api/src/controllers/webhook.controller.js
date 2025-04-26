@@ -21,105 +21,95 @@ export async function verifyWhatsappWebhook(req, res) {
 }
 
 export async function handleWhatsappWebhook(req, res) {
-  console.log(`petición entrando desde WTSP`);
+  console.log("📩 Petición entrando desde WTSP");
 
   const body = req.body;
-  const entry = req.body.entry?.[0];
-  console.log(
-    util.inspect(entry, { showHidden: false, depth: null, colors: true })
-  );
+  const entry = body.entry?.[0];
+  const changes = entry?.changes?.[0];
 
-  try {
-    if (body.object) {
-      const entry = body.entry?.[0];
-      const changes = entry?.changes?.[0];
-      const message = changes?.value?.messages?.[0];
-      const contacts = changes?.value?.contacts?.[0];
-      const from_customerName = contacts?.profile?.name;
-      const from_number = message.from;
+  if (!changes) return res.sendStatus(200);
 
-      if (message?.type === "button") {
-        const payload = message.button.payload;
+  const value = changes.value;
 
-        if (payload === "Sí, Confirmo") {
-          // ✔️ Cliente confirmó
-          console.log(`✅ Pedido confirmado por ${from_customerName}`);
-          const updatedStateOrder = await clientService.updateClientStatusOrder(from_number, {ultima_accion: "pedido_confirmado"})
-          
-          console.log({updatedStateOrder});
-          
-          //Envía otro mensaje de agradecimiento wtspService
-          const sendThanksConfirmationMessage =
-            await whatsappService.thanksForConfirmDataMessage(
-              from_customerName,
-              from_number
-            );
-          console.log({ sendThanksConfirmationMessage });
+  // --- Diferenciar si viene un "mensaje" o un "status" ---
+  if (value.messages) {
+    const message = value.messages[0];
+    const contacts = value.contacts?.[0];
+    const from_customerName = contacts?.profile?.name;
+    const from_number = message?.from;
 
-        }
+    if (!message || !from_number) {
+      console.log("⚠️ Mensaje sin datos suficientes.");
+      return res.sendStatus(200);
+    }
 
-        if (payload === "Corregir Dirección") {
-          // ✏️ Cliente quiere corregir su dirección
-          console.log(`✏️ Pedido necesita corrección de dirección: ${from_customerName}`);
+    if (message.type === "button") {
+      const payload = message.button.payload;
 
-          // Reenviar un mensaje para pedirle los datos corregidos
-          const sendCorrectAdressMessage = await whatsappService.correctAdressMessage(from_customerName, from_number)
-          console.log({sendCorrectAdressMessage})
-        }
+      if (payload === "Sí, Confirmo") {
+        console.log(`✅ Pedido confirmado por ${from_customerName}`);
+        await clientService.updateClientStatusOrder(from_number, {
+          ultima_accion: "pedido_confirmado",
+        });
+
+        await whatsappService.thanksForConfirmDataMessage(
+          from_customerName,
+          from_number
+        );
       }
 
-      if (message?.type === "text") {
-        console.log(`Acá debo recibir el mensaje de corrección de la dirección`);
-        
-          const messageText = message.text.body.toLowerCase();
-
-          const direccionMatch = messageText.match(
-            /direccion exacta[:\-]\s*([^,]+)/i
-          );
-          const datosAdicionalesMatch = messageText.match(
-            /datos adicionales[:\-]\s*(.+)/i
-          );
-
-          const nuevaDireccion = direccionMatch
-            ? direccionMatch[1].trim()
-            : null;
-          const nuevosDatosAdicionales = datosAdicionalesMatch
-            ? datosAdicionalesMatch[1].trim()
-            : null;
-
-          if (nuevaDireccion || nuevosDatosAdicionales) {
-            // Creamos el objeto dinámicamente según qué datos llegaron:
-            const dataToUpdate = {};
-
-            if (nuevaDireccion) dataToUpdate.direccion = nuevaDireccion;
-            if (nuevosDatosAdicionales)
-              dataToUpdate.datos_adicionales = nuevosDatosAdicionales;
-
-            const updatedClientData = await clientService.updateClientStatusOrderAfterChangeAdress(from_number, {
-              ...dataToUpdate,
-              ultima_accion: "direccion_corregida",
-            });
-
-            if (updatedClientData) {
-              // Enviar mensaje de confirmación
-              await whatsappService.sendTextMessage(
-              waId,
-              "✅ ¡Gracias por enviarnos la corrección! Actualizamos tus datos y en breve te enviaremos tu pedido. 🚚"
-            );
-            }
-            
-          } else {
-            await whatsappService.sendTextMessage(
-              from_number,
-              "⚠️ No pudimos identificar los datos corregidos. Por favor asegúrate de seguir el formato: Dirección exacta: [nueva dirección], Datos adicionales: [indicaciones]."
-            );
-          }
+      if (payload === "Corregir Dirección") {
+        console.log(
+          `✏️ Pedido necesita corrección de dirección: ${from_customerName}`
+        );
+        await whatsappService.correctAdressMessage(
+          from_customerName,
+          from_number
+        );
       }
     }
 
-    res.sendStatus(200);
-  } catch (error) {
-    console.error("❌ Error procesando webhook:", error);
-    res.sendStatus(500);
+    if (message.type === "text") {
+      console.log("✏️ Recibido mensaje de corrección de dirección");
+
+      const messageText = message.text.body.toLowerCase();
+      const direccionMatch = messageText.match(
+        /direcci[oó]n exacta[:\-]\s*([^,]+)/i
+      );
+      const datosAdicionalesMatch = messageText.match(
+        /datos adicionales[:\-]\s*(.+)/i
+      );
+
+      const nuevaDireccion = direccionMatch ? direccionMatch[1].trim() : null;
+      const nuevosDatosAdicionales = datosAdicionalesMatch
+        ? datosAdicionalesMatch[1].trim()
+        : null;
+
+      if (nuevaDireccion || nuevosDatosAdicionales) {
+        const dataToUpdate = {};
+        if (nuevaDireccion) dataToUpdate.direccion = nuevaDireccion;
+        if (nuevosDatosAdicionales)
+          dataToUpdate.datos_adicionales = nuevosDatosAdicionales;
+        dataToUpdate.ultima_accion = "direccion_corregida";
+
+        await clientService.updateClientStatusOrderAfterChangeAdress(
+          from_number,
+          dataToUpdate
+        );
+      } else {
+        await whatsappService.sendTextMessage(
+          from_number,
+          "⚠️ No pudimos identificar los datos corregidos. Por favor asegúrate de seguir el formato: Dirección exacta: [nueva dirección], Datos adicionales: [indicaciones]."
+        );
+      }
+    }
   }
+
+  // --- Si viene un status (entregado, enviado, leído), simplemente ignorarlo ---
+  if (value.statuses) {
+    console.log("✅ Status recibido:", value.statuses[0].status);
+  }
+
+  res.sendStatus(200);
 }
+
