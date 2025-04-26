@@ -263,7 +263,7 @@ class MailService {
 
   <p>Hola, Miguel!</p>
 
-  <p>Te informamos que has recibido una nueva venta en tu Landing Page:</p>
+  <p>Te informamos que acabaron de confirmar el siguiente pedido por whatsapp:</p>
 
   <table style="width: 100%; margin-top: 20px;">
     <tr>

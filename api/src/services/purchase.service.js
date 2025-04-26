@@ -23,11 +23,12 @@ class ClientService {
         //   newClient
         // );
 
-        const sendWhatsappToClient = await whatsappService.sendConfirmationMessage(clientSaved)
-        console.log({sendWhatsappToClient});
-        
         // const sendMailToClient =
         //   await mailService.sendMailToCofirmClientPurchase(newClient);
+
+        // const sendWhatsappToClient = await whatsappService.sendConfirmationMessage(clientSaved)
+        console.log({ sendWhatsappToClient });
+
         //*FB PIXEL *//
         console.log("log in pixel section");
         const metaAds = adsSdk;
@@ -102,18 +103,56 @@ class ClientService {
     console.log({ dataToUpdate });
 
     try {
-      const clientUpdated = await clientRepository.updateClient(phoneClientNumber, dataToUpdate);
+      const clientUpdated = await clientRepository.updateClient(
+        phoneClientNumber,
+        dataToUpdate
+      );
       console.log({ phoneClientNumber });
       console.log({ clientUpdated });
 
       if (clientUpdated) {
-
+        //Notifica al admin que confirmó los datos mail service
         const sendNotificationMailToAdmin =
           await mailService.sendMailToNotifyWhatsappConfirmationPurchase(
             clientUpdated
           );
-        
-        console.log({sendNotificationMailToAdmin});
+
+        console.log({ sendNotificationMailToAdmin });
+      }
+      return {
+        success: true,
+        message: "Purchase confirmed on whatsapp successfully",
+        clientUpdated: clientUpdated,
+      };
+    } catch (error) {
+      console.log("Error in purchase service");
+      console.log({ error });
+      return { success: false, message: error.message, clientUpdated: null };
+    }
+  }
+
+  async updateClientStatusOrderAfterChangeAdress(phoneClientNumber, dataToUpdate) {
+    console.log({ dataToUpdate });
+
+    try {
+      const clientUpdated = await clientRepository.updateClient(
+        phoneClientNumber,
+        dataToUpdate
+      );
+      console.log({ phoneClientNumber });
+      console.log({ clientUpdated });
+
+      if (clientUpdated) {
+        //Notifica al admin que confirmó los datos mail service
+        const sendNotificationMailToAdmin =
+          await mailService.sendMailToNotifyWhatsappConfirmationPurchase(
+            clientUpdated
+          );
+        const nameClient = clientUpdated.nombre.split(" ")
+        const firstNameClient = nameClient[0]
+        const notifyAdressChangedToClient = await whatsappService.thanksForConfirmNewDataAdress(firstNameClient, phoneClientNumber)
+        console.log({ sendNotificationMailToAdmin });
+        console.log({ notifyAdressChangedToClient});
       }
       return {
         success: true,

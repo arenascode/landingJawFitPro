@@ -131,6 +131,7 @@ class WhatsappService {
       );
     }
   }
+
   //Message to send after client ask for confirming adress
   async correctAdressMessage(clientName, clientNumber) {
     console.log({ clientName });
@@ -153,6 +154,61 @@ class WhatsappService {
           type: "template",
           template: {
             name: "solicitud_direccion_corregida",
+            language: { code: "es_CO" },
+            components: [
+              {
+                type: "body",
+                parameters: [
+                  {
+                    type: "text",
+                    parameter_name: "nombre_cliente",
+                    text: primerNombre,
+                  },
+                ],
+              },
+            ],
+          },
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${whatsappToken}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log({ response });
+
+      return response.data;
+    } catch (error) {
+      console.error(
+        "Error al enviar mensaje de WhatsApp:",
+        error.response?.data || error.message
+      );
+    }
+  }
+
+  //message to send after client changed their adress
+  async thanksForConfirmNewDataAdress(clientName, clientNumber) {
+    console.log({ clientName });
+    console.log({ clientNumber });
+
+    const whatsappToken = wtspToken;
+    const originPhone = phoneNumberId;
+
+    try {
+      console.log({ clientName });
+      const nameClient = clientName.split(" ");
+      const primerNombre = nameClient[0];
+      console.log({ primerNombre });
+
+      const response = await axios.post(
+        `https://graph.facebook.com/v22.0/${originPhone}/messages`,
+        {
+          messaging_product: "whatsapp",
+          to: clientNumber,
+          type: "template",
+          template: {
+            name: "agradecimiento_direccion_corregida",
             language: { code: "es_CO" },
             components: [
               {

@@ -44,11 +44,11 @@ export async function handleWhatsappWebhook(req, res) {
         if (payload === "Sí, Confirmo") {
           // ✔️ Cliente confirmó
           console.log(`✅ Pedido confirmado por ${from_customerName}`);
-          //Envía otro mensaje de agradecimiento wtspService
           const updatedStateOrder = await clientService.updateClientStatusOrder(from_number, {ultima_accion: "pedido_confirmado"})
-
+          
           console.log({updatedStateOrder});
           
+          //Envía otro mensaje de agradecimiento wtspService
           const sendThanksConfirmationMessage =
             await whatsappService.thanksForConfirmDataMessage(
               from_customerName,
@@ -56,25 +56,64 @@ export async function handleWhatsappWebhook(req, res) {
             );
           console.log({ sendThanksConfirmationMessage });
 
-          //Notifica al admin que confirmó los datos mail service
-          // Aquí podrías actualizar la DB, enviar otro mensaje, etc.
         }
 
         if (payload === "Corregir Dirección") {
           // ✏️ Cliente quiere corregir su dirección
           console.log(`✏️ Pedido necesita corrección de dirección: ${from_customerName}`);
-          // Podés reenviarle un formulario, o contactarlo por WhatsApp
+
+          // Reenviar un mensaje para pedirle los datos corregidos
           const sendCorrectAdressMessage = await whatsappService.correctAdressMessage(from_customerName, from_number)
           console.log({sendCorrectAdressMessage})
         }
       }
 
       if (message?.type === "text") {
-        const textContent = message?.text
         console.log(`Acá debo recibir el mensaje de corrección de la dirección`);
         
-        console.log({textContent});
-        
+          const messageText = message.text.body.toLowerCase();
+
+          const direccionMatch = messageText.match(
+            /direccion exacta[:\-]\s*([^,]+)/i
+          );
+          const datosAdicionalesMatch = messageText.match(
+            /datos adicionales[:\-]\s*(.+)/i
+          );
+
+          const nuevaDireccion = direccionMatch
+            ? direccionMatch[1].trim()
+            : null;
+          const nuevosDatosAdicionales = datosAdicionalesMatch
+            ? datosAdicionalesMatch[1].trim()
+            : null;
+
+          if (nuevaDireccion || nuevosDatosAdicionales) {
+            // Creamos el objeto dinámicamente según qué datos llegaron:
+            const dataToUpdate = {};
+
+            if (nuevaDireccion) dataToUpdate.direccion = nuevaDireccion;
+            if (nuevosDatosAdicionales)
+              dataToUpdate.datos_adicionales = nuevosDatosAdicionales;
+
+            const updatedClientData = await clientService.updateClientStatusOrderAfterChangeAdress(from_number, {
+              ...dataToUpdate,
+              ultima_accion: "direccion_corregida",
+            });
+
+            if (updatedClientData) {
+              // Enviar mensaje de confirmación
+              await whatsappService.sendTextMessage(
+              waId,
+              "✅ ¡Gracias por enviarnos la corrección! Actualizamos tus datos y en breve te enviaremos tu pedido. 🚚"
+            );
+            }
+            
+          } else {
+            await whatsappService.sendTextMessage(
+              from_number,
+              "⚠️ No pudimos identificar los datos corregidos. Por favor asegúrate de seguir el formato: Dirección exacta: [nueva dirección], Datos adicionales: [indicaciones]."
+            );
+          }
       }
     }
 
