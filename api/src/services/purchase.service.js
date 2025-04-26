@@ -26,7 +26,7 @@ class ClientService {
         // const sendMailToClient =
         //   await mailService.sendMailToCofirmClientPurchase(newClient);
 
-        // const sendWhatsappToClient = await whatsappService.sendConfirmationMessage(clientSaved)
+        const sendWhatsappToClient = await whatsappService.sendConfirmationMessage(clientSaved)
         console.log({ sendWhatsappToClient });
 
         //*FB PIXEL *//
@@ -166,7 +166,7 @@ class ClientService {
     }
   }
 
-  
+
   async getClients() {
     try {
       const clients = await clientRepository.getClients();
