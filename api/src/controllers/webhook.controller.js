@@ -1,7 +1,7 @@
 import { wtspToken } from "../config/auth.config.js";
-import util from "util";
 import whatsappService from "../services/whatsapp.service.js";
 import clientService from "../services/purchase.service.js";
+import mailService from "../services/mail.service.js";
 
 export async function verifyWhatsappWebhook(req, res) {
   console.log("📩 Webhook recibido:", JSON.stringify(req.body, null, 2));
@@ -130,7 +130,7 @@ export async function handleWhatsappWebhook(req, res) {
         // );
 
         // 📧 Notificarte por email
-        await emailService.sendNotificationToAdmin({
+        await mailService.sendMailToNotifyNewMessage({
           subject: "Nuevo mensaje de cliente desde WhatsApp",
           body: `
         <h2>Nuevo mensaje recibido</h2>
