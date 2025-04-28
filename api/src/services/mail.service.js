@@ -423,6 +423,49 @@ class MailService {
       return { success: false, message: "Error en el envío del email" };
     }
   }
+
+  async sendMailToNotifyNewMessage(clientNumber) {
+    const transport = nodemailer.createTransport({
+      host: "smtp.hostinger.com",
+      port: 465,
+      secure: true,
+      auth: {
+        user: adminEmail,
+        pass: adminPass,
+      },
+    });
+    // console.log({ newClient });
+    // console.log({mailTo});
+
+    const templateNotifyNewMessage = `
+    <body style="font-family: Arial, sans-serif;">
+
+  <h2>Acabas de recibir un mensaje en whatsapp!</h2>
+
+  <p>Hola, Miguel!</p>
+
+  <p>Te informamos que has recibido un nuevo mensaje por parte de un cliente</p>
+
+  <p>Por favor, contacta al cliente cuanto antes para ayudarlo con su inquietud. Recuerda que un gran servicio al cliente es parte de un negocio exitoso.</p>
+
+  <p>¡Gracias!</p>
+
+</body>`;
+
+    const mailOptions = {
+      from: `<ventas@focusfitshop.com>`,
+      to: adminEmail,
+      subject: `Recibiste un mensaje de ${newClient.producto} en Whatsapp`,
+      html: templateNotifyNewMessage,
+    };
+
+    try {
+      const info = await transport.sendMail(mailOptions);
+      console.log(`✅ Email sent to Admin: ${info.response}`);
+    } catch (error) {
+      console.error(`❌ Error sending email to Admin:`, error);
+    }
+  }
 }
 
 const mailService = new MailService();

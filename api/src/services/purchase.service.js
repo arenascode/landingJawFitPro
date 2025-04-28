@@ -166,13 +166,20 @@ class ClientService {
     }
   }
 
-
   async getClients() {
     try {
       const clients = await clientRepository.getClients();
       return clients;
     } catch (error) {
       return error.message;
+    }
+  }
+
+  async findClientByPhone(phoneClientNumber) {
+    try {
+      return await clientRepository.findClientByPhoneNumber(phoneClientNumber)
+    } catch (error) {
+      return error.message
     }
   }
 }

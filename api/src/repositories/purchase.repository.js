@@ -1,12 +1,16 @@
 import clientDaoMongoDb from "../daos/purchase.mongoDao.js";
 
 class UsersRepository {
+  
   constructor(daoSelected) {
     this.dao = daoSelected;
   }
 
   async getClients() {
     return await this.dao.getAllClients();
+  }
+  async findClientByPhoneNumber(phoneClientNumber) {
+    return await this.dao.findClientByPhoneNumber(phoneClientNumber);
   }
 
   async newClient(dataNewUser) {

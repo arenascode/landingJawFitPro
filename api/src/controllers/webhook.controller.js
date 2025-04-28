@@ -70,7 +70,7 @@ export async function handleWhatsappWebhook(req, res) {
     }
 
     if (message.type === "text") {
-      console.log("✏️ Recibido mensaje de corrección de dirección");
+      console.log("✏️ Recibido mensaje de texto");
 
       const messageText = message.text.body.toLowerCase();
       const direccionMatch = messageText.match(
@@ -85,24 +85,63 @@ export async function handleWhatsappWebhook(req, res) {
         ? datosAdicionalesMatch[1].trim()
         : null;
 
-      if (nuevaDireccion || nuevosDatosAdicionales) {
-        const dataToUpdate = {};
-        if (nuevaDireccion) dataToUpdate.direccion = nuevaDireccion;
-        if (nuevosDatosAdicionales)
-          dataToUpdate.datos_adicionales = nuevosDatosAdicionales;
-        dataToUpdate.ultima_accion = "direccion_corregida";
+      // ⬇️ Consultar estado actual del cliente
+      const client = await clientService.findClientByPhone(from_number);
 
-        await clientService.updateClientStatusOrderAfterChangeAdress(
-          from_number,
-          dataToUpdate
-        );
+      if (!client) {
+        console.error("❌ Cliente no encontrado");
+        return res.sendStatus(404);
+      }
+
+      if (client.ultima_accion === "esperando_direccion_corregida") {
+        // Cliente debía corregir su dirección
+
+        if (nuevaDireccion || nuevosDatosAdicionales) {
+          // ✅ Corrigió correctamente
+          const dataToUpdate = {};
+          if (nuevaDireccion) dataToUpdate.direccion = nuevaDireccion;
+          if (nuevosDatosAdicionales)
+            dataToUpdate.datos_adicionales = nuevosDatosAdicionales;
+          dataToUpdate.ultima_accion = "direccion_corregida";
+
+          await clientService.updateClientStatusOrderAfterChangeAdress(
+            from_number,
+            dataToUpdate
+          );
+
+          await whatsappService.sendTextMessage(
+            from_number,
+            "✅ ¡Gracias por enviarnos la corrección! Actualizamos tus datos y en breve te enviaremos tu pedido. 🚚"
+          );
+        } else {
+          // ⚠️ No envió los datos correctamente
+          await whatsappService.sendTextMessage(
+            from_number,
+            "⚠️ No pudimos identificar los datos corregidos. Por favor asegúrate de seguir el formato: Dirección exacta: [nueva dirección], Datos adicionales: [indicaciones]."
+          );
+        }
       } else {
-        await whatsappService.sendTextMessage(
-          from_number,
-          "⚠️ No pudimos identificar los datos corregidos. Por favor asegúrate de seguir el formato: Dirección exacta: [nueva dirección], Datos adicionales: [indicaciones]."
-        );
+        // ✉️ Cliente no estaba en flujo de corrección, solo escribió espontáneamente
+        console.log("✉️ Mensaje espontáneo recibido");
+
+        // await whatsappService.sendTextMessage(
+        //   from_number,
+        //   "🙌 ¡Recibimos tu mensaje! Un asesor te responderá pronto para ayudarte. 🧡"
+        // );
+
+        // 📧 Notificarte por email
+        await emailService.sendNotificationToAdmin({
+          subject: "Nuevo mensaje de cliente desde WhatsApp",
+          body: `
+        <h2>Nuevo mensaje recibido</h2>
+        <p><strong>Nombre:</strong> ${from_customerName}</p>
+        <p><strong>WhatsApp:</strong> ${from_number}</p>
+        <p><strong>Mensaje:</strong> ${message.text.body}</p>
+      `,
+        });
       }
     }
+
   }
 
   // --- Si viene un status (entregado, enviado, leído), simplemente ignorarlo ---
