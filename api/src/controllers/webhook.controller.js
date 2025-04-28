@@ -128,17 +128,9 @@ export async function handleWhatsappWebhook(req, res) {
         //   from_number,
         //   "🙌 ¡Recibimos tu mensaje! Un asesor te responderá pronto para ayudarte. 🧡"
         // );
-
+        const message = message.text.body
         // 📧 Notificarte por email
-        await mailService.sendMailToNotifyNewMessage({
-          subject: "Nuevo mensaje de cliente desde WhatsApp",
-          body: `
-        <h2>Nuevo mensaje recibido</h2>
-        <p><strong>Nombre:</strong> ${from_customerName}</p>
-        <p><strong>WhatsApp:</strong> ${from_number}</p>
-        <p><strong>Mensaje:</strong> ${message.text.body}</p>
-      `,
-        });
+        await mailService.sendMailToNotifyNewMessage( from_number, from_customerName, message);
       }
     }
 

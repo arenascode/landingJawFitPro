@@ -424,7 +424,7 @@ class MailService {
     }
   }
 
-  async sendMailToNotifyNewMessage(clientNumber) {
+  async sendMailToNotifyNewMessage(clientNumber, clientName, message) {
     const transport = nodemailer.createTransport({
       host: "smtp.hostinger.com",
       port: 465,
@@ -445,7 +445,11 @@ class MailService {
   <p>Hola, Miguel!</p>
 
   <p>Te informamos que has recibido un nuevo mensaje por parte de un cliente</p>
-
+  <br/>
+        <p><strong>Nombre:</strong> ${clientName}</p>
+        <p><strong>WhatsApp:</strong> ${clientNumber}</p>
+        <p><strong>Mensaje:</strong> ${message}</p>
+        <br/>
   <p>Por favor, contacta al cliente cuanto antes para ayudarlo con su inquietud. Recuerda que un gran servicio al cliente es parte de un negocio exitoso.</p>
 
   <p>¡Gracias!</p>
@@ -455,7 +459,7 @@ class MailService {
     const mailOptions = {
       from: `<ventas@focusfitshop.com>`,
       to: adminEmail,
-      subject: `Recibiste un mensaje de ${newClient.producto} en Whatsapp`,
+      subject: `Recibiste un mensaje de ${clientName} en Whatsapp`,
       html: templateNotifyNewMessage,
     };
 
