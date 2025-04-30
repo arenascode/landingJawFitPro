@@ -19,12 +19,12 @@ class ClientService {
       console.log({ clientSaved });
 
       if (clientSaved) {
-        // const sendMailToAdmin = await mailService.sendMailToNotifyPurchase(
-        //   newClient
-        // );
+        const sendMailToAdmin = await mailService.sendMailToNotifyPurchase(
+          newClient
+        );
 
-        // const sendMailToClient =
-        //   await mailService.sendMailToCofirmClientPurchase(newClient);
+        const sendMailToClient =
+          await mailService.sendMailToConfirmClientPurchase(newClient);
 
         const sendWhatsappToClient = await whatsappService.sendConfirmationMessage(clientSaved)
         console.log({ sendWhatsappToClient });
