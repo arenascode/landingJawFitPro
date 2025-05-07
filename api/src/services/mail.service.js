@@ -115,14 +115,14 @@ class MailService {
       "2 Pares de Gafas Amber Vision con filtro de luz azul": {
         path: "https://ambervision.focusfitshop.com/assets/product/AmberLensesPair.webp",
       },
-      "Jawfit Kit Primera Vez": {
-        path: "./public/img/JF_basicKit.webp",
+      "Jawfit Pro - Kit Primera Vez": {
+        path: "https://jawfitpro.focusfitshop.com/assets/product/productIntroV2-small.webp",
       },
-      "Kit Avanzado": {
-        path: "./public/img/kitAdvanced.webp",
+      "Jawfit Pro - Kit Avanzado": {
+        path: "https://jawfitpro.focusfitshop.com/assets/product/kitAdvanced-sm.webp",
       },
-      "Primera Vez + Avanzado": {
-        path: "./public/img/JF_kitPromo.webp",
+      "Jawfit Pro - Kit Promo": {
+        path: "https://jawfitpro.focusfitshop.com/assets/product/kitPromo-sm.webp",
       },
     };
 

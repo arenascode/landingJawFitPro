@@ -26,7 +26,8 @@ class ClientService {
         const sendMailToClient =
           await mailService.sendMailToConfirmClientPurchase(newClient);
 
-        const sendWhatsappToClient = await whatsappService.sendConfirmationMessage(clientSaved)
+        const sendWhatsappToClient =
+          await whatsappService.sendConfirmationMessage(clientSaved);
         console.log({ sendWhatsappToClient });
 
         //*FB PIXEL *//
@@ -70,7 +71,11 @@ class ClientService {
           .setEventTime(current_timestamp)
           .setUserData(userData)
           .setCustomData(customData)
-          .setEventSourceUrl("https://jawfitpro.focusfitshop.com/")
+          .setEventSourceUrl(
+            prefixOrderNumber === "AV"
+              ? "https://ambervision.focusfitshop.com/"
+              : "https://jawfitpro.focusfitshop.com/"
+          )
           .setActionSource("website");
 
         const eventsData = [serverEvent];
@@ -131,7 +136,10 @@ class ClientService {
     }
   }
 
-  async updateClientStatusOrderAfterChangeAdress(phoneClientNumber, dataToUpdate) {
+  async updateClientStatusOrderAfterChangeAdress(
+    phoneClientNumber,
+    dataToUpdate
+  ) {
     console.log({ dataToUpdate });
 
     try {
@@ -148,11 +156,15 @@ class ClientService {
           await mailService.sendMailToNotifyWhatsappConfirmationPurchase(
             clientUpdated
           );
-        const nameClient = clientUpdated.nombre.split(" ")
-        const firstNameClient = nameClient[0]
-        const notifyAdressChangedToClient = await whatsappService.thanksForConfirmNewDataAdress(firstNameClient, phoneClientNumber)
+        const nameClient = clientUpdated.nombre.split(" ");
+        const firstNameClient = nameClient[0];
+        const notifyAdressChangedToClient =
+          await whatsappService.thanksForConfirmNewDataAdress(
+            firstNameClient,
+            phoneClientNumber
+          );
         console.log({ sendNotificationMailToAdmin });
-        console.log({ notifyAdressChangedToClient});
+        console.log({ notifyAdressChangedToClient });
       }
       return {
         success: true,
@@ -177,9 +189,9 @@ class ClientService {
 
   async findClientByPhone(phoneClientNumber) {
     try {
-      return await clientRepository.findClientByPhoneNumber(phoneClientNumber)
+      return await clientRepository.findClientByPhoneNumber(phoneClientNumber);
     } catch (error) {
-      return error.message
+      return error.message;
     }
   }
 }

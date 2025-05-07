@@ -1,5 +1,5 @@
 import { phoneNumberId, wtspToken } from "../config/auth.config.js";
-import axios from "axios"
+import axios from "axios";
 
 class WhatsappService {
   //first template message after client purchase on landing
@@ -10,7 +10,11 @@ class WhatsappService {
     try {
       const nameClient = client.nombre.split(" ");
       const primerNombre = nameClient[0];
-
+      const prefixOrderNumber = client.numero_orden.slice(0, 2);
+      const message =
+        prefixOrderNumber === "AV"
+          ? "hayas decidido mejorar tu descanso y cuidar de tus ojos con nuestras gafas. Estás a un paso de transformar tus noches."
+          : "hayas decidido potenciar tu atractivo facial con JawFit-Pro 💪. Estás a un paso de transformar tu mandíbula de forma natural y efectiva.";
       const response = await axios.post(
         `https://graph.facebook.com/v22.0/${originPhone}/messages`,
         {
@@ -28,6 +32,11 @@ class WhatsappService {
                     type: "text",
                     parameter_name: "nombre_cliente",
                     text: primerNombre,
+                  },
+                  {
+                    type: "text",
+                    parameter_name: "mensaje",
+                    text: message,
                   },
                   {
                     type: "text",
@@ -53,6 +62,11 @@ class WhatsappService {
                     type: "text",
                     parameter_name: "direccion",
                     text: client.direccion,
+                  },
+                  {
+                    type: "text",
+                    parameter_name: "datos_adicionales",
+                    text: client.datos_adicionales ?? " ",
                   },
                 ],
               },
@@ -239,43 +253,42 @@ class WhatsappService {
   }
 
   async sendTextMessage(clientNumber, message) {
-   console.log({ message });
-   console.log({ clientNumber });
+    console.log({ message });
+    console.log({ clientNumber });
 
-   const whatsappToken = wtspToken;
-   const originPhone = phoneNumberId;
+    const whatsappToken = wtspToken;
+    const originPhone = phoneNumberId;
 
-   try {
+    try {
+      const response = await axios.post(
+        `https://graph.facebook.com/v22.0/${originPhone}/messages`,
+        {
+          messaging_product: "whatsapp",
+          to: clientNumber,
+          type: "text",
+          text: {
+            preview_url: false,
+            body: message,
+          },
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${whatsappToken}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
-     const response = await axios.post(
-       `https://graph.facebook.com/v22.0/${originPhone}/messages`,
-       {
-         messaging_product: "whatsapp",
-         to: clientNumber,
-         type: "text",
-         text: {
-           preview_url: false,
-           body: message,
-         },
-       },
-       {
-         headers: {
-           Authorization: `Bearer ${whatsappToken}`,
-           "Content-Type": "application/json",
-         },
-       }
-     );
-
-     return response.data;
-   } catch (error) {
-     console.error(
-       "Error al enviar mensaje de WhatsApp:",
-       error.response?.data || error.message
-     );
-   }
- }
+      return response.data;
+    } catch (error) {
+      console.error(
+        "Error al enviar mensaje de WhatsApp:",
+        error.response?.data || error.message
+      );
+    }
+  }
 }
 
-const whatsappService = new WhatsappService
+const whatsappService = new WhatsappService();
 
-export default whatsappService
+export default whatsappService;

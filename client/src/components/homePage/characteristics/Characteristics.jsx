@@ -3,9 +3,6 @@ import "./characteristics.scss";
 const Characteristics = () => {
   return (
     <div className="characteristics_container">
-      {/* <h1 className="useItAnywhere_title font-bold sm:text-xl mt-1 tracking-wider text-pretty text-center">
-        En Cualquier Lugar y En Cualquier Momento
-      </h1> */}
       <div className="characteristic">
         <div className="characteristicImg">
           <img src="/assets/characteristics/sinBpa-xs.webp" alt="" />

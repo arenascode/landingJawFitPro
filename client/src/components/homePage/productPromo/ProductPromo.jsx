@@ -69,15 +69,16 @@ const ProductPromo = () => {
           <h3 className="card-title">Kit de 3 Niveles (Primera vez)</h3>
           <ul className="promo-features">
             <li>
-              <img src={whiteStrength} alt="basic" width="48" /> 1 Par Principiante (Blanco)
+              <img src={whiteStrength} alt="basic" width="48" /> 1 Par
+              Principiante (Blanco)
             </li>
             <li>
-              <img src={greyStrength} alt="intermediate" width="48" />{" "}
-              1 Par Intermedio (Gris)
+              <img src={greyStrength} alt="intermediate" width="48" /> 1 Par
+              Intermedio (Gris)
             </li>
             <li>
-              <img src={blackStrength} alt="advanced" width="48" /> 1 Par Avanzado
-              (Negro)
+              <img src={blackStrength} alt="advanced" width="48" /> 1 Par
+              Avanzado (Negro)
             </li>
           </ul>
           <p className="promo-text">
@@ -99,7 +100,9 @@ const ProductPromo = () => {
         {/* Card: Kit Solo Avanzado */}
         <div className="promo-card">
           <img src={advancedKit} alt="Kit advanced" className="promo-image" />
-          <h3 className="card-title">Kit Avanzado <small>(3 pares)</small></h3>
+          <h3 className="card-title">
+            Kit Avanzado <small>(3 pares)</small>
+          </h3>
           <ul className="promo-features">
             <li>
               <img src={blackStrength} alt="advanced" width="50" />
@@ -142,19 +145,16 @@ const ProductPromo = () => {
           <h3 className="card-title">Kit Primera vez + Kit Avanzado 🖤</h3>
           <ul className="promo-features">
             <li>
-              <img src={whiteStrength} alt="basic" width="48" /> 1 Par Básico (Blanco)
+              <img src={whiteStrength} alt="basic" width="48" /> 1 Par
+              Principiante (Blanco)
             </li>
             <li>
-              <img src={greyStrength} alt="intermediate" width="48" />{" "}
-              1 Par Intermedio (Gris)
+              <img src={greyStrength} alt="intermediate" width="48" /> 1 Par
+              Intermedio (Gris)
             </li>
             <li>
-              <img src={blackStrength} alt="advanced" width="48" /> 1 Par Avanzado
-              (Negro)
-            </li>
-            <li>
-              <img src={blackStrength} alt="advanced" width="48" />3 Pares
-              Avanzado Extra
+              <img src={blackStrength} alt="advanced" width="48" /> 1 Par
+              Avanzado (Negro)
             </li>
           </ul>
           <p className="promo-text">
