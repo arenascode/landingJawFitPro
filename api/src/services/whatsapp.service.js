@@ -335,7 +335,7 @@ class WhatsappService {
       return response.data;
     } catch (error) {
       console.error(
-        "Error al enviar mensaje de WhatsApp:",
+        "Error al enviar mensaje de cancelación de WhatsApp:",
         error.response?.data || error.message
       );
     }

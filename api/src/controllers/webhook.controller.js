@@ -71,6 +71,7 @@ export async function handleWhatsappWebhook(req, res) {
       if (payload === "Ya no lo deseo") {
         console.log(`Pedido cancelado por ${from_customerName}`);
         const updateOrder = await clientService.updateClientStatusOrder(from_number, ultima_accion = "pedido_cancelado")
+        const canceledConfirmationMessage = await whatsappService.sendCancelationMessage(from_customerName, from_number)
       }
     }
 
