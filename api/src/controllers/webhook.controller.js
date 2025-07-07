@@ -45,7 +45,8 @@ export async function handleWhatsappWebhook(req, res) {
 
     if (message.type === "button") {
       const payload = message.button.payload;
-
+      console.log({payload});
+      
       if (payload === "Sí, Confirmo" || payload === "¡Confirmar y Despachar!") {
         console.log(`✅ Pedido confirmado por ${from_customerName}`);
         await clientService.updateClientStatusOrder(from_number, {
