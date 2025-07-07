@@ -246,7 +246,11 @@ class WhatsappService {
           },
         }
       );
-
+      if (response.status === 200) {
+        await clientService.updateClientStatusOrder(client.telefono, {
+          ultima_accion: "pedido_confirmado",
+        });
+      }
       return response.data;
     } catch (error) {
       console.error(
@@ -331,7 +335,12 @@ class WhatsappService {
           },
         }
       );
-
+      if (response.status === 200) {
+        const updateStatusOrder = await clientService.updateClientStatusOrder(
+          clientNumber,
+          { ultima_accion: "pedido_cancelado" }
+        );
+      }
       return response.data;
     } catch (error) {
       console.error(
@@ -340,6 +349,7 @@ class WhatsappService {
       );
     }
   }
+  
   async sendTextMessage(clientNumber, message) {
     console.log({ message });
     console.log({ clientNumber });
