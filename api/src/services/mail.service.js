@@ -191,23 +191,30 @@ class MailService {
     </tr>
 
     <tr>
-      <td style="padding-top: 30px;">
-        <h3>Información del cliente</h3>
-        <table style="width: 100%; font-size: 14px;">
-          <tr>
-            <td style="vertical-align: top;">
-              <strong>Dirección de envío</strong><br>
-              ${newClient.nombre}<br>
-              ${newClient.direccion}<br>
-              ${newClient.ciudad} - ${newClient.departamento}<br>
-              Colombia<br>
-              Tel: ${newClient.telefono}<br>
-              ${
-                newClient.datos_adicionales &&
-                `Datos Adicionales: ${newClient.datos_adicionales}`
-              }
-            </td>
-          </tr>
+  <td style="padding-top: 30px;">
+    <h3 style="font-size: 18px; margin-bottom: 10px;">📦 Información del Cliente</h3>
+    <table style="width: 100%; font-size: 14px; color: #333;">
+      <tr>
+        <td style="vertical-align: top; padding: 10px; background-color: #f9f9f9; border-radius: 8px;">
+          <p style="margin: 0; line-height: 1.6;">
+            <strong>🏠 Dirección de Envío:</strong><br>
+            👤 <strong>${newClient.nombre}</strong><br>
+            📍 ${newClient.direccion}<br>
+            🏙️ ${newClient.ciudad} - ${newClient.departamento}<br>
+            🇨🇴 Colombia<br>
+            📞 <strong>Tel:</strong> ${newClient.telefono}<br>
+            ${
+              newClient.datos_adicionales
+                ? `📝 <strong>Datos Adicionales:</strong> ${newClient.datos_adicionales}`
+                : ""
+            }
+          </p>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
         </table>
 
         <div style="padding: 20px;">

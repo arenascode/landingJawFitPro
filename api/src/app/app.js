@@ -15,7 +15,7 @@ app.use(cookieParser(secretCookie));
 //   cors({
 //     origin: [
 //       "http://127.0.0.1:5173",
-//       "http://localhost:3000",
+//       "http://localhost:4321",
 //       "http://localhost:5173",
 //       "https://77.37.63.218"
 //     ],

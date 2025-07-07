@@ -46,7 +46,7 @@ export async function handleWhatsappWebhook(req, res) {
     if (message.type === "button") {
       const payload = message.button.payload;
 
-      if (payload === "Sí, Confirmo") {
+      if (payload === "Sí, Confirmo" || payload === "¡Confirmar y Despachar!") {
         console.log(`✅ Pedido confirmado por ${from_customerName}`);
         await clientService.updateClientStatusOrder(from_number, {
           ultima_accion: "pedido_confirmado",
@@ -58,7 +58,7 @@ export async function handleWhatsappWebhook(req, res) {
         );
       }
 
-      if (payload === "Corregir Dirección") {
+      if (payload === "Corregir Dirección" || "Corregir Algún Dato") {
         console.log(
           `✏️ Pedido necesita corrección de dirección: ${from_customerName}`
         );
@@ -66,6 +66,11 @@ export async function handleWhatsappWebhook(req, res) {
           from_customerName,
           from_number
         );
+      }
+
+      if (payload === "Ya no lo deseo") {
+        console.log(`Pedido cancelado por ${from_customerName}`);
+        const updateOrder = await clientService.updateClientStatusOrder(from_number, ultima_accion = "pedido_cancelado")
       }
     }
 

@@ -24,8 +24,10 @@ const clientsSchema = mongoose.Schema(
         "esperando_direccion_corregida",
         "direccion_corregida",
         "guia_enviada",
+        "pedido_cancelado",
+        "compra_guardada"
       ],
-      default: "esperando_confirmacion"
+      default: "compra_guardada"
     },
   },
   { versionKey: false }

@@ -1,5 +1,6 @@
 import { phoneNumberId, wtspToken } from "../config/auth.config.js";
 import axios from "axios";
+import clientService from "./purchase.service.js";
 
 class WhatsappService {
   //first template message after client purchase on landing
@@ -80,7 +81,10 @@ class WhatsappService {
           },
         }
       );
-
+      console.log({response});
+      if (response.status === 200) {
+        await clientService.updateClientStatusOrder(client.telefono, {ultima_accion: "esperando_confirmacion"})
+      }
       return response.data;
     } catch (error) {
       console.error(
@@ -252,6 +256,90 @@ class WhatsappService {
     }
   }
 
+  //Message to send if the client cancel the order
+  async sendCancelationMessage(clientName, clientNumber) {
+
+    const whatsappToken = wtspToken;
+    const originPhone = phoneNumberId;
+
+    try {
+      const nameClient = clientName.split(" ");
+      const primerNombre = nameClient[0];
+      
+      const response = await axios.post(
+        `https://graph.facebook.com/v22.0/${originPhone}/messages`,
+        {
+          messaging_product: "whatsapp",
+          to: clientNumber,
+          type: "template",
+          template: {
+            name: "confirmacion_pedido_cancelado",
+            language: { code: "es_CO" },
+            components: [
+              {
+                type: "body",
+                parameters: [
+                  {
+                    type: "text",
+                    parameter_name: "nombre_cliente",
+                    text: primerNombre,
+                  },
+                  {
+                    type: "text",
+                    parameter_name: "mensaje",
+                    text: message,
+                  },
+                  {
+                    type: "text",
+                    parameter_name: "producto",
+                    text: client.producto,
+                  },
+                  {
+                    type: "text",
+                    parameter_name: "precio",
+                    text: client.valor_compra,
+                  },
+                  {
+                    type: "text",
+                    parameter_name: "ciudad",
+                    text: client.ciudad,
+                  },
+                  {
+                    type: "text",
+                    parameter_name: "departamento",
+                    text: client.departamento,
+                  },
+                  {
+                    type: "text",
+                    parameter_name: "direccion",
+                    text: client.direccion,
+                  },
+                  {
+                    type: "text",
+                    parameter_name: "datos_adicionales",
+                    text: client.datos_adicionales ?? " ",
+                  },
+                ],
+              },
+            ],
+          },
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${whatsappToken}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      return response.data;
+    } catch (error) {
+      console.error(
+        "Error al enviar mensaje de WhatsApp:",
+        error.response?.data || error.message
+      );
+    }
+  }
   async sendTextMessage(clientNumber, message) {
     console.log({ message });
     console.log({ clientNumber });
