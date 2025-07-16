@@ -576,7 +576,7 @@ class WhatsappService {
                   {
                     type: "text",
                     parameter_name: "nombre_cliente",
-                    text: primerNombre,
+                    text: client.nombre,
                   },
                   {
                     type: "text",

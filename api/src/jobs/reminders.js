@@ -6,17 +6,19 @@ import timezone from "dayjs/plugin/timezone.js"
 import "dayjs/locale/es.js";
 import whatsappService from "../services/whatsapp.service.js";
 
-//TODO -> CHANGE AFTER TESTING
-cron.schedule("*/5 * * * *", async () => {
+
+cron.schedule("*/30 9-22 * * *", async () => {
   console.log(
     "⏰ Ejecutando cron job: Revisando clientes que no confirmaron..."
   );
-    dayjs.extend(utc);
-    dayjs.extend(timezone);
-  const now = dayjs().tz("America/Bogota")
-  const hour = now.hour()
-  if (hour < 8 || hour >= 21) {
-    console.log("⏰ Fuera del horario de atención (8 AM - 9 PM). No se enviarán recordatorios.");
+  dayjs.extend(utc);
+  dayjs.extend(timezone);
+  const now = dayjs().tz("America/Bogota");
+  const hour = now.hour();
+  if (hour < 9 || hour >= 22) {
+    console.log(
+      "⏰ Fuera del horario de atención (8 AM - 9 PM). No se enviarán recordatorios."
+    );
     return;
   }
 
@@ -24,9 +26,9 @@ cron.schedule("*/5 * * * *", async () => {
     const pendingConfirmationOrders = await clientService.findClientsByStatus(
       "esperando_confirmacion"
     );
-    console.log({ pendingConfirmationOrdersLength: pendingConfirmationOrders.length });
-
-   
+    console.log({
+      pendingConfirmationOrdersLength: pendingConfirmationOrders.length,
+    });
 
     const COLOMBIA_TIMEZONE = "America/Bogota";
     const now = dayjs().tz(COLOMBIA_TIMEZONE);
@@ -47,15 +49,15 @@ cron.schedule("*/5 * * * *", async () => {
       if (
         order.ultima_accion !== "recordatorio_confirmar_compra_enviado" &&
         !order.recordatorio_enviado &&
-        minutesPassed >= 10 //TODO CHANGE AFTER TESTING
+        minutesPassed >= 180
       ) {
         console.log(`📨 Enviando recordatorio a ${order.nombre}...`);
 
         const resStatus = await whatsappService.sendConfirmationReminderMessage(
           order
         );
-        console.log({resStatusWhatsapp: resStatus});
-        
+        console.log({ resStatusWhatsapp: resStatus });
+
         if (resStatus === 200) {
           console.log(`✅ Recordatorio enviado a ${order.nombre}`);
           await clientService.updateClientStatusOrder(order.telefono, {
