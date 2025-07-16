@@ -137,7 +137,11 @@ class ClientService {
             clientUpdated: clientUpdated,
           };
       }
-
+      return {
+        success: true,
+        message: "Order updated successfully",
+        clientUpdated: clientUpdated,
+      };
     } catch (error) {
       console.log("Error in purchase service");
       console.log({ error });

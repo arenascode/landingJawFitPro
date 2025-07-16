@@ -222,12 +222,12 @@ class WhatsappService {
         }
       );
       if (response.status === 200) {
-        const clientSaved = await clientService.updateClientStatusOrder(clientNumber, {
+        const clientServiceResponse = await clientService.updateClientStatusOrder(clientNumber, {
           ultima_accion: "pedido_confirmado",
         });
-        console.log(`Client saved from Wtsp.ThxForConfirm`, {clientSaved});
+        console.log(`Client saved from Wtsp.ThxForConfirm`, clientServiceResponse.clientUpdated);
         
-        await this.sendConfirmationPurchaseNotificationToAdmin(clientSaved)
+        await this.sendConfirmationPurchaseNotificationToAdmin(clientServiceResponse.clientUpdated)
       }
       return response.data;
     } catch (error) {
@@ -343,12 +343,12 @@ class WhatsappService {
       console.log({responseThanksForConfirm: response.status});
       
       if (response.status == 200) {
-        const clientUpdated = await clientService.updateClientStatusOrder(clientNumber, {
+        const clientServceResponse = await clientService.updateClientStatusOrder(clientNumber, {
           ultima_accion: "pedido_confirmado",
         });
         console.log({clientUpdatedThxForConfirm: clientUpdated});
         
-        await this.sendConfirmationPurchaseNotificationToAdmin(clientUpdated)
+        await this.sendConfirmationPurchaseNotificationToAdmin(clientServceResponse.clientUpdated)
       }
       return response.data;
     } catch (error) {
@@ -497,7 +497,7 @@ class WhatsappService {
           to: adminPhone,
           type: "template",
           template: {
-            name: "aviso_nueva_compra_admin",
+            name: "aviso_admin_de_compra_nueva",
             language: { code: "es_CO" },
             components: [
               {
