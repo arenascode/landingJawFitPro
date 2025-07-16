@@ -18,8 +18,8 @@ class UsersRepository {
     return await this.dao.newClient(dataNewUser);
   }
 
-  async updateClient(orderNumber, dataToUpdate) {
-    return await this.dao.updateClient(orderNumber, dataToUpdate)
+  async updateClient(phoneNumber, dataToUpdate) {
+    return await this.dao.updateClient(phoneNumber, dataToUpdate)
   }
 
   async findClientsByOrderStatus(status) {

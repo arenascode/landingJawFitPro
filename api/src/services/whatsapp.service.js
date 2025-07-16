@@ -83,7 +83,7 @@ class WhatsappService {
       );
       console.log({ response });
       if (response.status === 200) {
-        await clientService.updateClientStatusOrder(client.cedula, {
+        await clientService.updateClientStatusOrder(client.telefono, {
           ultima_accion: "esperando_confirmacion",
         });
         await this.sendPurchaseNotificationToAdmin(client)
@@ -283,7 +283,7 @@ class WhatsappService {
         }
       );
       if (response.status === 200) {
-        await clientService.updateClientStatusOrder(clientName, {
+        await clientService.updateClientStatusOrder(clientNumber, {
           ultima_accion: "esperando_direccion_corregida",
         });
       }
