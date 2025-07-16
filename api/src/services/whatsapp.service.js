@@ -340,10 +340,14 @@ class WhatsappService {
           },
         }
       );
-      if (response.status === 200) {
-        const clientUpdated = await clientService.updateClientStatusOrder(client.telefono, {
+      console.log({responseThanksForConfirm: response.status});
+      
+      if (response.status == 200) {
+        const clientUpdated = await clientService.updateClientStatusOrder(clientNumber, {
           ultima_accion: "pedido_confirmado",
         });
+        console.log({clientUpdatedThxForConfirm: clientUpdated});
+        
         await this.sendConfirmationPurchaseNotificationToAdmin(clientUpdated)
       }
       return response.data;
@@ -506,7 +510,7 @@ class WhatsappService {
                   },
                   {
                     type: "text",
-                    paramenter_name: "numero_orden",
+                    parameter_name: "numero_orden",
                     text: client.numero_orden
                   },
                   {
