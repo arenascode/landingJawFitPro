@@ -86,9 +86,7 @@ export async function handleWhatsappWebhook(req, res) {
       console.log("✏️ Recibido mensaje de texto");
 
       const messageText = message.text.body.toLowerCase();
-      const direccionMatch = messageText.match(
-        /direcci[oó]n exacta[:\-]\s*([^,]+)/i
-      );
+      const direccionMatch = messageText.match(/direcci[oó]n[:\-]\s*(.+)/i);
       const datosAdicionalesMatch = messageText.match(
         /datos adicionales[:\-]\s*(.+)/i
       );
@@ -100,7 +98,8 @@ export async function handleWhatsappWebhook(req, res) {
 
       // ⬇️ Consultar estado actual del cliente
       const client = await clientService.findClientByPhone(from_number);
-
+      console.log({client});
+      
       if (!client) {
         console.error("❌ Cliente no encontrado");
         return res.sendStatus(404);
@@ -108,7 +107,8 @@ export async function handleWhatsappWebhook(req, res) {
 
       if (client.ultima_accion === "esperando_direccion_corregida") {
         // Cliente debía corregir su dirección
-
+        console.log(`entro en el if de ultima accion == "esperando_dire_corregida`);
+        
         if (nuevaDireccion || nuevosDatosAdicionales) {
           // ✅ Corrigió correctamente
           const dataToUpdate = {};
@@ -142,7 +142,7 @@ export async function handleWhatsappWebhook(req, res) {
 
         await whatsappService.sendTextMessage(
           from_number,
-          "🙌 ¡Recibimos tu mensaje! Un asesor te responderá pronto para ayudarte. 🧡"
+          "🙌 ¡Recibimos tu mensaje! Un asesor te responderá pronto para ayudarte. 🤍"
         );
         
         const clientMessage = message.text.body
