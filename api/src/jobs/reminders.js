@@ -58,7 +58,7 @@ cron.schedule("*/5 * * * *", async () => {
         
         if (resStatus === 200) {
           console.log(`✅ Recordatorio enviado a ${order.nombre}`);
-          await clientService.updateClientStatusOrder(order.numero_orden, {
+          await clientService.updateClientStatusOrder(order.telefono, {
             ultima_accion: "recordatorio_confirmar_compra_enviado",
             recordatorio_enviado: true,
           });
