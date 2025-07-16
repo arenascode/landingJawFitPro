@@ -2,6 +2,7 @@ import { adminEmail, adminPass, mailToAdmin } from "../config/auth.config.js";
 import nodemailer from "nodemailer";
 
 class MailService {
+  //mail to admin
   async sendMailToNotifyPurchase(newClient) {
     const transport = nodemailer.createTransport({
       host: "smtp.hostinger.com",
@@ -91,7 +92,7 @@ class MailService {
       console.error(`❌ Error sending email to Admin:`, error);
     }
   }
-
+  //mail to client
   async sendMailToConfirmClientPurchase(newClient) {
     const clientEmail = newClient.email;
     const transport = nodemailer.createTransport({
@@ -249,7 +250,7 @@ class MailService {
       console.error(`❌ Error sending email to Client:`, error);
     }
   }
-
+  //mail to admin
   async sendMailToNotifyWhatsappConfirmationPurchase(clientUpdated) {
     const transport = nodemailer.createTransport({
       host: "smtp.hostinger.com",
@@ -343,7 +344,105 @@ class MailService {
       console.error(`❌ Error sending email to Admin:`, error);
     }
   }
+  //mail to admin
+  async sendMailToNotifyAdressCorrected(clientUpdated) {
+    const transport = nodemailer.createTransport({
+      host: "smtp.hostinger.com",
+      port: 465,
+      secure: true,
+      auth: {
+        user: adminEmail,
+        pass: adminPass,
+      },
+    });
+    console.log({ clientUpdated });
+    // console.log({mailTo});
 
+    const templateNotifyPurchase = `
+    <body style="font-family: Arial, sans-serif;">
+
+  <h2>Los datos de envío del siguiente pedido han sido corregidos y confirmados por Whatsapp</h2>
+
+  <p>Hola, Miguel!</p>
+
+  <p>Te informamos que acabaron de corregir los datos de envío del siguiente pedido por whatsapp. Los nuevos datos son los siguientes:</p>
+
+  <table style="width: 100%; margin-top: 20px;">
+    <tr>
+      <td><strong>Pedido #:</strong></td>
+      <td>${clientUpdated.numero_orden}</td>
+    </tr>
+    <tr>
+      <td><strong>Nombre:</strong></td>
+      <td>${clientUpdated.nombre}</td>
+    </tr>
+    <tr>
+      <td><strong>Email:</strong></td>
+      <td>${clientUpdated.email}</td>
+    </tr>
+    <tr>
+      <td><strong>Teléfono-wtsp:</strong></td>
+      <td>${clientUpdated.telefono}</td>
+    </tr>
+    <tr>
+      <td><strong>Cedula:</strong></td>
+      <td>${clientUpdated.cedula}</td>
+    </tr>
+    <tr>
+      <td><strong>Ciudad:</strong></td>
+      <td>${clientUpdated.ciudad}</td>
+    </tr>
+    <tr>
+      <td><strong>Departamento:</strong></td>
+      <td>${clientUpdated.departamento}</td>
+    </tr>
+    <tr>
+      <td><strong>Dirección de Envío:</strong></td>
+      <td>${clientUpdated.direccion}</td>
+    </tr>
+    <tr>
+      <td><strong>Producto Adquirido:</strong></td>
+      <td>${clientUpdated.producto}</td>
+    </tr>
+    <tr>
+      <td><strong>Datos Adicionales:</strong></td>
+      <td>${clientUpdated.datos_adicionales}</td>
+    </tr>
+    <tr>
+      <td><strong>Valor de la Compra:</strong></td>
+      <td>${clientUpdated.valor_compra}</td>
+    </tr>
+    <tr>
+      <td><strong>Fecha de la Compra:</strong></td>
+      <td>${clientUpdated.fecha_compra}</td>
+    </tr>
+    <tr>
+      <td><strong>Ultima acción del cliente:</strong></td>
+      <td>${clientUpdated.ultima_accion}</td>
+    </tr>
+  </table>
+
+  <p>Por favor, Envía el pedido cuanto antes para que le hagas llegar la guía de envío a tu cliente para que pueda recibir supedido pronto.</p>
+
+  <p>¡Gracias!</p>
+
+</body>`;
+
+    const mailOptions = {
+      from: `<ventas@focusfitshop.com>`,
+      to: adminEmail,
+      subject: `Correción de datos de envío. Pedido #${clientUpdated.numero_orden} por ${clientUpdated.nombre}`,
+      html: templateNotifyPurchase,
+    };
+
+    try {
+      const info = await transport.sendMail(mailOptions);
+      console.log(`✅ Email sent to Admin: ${info.response}`);
+    } catch (error) {
+      console.error(`❌ Error sending email to Admin:`, error);
+    }
+  }
+  //mail to client
   async sendMailToThanksContact(formContact) {
     const clientEmail = formContact.email;
     const transport = nodemailer.createTransport({
@@ -430,7 +529,7 @@ class MailService {
       return { success: false, message: "Error en el envío del email" };
     }
   }
-
+  //mail to admin
   async sendMailToNotifyNewMessage(clientNumber, clientName, message) {
     const transport = nodemailer.createTransport({
       host: "smtp.hostinger.com",

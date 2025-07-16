@@ -15,14 +15,22 @@ class PurchaseMongoDao {
   }
 
   async findClientByPhoneNumber(clientPhone) {
-    return await this.collection.findOne({telefono: clientPhone})
+    return await this.collection.findOne({ telefono: clientPhone },
+    {sort: {fecha_compra: -1}}
+    )
   }
 
-  async updateClient(phoneClientNumber, dataToUpdate) {
+  async findClientsByStatus(status) {
+
+    return await this.collection.find({"ultima_accion": status})
+  }
+
+  async updateClient(clientId, dataToUpdate) {
     try {
        const updatedClient = await this.collection.findOneAndUpdate(
-         { telefono: phoneClientNumber },
+         { cedula: clientId },
          dataToUpdate,
+         {sort: {fecha_compra: -1}},
          { new: true }
        );
 

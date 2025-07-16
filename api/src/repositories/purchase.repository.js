@@ -1,3 +1,4 @@
+import { ReachFrequencyEstimatesCurve } from "facebook-nodejs-business-sdk";
 import clientDaoMongoDb from "../daos/purchase.mongoDao.js";
 
 class UsersRepository {
@@ -14,14 +15,18 @@ class UsersRepository {
   }
 
   async newClient(dataNewUser) {
-    return this.dao.newClient(dataNewUser);
+    return await this.dao.newClient(dataNewUser);
   }
 
-  async updateClient(phoneClientNumber, dataToUpdate) {
-    return this.dao.updateClient(phoneClientNumber, dataToUpdate)
+  async updateClient(orderNumber, dataToUpdate) {
+    return await this.dao.updateClient(orderNumber, dataToUpdate)
   }
 
-}
+  async findClientsByOrderStatus(status) {
+
+    return await this.dao.findClientsByStatus(status)
+  }
+} 
 
 const clientRepository = new UsersRepository(clientDaoMongoDb)
 

@@ -25,10 +25,12 @@ const clientsSchema = mongoose.Schema(
         "direccion_corregida",
         "guia_enviada",
         "pedido_cancelado",
-        "compra_guardada"
+        "compra_guardada",
+        "recordatorio_confirmar_compra_enviado"
       ],
       default: "compra_guardada"
     },
+    recordatorio_enviado: {type: Boolean, default: false},
   },
   { versionKey: false }
 );

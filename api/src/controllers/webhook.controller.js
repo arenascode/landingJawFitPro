@@ -49,9 +49,6 @@ export async function handleWhatsappWebhook(req, res) {
       
       if (payload === "Sí, Confirmo" || payload === "¡Confirmar y Despachar!") {
         console.log(`✅ Pedido confirmado por ${from_customerName}`);
-        await clientService.updateClientStatusOrder(from_number, {
-          ultima_accion: "pedido_confirmado",
-        });
 
         await whatsappService.thanksForConfirmDataMessage(
           from_customerName,
@@ -65,10 +62,13 @@ export async function handleWhatsappWebhook(req, res) {
         console.log(
           `✏️ Pedido necesita corrección de dirección: ${from_customerName}`
         );
-        await whatsappService.correctAdressMessage(
+         const whatsAppResponse = await whatsappService.correctAdressMessage(
           from_customerName,
           from_number
-        );
+         );
+        
+        console.log({whatsAppResponse});
+        
         return res.sendStatus(200)
       }
 
@@ -76,7 +76,8 @@ export async function handleWhatsappWebhook(req, res) {
         console.log(`Pedido cancelado por ${from_customerName}`);
         // const updateOrder = await clientService.updateClientStatusOrder(from_number, { ultima_accion: "pedido_cancelado" })
         
-        const canceledConfirmationMessage = await whatsappService.sendCancelationMessage(from_customerName, from_number)
+        // const canceledConfirmationMessage = await whatsappService.sendCancelationMessage(from_customerName, from_number)
+
         return sendStatus(200)
       }
     }
@@ -111,19 +112,22 @@ export async function handleWhatsappWebhook(req, res) {
         if (nuevaDireccion || nuevosDatosAdicionales) {
           // ✅ Corrigió correctamente
           const dataToUpdate = {};
-          if (nuevaDireccion) dataToUpdate.direccion = nuevaDireccion;
-          if (nuevosDatosAdicionales)
+          if (nuevaDireccion) {
+            dataToUpdate.direccion = nuevaDireccion;
+          }
+          if (nuevosDatosAdicionales) {
             dataToUpdate.datos_adicionales = nuevosDatosAdicionales;
+          }
           dataToUpdate.ultima_accion = "direccion_corregida";
 
-          await clientService.updateClientStatusOrderAfterChangeAdress(
+          await clientService.updateClientStatusOrder(
             from_number,
             dataToUpdate
           );
 
-          await whatsappService.sendTextMessage(
-            from_number,
-            "✅ ¡Gracias por enviarnos la corrección! Actualizamos tus datos y en breve te enviaremos tu pedido. 🚚"
+          await whatsappService.thanksForConfirmNewDataAdress(
+            from_customerName,
+            from_number
           );
         } else {
           // ⚠️ No envió los datos correctamente
@@ -136,10 +140,11 @@ export async function handleWhatsappWebhook(req, res) {
         // ✉️ Cliente no estaba en flujo de corrección, solo escribió espontáneamente
         console.log("✉️ Mensaje espontáneo recibido");
 
-        // await whatsappService.sendTextMessage(
-        //   from_number,
-        //   "🙌 ¡Recibimos tu mensaje! Un asesor te responderá pronto para ayudarte. 🧡"
-        // );
+        await whatsappService.sendTextMessage(
+          from_number,
+          "🙌 ¡Recibimos tu mensaje! Un asesor te responderá pronto para ayudarte. 🧡"
+        );
+        
         const clientMessage = message.text.body
         // 📧 Notificarte por email
         await mailService.sendMailToNotifyNewMessage( from_number, from_customerName, clientMessage);

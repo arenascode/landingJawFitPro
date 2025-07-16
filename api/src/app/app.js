@@ -4,7 +4,7 @@ import { secretCookie } from "../config/cookies.config.js";
 import cookieParser from "cookie-parser";
 import cors from "cors"
 import { connectDB } from "../connect.js";
-
+import "../jobs/reminders.js"
 export const app = express()
 
 connectDB()
